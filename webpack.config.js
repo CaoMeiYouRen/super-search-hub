@@ -19,17 +19,6 @@ module.exports = {
     node: {
         // do not polyfill Buffer
         Buffer: false,
-        stream: false,
-        process: false,
-        path: false,
-        fs: false,
-        util: false,
-        http: false,
-        https: false,
-        tty: false,
-        zlib: false,
-        events: false,
-        os: false,
         __filename: false,
         __dirname: false,
     },

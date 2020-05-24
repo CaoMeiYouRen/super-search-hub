@@ -1,12 +1,11 @@
 import debug = require('debug')
 import http = require('http')
-import https = require('https')
 import path = require('path')
 import fs = require('fs')
 import colors = require('colors')
 import { PORT } from '../config'
 import { app } from '../app'
-const Debugger = debug('express:server')
+// const Debugger = debug('express:server')
 
 /**
  * Get port from environment and store in Express.
@@ -14,10 +13,11 @@ const Debugger = debug('express:server')
 const httpPort = normalizePort(PORT)
 
 app.on('error', onError)
-app.on('listening', onListening)
-app.listen(httpPort)
-// const httpServer = http.createServer(app as any)
-
+// app.on('listening', onListening)
+app.listen(httpPort, () => {
+    onListening()
+})
+// const httpServer = http.createServer(app)
 // httpServer.on('error', onError)
 // httpServer.on('listening', onListening)
 // httpServer.listen(httpPort)
