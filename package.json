@@ -11,7 +11,7 @@
     "build": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
     "rm": "rimraf node_modules",
-    "debug": "set DEBUG=express:*&&npm run dev"
+    "debug": "cross-env DEBUG=express:* npm run dev"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
