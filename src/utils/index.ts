@@ -1,5 +1,5 @@
 import moment = require('moment')
-
+import colors = require('colors')
 /**
  * 要格式化的时间戳、字符串或日期对象
  *
@@ -11,12 +11,6 @@ import moment = require('moment')
  * @returns {string}
  */
 export function timeFormat(date: number | string | Date = Date.now(), pattern: string = 'YYYY-MM-DD HH:mm:ss'): string {
-    if (typeof date === 'number') {
-        if (date < 1e10) {
-            date *= 1000
-        }
-    }
-    date = new Date(date)
     return moment(date).format(pattern)
 }
 /**
@@ -25,4 +19,14 @@ export function timeFormat(date: number | string | Date = Date.now(), pattern: s
  */
 export function printTime(str: any) {
     console.log(`${timeFormat(Date.now(), 'YYYY-MM-DD HH:mm:ss:SSS')} : ${JSON.stringify(str)}`)
+}
+/**
+ * 调试输出
+ */
+export const Log = {
+    log(msg: any) {
+        if (process.env.NODE_ENV === 'development') {
+            console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss:SSS'))} : ${colors.green(JSON.stringify(msg))}`)
+        }
+    },
 }

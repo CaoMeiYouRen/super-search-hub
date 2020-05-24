@@ -5,7 +5,7 @@ import path = require('path')
 import fs = require('fs')
 import colors = require('colors')
 import { PORT } from '../config'
-import { Server } from '../app'
+import { app } from '../app'
 const Debugger = debug('express:server')
 
 /**
@@ -13,13 +13,14 @@ const Debugger = debug('express:server')
  */
 const httpPort = normalizePort(PORT)
 
-const app = new Server().app
+app.on('error', onError)
+app.on('listening', onListening)
+app.listen(httpPort)
+// const httpServer = http.createServer(app as any)
 
-const httpServer = http.createServer(app)
-
-httpServer.on('error', onError)
-httpServer.on('listening', onListening)
-httpServer.listen(httpPort)
+// httpServer.on('error', onError)
+// httpServer.on('listening', onListening)
+// httpServer.listen(httpPort)
 
 /**
  * Normalize a port into a number, string, or false.
