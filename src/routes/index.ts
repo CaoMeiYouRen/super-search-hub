@@ -1,22 +1,40 @@
-import express = require('express')
+import Router = require('koa-router')
+import { HttpError } from '@/models'
+import { sleep } from '@/utils'
+const router = new Router()
 
-const router = express.Router()
-
-router.get('/', (req, res) => {
-    res.status(200).json({
-        statusCode: 200,
-        message: 'OK',
-    })
+router.all('/', (ctx, next) => {
+    ctx.status = 200
+    ctx.body = {
+        message: 'Welcome to super-search-hub',
+    }
+})
+// 测试路由
+router.all('/test/:status?', (ctx, next) => {
+    ctx.status = Number(ctx.params?.status || ctx.query?.status || ctx.request.body?.status || 200)
+    console.log(ctx.params)
+    console.log(ctx.query)
+    console.log(ctx.request.body)
+    ctx.body = {
+        message: 'Welcome to super-search-hub',
+        data: {
+            params: ctx.params,
+            query: ctx.query,
+            body: ctx.request.body,
+        },
+    }
 })
 
-// 状态监测
-router.get('/status', (req, res) => {
-    res.status(200).json({
-        statusCode: 200,
-        message: 'OK',
-    })
+router.all('/error', (ctx, next) => {
+    throw new HttpError(400, '测试异常')
 })
-router.head('/status', (req, res) => {
-    res.status(200).end()
+router.all('/timeout', async (ctx, next) => {
+    await sleep(2000)
+})
+
+
+// 处理404
+router.all('*', (ctx, next) => {
+    throw new HttpError(404, `Cannot ${ctx.method} ${ctx.path}`)
 })
 export default router

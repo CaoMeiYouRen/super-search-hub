@@ -11,8 +11,11 @@ if (fs.existsSync('.env')) {
         }
     }
 }
-
+const env = process.env
 // 运行端口
-export const PORT = process.env.PORT || 8080
+export const PORT = env.PORT || 8080
 // 路由根路径
-export const ROOT_URL = process.env.ROOT_URL || '/'
+export const ROOT_URL = env.ROOT_URL || '/'
+// 超时时间
+export const MAX_TIME = Number(env.MAX_TIME || 5000)
+

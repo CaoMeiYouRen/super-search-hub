@@ -1,5 +1,18 @@
 import moment = require('moment')
 import colors = require('colors')
+
+/**
+ * 延时一段时间
+ *
+ * @author CaoMeiYouRen
+ * @date 2019-08-26
+ * @export
+ * @param {number} time
+ * @returns
+ */
+export async function sleep(time: number) {
+    return new Promise(resolve => setTimeout(resolve, time))
+}
 /**
  * 要格式化的时间戳、字符串或日期对象
  *
@@ -18,7 +31,7 @@ export function timeFormat(date: number | string | Date = Date.now(), pattern: s
  * @param {*} str 打印当前时间，可以附加文字
  */
 export function printTime(str: any) {
-    console.log(`${timeFormat(Date.now(), 'YYYY-MM-DD HH:mm:ss:SSS')} : ${JSON.stringify(str)}`)
+    console.log(`${timeFormat(Date.now(), 'YYYY-MM-DD HH:mm:ss.SSS')} : ${JSON.stringify(str)}`)
 }
 /**
  * 调试输出
@@ -26,7 +39,7 @@ export function printTime(str: any) {
 export const Log = {
     log(msg: any) {
         if (process.env.NODE_ENV === 'development') {
-            console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss:SSS'))} : ${colors.green(JSON.stringify(msg))}`)
+            console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
         }
     },
 }

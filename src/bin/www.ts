@@ -3,8 +3,11 @@ import http = require('http')
 import path = require('path')
 import fs = require('fs')
 import colors = require('colors')
-import { PORT } from '../config'
+import moduleAlias = require('module-alias')
+moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
+import { PORT } from '@/config'
+import { timeFormat, Log } from '@/utils'
 // const Debugger = debug('express:server')
 
 /**
@@ -17,10 +20,6 @@ app.on('error', onError)
 app.listen(httpPort, () => {
     onListening()
 })
-// const httpServer = http.createServer(app)
-// httpServer.on('error', onError)
-// httpServer.on('listening', onListening)
-// httpServer.listen(httpPort)
 
 /**
  * Normalize a port into a number, string, or false.
@@ -71,15 +70,14 @@ function onError(error: any): void {
  * Event listener for HTTP server "listening" event.
  */
 function onListening(): void {
-    console.log(`
-################################################
-    ${colors.green(`运行地址为  http://127.0.0.1:${httpPort}`)}
-################################################`)
+    console.log('################################################')
+    Log.log(`运行地址为  http://127.0.0.1:${httpPort}`)
+    console.log('################################################')
     // console.log(`接口文档http://127.0.0.1:${httpPort}/robot/v2.0/docs/`)
 }
 process.on('uncaughtException', (err) => {
     console.error(err)
 })
 process.on('unhandledRejection', (reason: any, p) => {
-    console.error('Unhandled Rejection at: ', p, ' reason: ', reason.stack)
+    console.error('Unhandled Rejection at: ', p)
 })

@@ -1,26 +1,38 @@
-import express = require('express')
-import connectTimeout = require('connect-timeout')
+import Koa = require('koa')
+import { MAX_TIME } from '@/config'
+import { HttpError } from '@/models/error'
 
 /**
- * 处理超时中间件
+ * 捕捉超时
  *
  * @author CaoMeiYouRen
- * @date 2020-05-24
+ * @date 2020-05-25
  * @export
- * @param {express.Request} req
- * @param {express.Response} res
- * @param {express.NextFunction} next
+ * @param {Koa.Context} ctx
+ * @param {Koa.Next} next
  */
-export function timeout(req: express.Request, res: express.Response, next: express.NextFunction) {
-    const time = 30 * 1000
-    connectTimeout('30s')
-    // 设置所有HTTP请求的超时时间
-    req.setTimeout(time, () => {
-        return res.status(408).json({ message: '请求超时' })
-    })
-    // 设置所有HTTP请求的服务器响应超时时间
-    res.setTimeout(time, () => {
-        return res.status(408).json({ message: '响应超时' })
-    })
-    next()
+export async function timeout(ctx: Koa.Context, next: Koa.Next) {
+    let t: any = 0
+    const time = MAX_TIME// 设置超时时间
+    await Promise.race([
+        new Promise(((resolve, reject) => {
+            t = setTimeout(() => {
+                let e = new HttpError(408, '请求超时')
+                reject(e)
+            }, time)
+        })),
+        new Promise(((resolve, reject) => {
+            // 使用一个闭包来执行下面的中间件
+            (async function () {
+                try {
+                    await next()
+                    clearTimeout(t)
+                    resolve()
+                } catch (e) {
+                    clearTimeout(t)
+                    reject(e)
+                }
+            })()
+        })),
+    ])
 }
