@@ -1,2 +1,10 @@
 import Koa = require('koa')
-type KoaContext = Koa.ParameterizedContext<Koa.DefaultState, Koa.DefaultContext>
+declare interface KoaCache {
+    get(key: string): Promise<any>
+    set(key: string, value: any, maxAge?: number): Promise<any>
+}
+declare module 'koa' {
+    interface Context {
+        cache: Cache
+    }
+}

@@ -1,6 +1,6 @@
 import Router = require('koa-router')
 import { HttpError } from '@/models'
-import { sleep } from '@/utils'
+import { sleep, timeFormat } from '@/utils'
 const router = new Router()
 
 router.all('/', (ctx, next) => {
@@ -12,6 +12,7 @@ router.all('/', (ctx, next) => {
 // 测试路由
 router.all('/test/:status?', (ctx, next) => {
     ctx.status = Number(ctx.params?.status || ctx.query?.status || ctx.request.body?.status || 200)
+    // console.log(ctx.url)
     console.log(ctx.params)
     console.log(ctx.query)
     console.log(ctx.request.body)
@@ -35,6 +36,12 @@ router.all('/timeout', async (ctx, next) => {
     await sleep(2000)
 })
 
+router.all('/cache', async (ctx, next) => {
+    ctx.body = {
+        text: '启用缓存',
+        date: timeFormat(),
+    }
+})
 
 // 处理404
 router.all('*', (ctx, next) => {

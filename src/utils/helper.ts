@@ -41,9 +41,10 @@ export const Log = {
     log(msg: any) {
         if (IS_DEBUG) {
             console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
-        } else {
-            accessLogger.log(msg)
         }
+        // else {
+        //     accessLogger.log(msg)
+        // }
     },
     /**
      * 打印错误到控制台并写入日志

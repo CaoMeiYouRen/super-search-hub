@@ -1,5 +1,5 @@
 import Koa = require('koa')
-import { MAX_TIME } from '@/config'
+import { MAX_AGE } from '@/config'
 import { HttpError } from '@/models/error'
 
 /**
@@ -13,7 +13,7 @@ import { HttpError } from '@/models/error'
  */
 export async function timeout(ctx: Koa.Context, next: Koa.Next) {
     let t: any = 0
-    const time = MAX_TIME// 设置超时时间
+    const time = MAX_AGE// 设置超时时间
     await Promise.race([
         new Promise(((resolve, reject) => {
             t = setTimeout(() => {
