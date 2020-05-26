@@ -4,4 +4,5 @@ export * from './limit'
 export * from './logger'
 export * from './response'
 export * from './timeout'
+export * from './request'
 

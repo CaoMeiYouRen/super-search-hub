@@ -1,3 +1,5 @@
+import { RssChannel } from './Rss'
+
 export class ResponseDto {
     /**
      * 响应状态码
@@ -20,7 +22,7 @@ export class ResponseDto {
     /**
      * 返回的数据
      *
-     * @type {*}
+     * @type {RssChannel}
      */
-    data?: any
+    data?: RssChannel
 }

@@ -2,6 +2,7 @@ import Koa = require('koa')
 import status from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
+import { CACHE } from '@/config'
 /**
  * 格式化返回结果
  *
@@ -18,6 +19,13 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
         const error = ctx.status >= 400 ? status[ctx.status] : undefined
         const message = ctx.body?.message
         const data = ctx.body?.data
+        if (data) {
+            ctx.body.data = Object.assign({
+                language: 'zh-cn',
+                ttl: CACHE.CACHE_AGE / 60,
+                lastBuildDate: new Date(),
+            }, data)
+        }
         // 如果存在 data 和 message 就把 statusCode 和 error 合并进去
         // 如果 body 的 key 中含有 keyWords 外的 key ，则重新构造
         const keyWords = ['statusCode', 'error', 'message', 'data']

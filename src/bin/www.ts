@@ -1,7 +1,7 @@
 import debug = require('debug')
 import http = require('http')
 import path = require('path')
-import fs = require('fs')
+import fs = require('fs-extra')
 import colors = require('colors')
 import moduleAlias = require('module-alias')
 moduleAlias.addAlias('@', path.join(__dirname, '../'))

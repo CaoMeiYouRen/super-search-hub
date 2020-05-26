@@ -1,5 +1,5 @@
 import Koa = require('koa')
-import { HttpError } from '@/models/error'
+import { HttpError } from '@/models'
 import { IS_DEBUG } from '@/config'
 import { Log } from '@/utils'
 export async function catchError(ctx: Koa.Context, next: Koa.Next) {

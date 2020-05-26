@@ -8,10 +8,10 @@
 通用参数约定
 
 -   text : string 查询内容
--   page : number 第几页结果
--   limit : number 条数限制
+-   page : number 第几页结果，默认为1
+-   limit : number 条数限制，默认为10
 -   filter :string 过滤参数，将在返回结果的基础上进行过滤
--   nocache : boolean 是否禁用缓存，默认启用缓存
+-   nocache : boolean 是否禁用缓存，默认启用缓存(false)
 -   token : string 持有token可以不限制接口调用次数
 
 
@@ -22,11 +22,9 @@
     "statusCode": 404,//状态码
     "error": "Not Found",//状态码对应的text，仅>=400时存在
     "message": "Welcome to super-search-hub",//说明文本，成功或失败的说明
-    "data": {}//返回的数据，对象或数组
+    "data": {}//返回的数据，数组或对象
 }
 ```
-
-​    "prebuild": "rimraf dist",
 
 
 
@@ -40,3 +38,4 @@ routes规范约定
         -   但是先建的文件夹可以不包含顶级域名
 -   文件夹下必须有 index.ts 
     -   index.ts 中只允许挂载路由，业务逻辑请在其他文件完成
+    -   路由一律采用默认导出的形式，即`export default router`

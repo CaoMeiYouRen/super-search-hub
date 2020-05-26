@@ -1,6 +1,6 @@
 import dotenv = require('dotenv')
 import path = require('path')
-import fs = require('fs')
+import fs = require('fs-extra')
 if (fs.existsSync('.env')) {
     const envFound = dotenv.config()
     if (envFound.error) {
@@ -28,6 +28,7 @@ export const MAX_AGE = Number(env.MAX_AGE || 5000)
  */
 export const TOKEN = env.TOKEN || ''
 
+export const ITEM_LIMIT = Number(env.ITEM_LIMIT || 10)
 /**
  * 限流配置
  */
