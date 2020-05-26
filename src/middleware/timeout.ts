@@ -17,8 +17,7 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
     await Promise.race([
         new Promise(((resolve, reject) => {
             t = setTimeout(() => {
-                let e = new HttpError(408, '请求超时')
-                reject(e)
+                reject(new HttpError(408, '请求超时'))
             }, time)
         })),
         new Promise(((resolve, reject) => {

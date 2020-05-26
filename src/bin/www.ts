@@ -7,7 +7,7 @@ import moduleAlias = require('module-alias')
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
 import { PORT } from '@/config'
-import { timeFormat, Log } from '@/utils'
+import { Log } from '@/utils'
 // const Debugger = debug('express:server')
 
 /**

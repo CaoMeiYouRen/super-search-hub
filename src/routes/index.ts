@@ -28,6 +28,9 @@ router.all('/test/:status?', (ctx, next) => {
 router.all('/error', (ctx, next) => {
     throw new HttpError(400, '测试异常')
 })
+router.all('/error2', (ctx, next) => {
+    throw new Error('出现了异常')
+})
 router.all('/timeout', async (ctx, next) => {
     await sleep(2000)
 })

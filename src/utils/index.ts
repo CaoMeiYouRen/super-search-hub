@@ -1,5 +1,6 @@
 import moment = require('moment')
 import colors = require('colors')
+import { IS_DEBUG } from '@/config'
 
 /**
  * 延时一段时间
@@ -38,8 +39,11 @@ export function printTime(str: any) {
  */
 export const Log = {
     log(msg: any) {
-        if (process.env.NODE_ENV === 'development') {
+        if (IS_DEBUG) {
             console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
         }
+    },
+    error(msg: any) {
+        console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} :`, colors.red(msg))
     },
 }

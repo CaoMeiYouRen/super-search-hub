@@ -1,5 +1,5 @@
 export * from './timeout'
-export * from './log'
+export * from './logger'
 export * from './response'
 export * from './catchError'
 export * from './limit'
