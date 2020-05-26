@@ -32,6 +32,13 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
         if ((message || data) && _.difference(Object.keys(ctx.body), keyWords).length === 0) {
             ctx.body = Object.assign(ctx.body, { statusCode, error })
         } else { // 否则重新构造
+            if (ctx.body) {
+                ctx.body = Object.assign({
+                    language: 'zh-cn',
+                    ttl: CACHE.CACHE_AGE / 60,
+                    lastBuildDate: new Date(),
+                }, ctx.body)
+            }
             ctx.body = {
                 statusCode,
                 error,

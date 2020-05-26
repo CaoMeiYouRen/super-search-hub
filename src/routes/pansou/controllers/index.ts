@@ -34,7 +34,8 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             })
             return item
         })
-        ctx.body = { data: channel }
+        // ctx.body = { data: channel }
+        ctx.body = channel
     } else {
         let message = IS_DEBUG ? result['stack'] : result['message']
         ctx.body = { message }
