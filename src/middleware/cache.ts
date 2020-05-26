@@ -74,11 +74,12 @@ if (CACHE.CACHE_TYPE === CACHE.CACHE_TYPE_MEMORY) {
  * @param {Koa.Next} next
  */
 export async function cache(ctx: Koa.Context, next: Koa.Next) {
-    let methods = ['GET', 'HEAD']
-    // 禁用缓存
-    let nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache
+    // 需要缓存的方法
+    const methods = ['GET', 'HEAD']
+    const hash = md5(ctx.url)
+    // 是否禁用缓存
+    const nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache
     if (methods.includes(ctx.method) && !nocache) {
-        let hash = md5(ctx.url)
         let value = await globalCache.get(hash)
         if (value) {
             try {
@@ -94,7 +95,6 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
     }
     await next()
     if (methods.includes(ctx.method) && !nocache && ctx.body) {
-        let hash = md5(ctx.url)
         await globalCache.set(hash, ctx.body)
     }
 }

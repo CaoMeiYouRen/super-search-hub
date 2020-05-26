@@ -11,8 +11,10 @@
         "outDir": "./dist", //重定向输出目录。
         "watch": false, //在监视模式下运行编译器。会监视输出文件，在它们改变时重新编译。
         "strict": true, //启用严格模式
+        "removeComments": true,
+        "moduleResolution": "node",
         "strictPropertyInitialization": false,
-        "allowSyntheticDefaultImports": false,
+        "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true, //开启装饰器
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,

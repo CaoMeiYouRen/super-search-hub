@@ -46,6 +46,9 @@ export const Log = {
         //     accessLogger.log(msg)
         // }
     },
+    info(msg: any) {
+        console.info(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
+    },
     /**
      * 打印错误到控制台并写入日志
      *

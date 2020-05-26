@@ -5,6 +5,6 @@ declare interface KoaCache {
 }
 declare module 'koa' {
     interface Context {
-        cache: Cache
+        cache?: Cache
     }
 }

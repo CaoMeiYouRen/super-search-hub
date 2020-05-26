@@ -10,12 +10,15 @@
     "dev": "cross-env NODE_ENV=development ts-node-dev src/bin/www.ts",
     "build": "webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
+    "build:test": "tsc && webpack --config ./webpack.config.js && node dist/index.js",
     "rm": "rimraf node_modules",
     "debug": "cross-env DEBUG=express:* npm run dev"
   },
   "dependencies": {
+    "@koa/cors": "^3.1.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "colors": "^1.4.0",
     "connect-timeout": "^1.9.0",
     "cookie-parser": "^1.4.5",
@@ -24,6 +27,7 @@
     "file-stream-rotator": "^0.5.7",
     "fs-extra": "^9.0.0",
     "http-status": "^1.4.2",
+    "iconv-lite": "^0.5.1",
     "ioredis": "^4.17.1",
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
@@ -41,6 +45,7 @@
     "require-all": "^3.0.0"
   },
   "devDependencies": {
+    "@types/cheerio": "^0.22.18",
     "@types/connect-timeout": "0.0.34",
     "@types/cookie-parser": "^1.4.2",
     "@types/debug": "^4.1.5",
@@ -53,6 +58,7 @@
     "@types/koa-log4": "^2.3.2",
     "@types/koa-logger": "^3.1.1",
     "@types/koa-router": "^7.4.1",
+    "@types/koa__cors": "^3.0.1",
     "@types/lodash": "^4.14.152",
     "@types/lru-cache": "^5.1.0",
     "@types/mockjs": "^1.0.2",
@@ -73,6 +79,6 @@
     "webpack-cli": "^3.3.11"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">=12"
   }
 }

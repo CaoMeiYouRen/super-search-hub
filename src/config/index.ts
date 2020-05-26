@@ -22,6 +22,20 @@ export const PORT = Number(env.PORT || 8080)
 export const ROOT_URL = env.ROOT_URL || ''
 // 超时时间
 export const MAX_AGE = Number(env.MAX_AGE || 5000)
+
+/**
+ * 访问token
+ */
+export const TOKEN = env.TOKEN || ''
+
+/**
+ * 限流配置
+ */
+export const LIMIT = {
+    LIMIT_INTERVAL: Number(env.LIMIT_INTERVAL || 60),
+    LIMIT_MAX: Number(env.LIMIT_MAX || 30),
+}
+
 /**
  * 内存缓存
  */
@@ -33,7 +47,7 @@ const CACHE_TYPE_REDIS = 'redis'
 /**
  * 缓存类型
  */
-export const CACHE_TYPE = env.CACHE_TYPE || CACHE_TYPE_MEMORY
+const CACHE_TYPE = env.CACHE_TYPE || CACHE_TYPE_MEMORY
 export const CACHE = {
     CACHE_TYPE,
     CACHE_AGE: Number(env.CACHE_AGE || 300),

@@ -1,6 +1,6 @@
 import Koa = require('koa')
-import status = require('http-status')
-import _ = require('lodash')
+import status from 'http-status'
+import _ from 'lodash'
 import { Log } from '@/utils'
 /**
  * 格式化返回结果
