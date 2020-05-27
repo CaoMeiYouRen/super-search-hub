@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.2...v1.0.3) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 修复路由导入问题 ([a908825](https://github.com/CaoMeiYouRen/super-search-hub/commit/a908825))
+
 ## [1.0.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.1...v1.0.2) (2020-05-27)
 
 
