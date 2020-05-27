@@ -1,6 +1,6 @@
 module.exports = {
     root: true,
-    globals: {// 处理全局变量
+    globals: {
     },
     env: {
         browser: true,
@@ -10,8 +10,6 @@ module.exports = {
         mocha: true,
     },
     extends: [
-        // 'plugin:vue/essential',
-        // '@vue/typescript',
         'eslint:recommended',
     ],
     plugins: [

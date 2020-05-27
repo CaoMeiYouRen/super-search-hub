@@ -1,12 +1,4 @@
 module.exports = {
-    // verifyConditions: {
-    //     path: 'semantic-release-docker',
-    //     registryUrl: 'docker.io',
-    // },
-    // publish: {
-    //     path: 'semantic-release-docker',
-    //     name: 'caomeiyouren/super-search-hub',
-    // },
     plugins: [
         [
             '@semantic-release/commit-analyzer', // 此处只导入解析规则 parserOpts
