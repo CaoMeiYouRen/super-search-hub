@@ -48,3 +48,36 @@ routes规范约定
     -   路由一律采用默认导出的形式，即`export default router`
 
 文档约定【待补充】
+
+
+
+## 使用
+
+```
+npm start
+```
+
+## 开发
+
+```
+npm i
+npm run dev
+```
+
+## 编译
+
+```
+npm run build
+```
+
+## 风格检查
+
+```
+npm run lint
+```
+
+## 提交变更
+
+```sh
+npm run commit #请勿直接提交git commit
+```

@@ -78,6 +78,7 @@
     "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
     "@types/cheerio": "^0.22.18",
     "@types/connect-timeout": "0.0.34",
     "@types/cookie-parser": "^1.4.2",
