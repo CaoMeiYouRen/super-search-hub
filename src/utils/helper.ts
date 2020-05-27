@@ -1,7 +1,6 @@
 import moment = require('moment')
 import colors = require('colors')
 import { IS_DEBUG } from '@/config'
-import { errorLogger, accessLogger } from '@/middleware'
 /**
  * 延时一段时间
  *
@@ -50,14 +49,13 @@ export const Log = {
         console.info(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
     },
     /**
-     * 打印错误到控制台并写入日志
+     * 打印错误到控制台
      *
      * @author CaoMeiYouRen
      * @date 2020-05-26
      * @param {*} msg
      */
     error(msg: any) {
-        errorLogger.error(msg)
         console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} :`, colors.red(msg))
     },
 }
