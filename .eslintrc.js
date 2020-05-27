@@ -49,7 +49,7 @@ module.exports = {
         'space-infix-ops': 2, // 要求操作符周围有空格
         'template-curly-spacing': [2, 'never'], // 强制模板字符串中空格的使用
         'comma-dangle': [2, 'always-multiline'], // 要求或禁止使用拖尾逗号
-        'space-before-function-paren': 0,//要求或禁止函数圆括号之前有一个空格
+        'space-before-function-paren': 0, // 要求或禁止函数圆括号之前有一个空格
         'no-trailing-spaces': 0, // 禁用行尾空格
         'padded-blocks': 0, // 要求或禁止块内填充
         'dot-notation': 0, // 强制尽可能地使用点号
@@ -75,6 +75,6 @@ module.exports = {
         'no-duplicate-imports': [2], // 禁止模块重复导入
         'no-useless-constructor': [2], // 禁用不必要的构造函数
         'spaced-comment': [2, 'always'], // 要求或禁止在注释前有空白
-        'sort-imports': [0],// import 排序
+        'sort-imports': [0], // import 排序
     },
 }

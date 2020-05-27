@@ -1,48 +1,67 @@
 module.exports = {
+    verifyConditions: {
+        path: 'semantic-release-docker',
+        registryUrl: 'docker.io',
+    },
+    publish: {
+        path: 'semantic-release-docker',
+        name: 'caomeiyouren/super-search-hub',
+    },
     plugins: [
         [
-            "@semantic-release/commit-analyzer",//此处只导入解析规则 parserOpts
+            '@semantic-release/commit-analyzer', // 此处只导入解析规则 parserOpts
             {
-                "config": "conventional-changelog-cmyr-config"
-            }
+                config: 'conventional-changelog-cmyr-config',
+            },
         ],
         [
-            "@semantic-release/release-notes-generator",//此处导入解析和生成规则 parserOpts, writerOpts
+            '@semantic-release/release-notes-generator', // 此处导入解析和生成规则 parserOpts, writerOpts
             {
-                config: "conventional-changelog-cmyr-config"
-            }
+                config: 'conventional-changelog-cmyr-config',
+            },
         ],
         [
-            "@semantic-release/changelog",
+            '@semantic-release/changelog',
             {
-                "changelogFile": "CHANGELOG.md",
-                "changelogTitle": "# super-search-hub"
-            }
+                changelogFile: 'CHANGELOG.md',
+                changelogTitle: '# super-search-hub',
+            },
         ],
         '@semantic-release/npm',
-        '@semantic-release/github',
         [
-            "@semantic-release/git",
+            '@semantic-release/github',
             {
-                "assets": [
-                    "dist",
-                    "CHANGELOG.md",
-                    "README.md",
-                    "package.json",
-                ]
-            }
+                assets: [
+                    'dist',
+                    '.env',
+                    '.gitignore',
+                    'CHANGELOG.md',
+                    'README.md',
+                    'package.json',
+                ],
+            },
         ],
         [
-            "@semantic-release/exec",
+            '@semantic-release/git',
             {
-                "prepareCmd": "docker build -t caomeiyouren/super-search-hub ."
-            }
+                assets: [
+                    'dist',
+                    'CHANGELOG.md',
+                    'package.json',
+                ],
+            },
         ],
         [
-            "semantic-release-docker",//发布到docker
+            '@semantic-release/exec',
             {
-                "name": "caomeiyouren/super-search-hub"
-            }
-        ]
-    ]
+                prepareCmd: 'docker build -t caomeiyouren/super-search-hub .',
+            },
+        ],
+        [
+            'semantic-release-docker', // 发布到docker
+            {
+                name: 'caomeiyouren/super-search-hub',
+            },
+        ],
+    ],
 }
