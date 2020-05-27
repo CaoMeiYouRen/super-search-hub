@@ -13,7 +13,7 @@
     "build:test": "tsc && webpack --config ./webpack.config.js && node dist/index.js",
     "rm": "rimraf node_modules",
     "debug": "cross-env DEBUG=koa:* npm run dev",
-    "commit": "git add . && git cz",
+    "commit": "git add . && git cz && git push",
     "changelog": "conventional-changelog -p cmyr-config -i CHANGELOG.md -s -r 0",
     "release": "semantic-release"
   },
@@ -109,7 +109,7 @@
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.0.34",
-    "conventional-changelog-cmyr-config": "^1.2.0",
+    "conventional-changelog-cmyr-config": "^1.2.2",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.1.0",
