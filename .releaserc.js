@@ -6,10 +6,12 @@ module.exports = {
                 "config": "conventional-changelog-cmyr-config"
             }
         ],
-        ["@semantic-release/release-notes-generator",//此处导入解析和生成规则 parserOpts, writerOpts
+        [
+            "@semantic-release/release-notes-generator",//此处导入解析和生成规则 parserOpts, writerOpts
             {
                 config: "conventional-changelog-cmyr-config"
-            }],
+            }
+        ],
         [
             "@semantic-release/changelog",
             {
@@ -28,6 +30,18 @@ module.exports = {
                     "README.md",
                     "package.json",
                 ]
+            }
+        ],
+        [
+            "@semantic-release/exec",
+            {
+                "prepareCmd": "docker build -t caomeiyouren/super-search-hub ."
+            }
+        ],
+        [
+            "semantic-release-docker",//发布到docker
+            {
+                "name": "caomeiyouren/super-search-hub"
             }
         ]
     ]
