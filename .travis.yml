@@ -1,0 +1,16 @@
+language: node_js
+node_js: 12
+
+script:
+    - npm run build
+
+deploy:
+    provider: script
+    skip_cleanup: true
+    on:
+        branch: master
+    script:
+        - npm run release
+cache:
+    directories:
+        - node_modules
