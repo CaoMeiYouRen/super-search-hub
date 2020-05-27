@@ -6,8 +6,9 @@ services:
         build: .
         restart: always
         ports:
-            - "80:80"
+            - "8080:80"
         environment:
+            PORT: 80
             NODE_ENV: production
             CACHE_TYPE: redis
             REDIS_URL: "redis://redis:6379/"
