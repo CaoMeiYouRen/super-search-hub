@@ -13,6 +13,6 @@ deploy:
         branch: master
     script:
         - npm run release
-# cache:
-#     directories:
-#         - node_modules
+cache:
+    directories:
+        - node_modules

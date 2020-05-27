@@ -109,7 +109,7 @@
     "babel-eslint": "^10.1.0",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.0.34",
-    "conventional-changelog-cmyr-config": "^1.2.2",
+    "conventional-changelog-cmyr-config": "^1.2.3",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.1.0",
