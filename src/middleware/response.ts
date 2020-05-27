@@ -3,6 +3,7 @@ import status from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
 import { CACHE } from '@/config'
+import { RssChannel } from '@/models'
 /**
  * 格式化返回结果
  *
@@ -19,7 +20,7 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
         const error = ctx.status >= 400 ? status[ctx.status] : undefined
         const message = ctx.body?.message
         const data = ctx.body?.data
-        if (data) {
+        if (data instanceof RssChannel) {
             ctx.body.data = Object.assign({
                 language: 'zh-cn',
                 ttl: CACHE.CACHE_AGE / 60,
@@ -32,7 +33,7 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
         if ((message || data) && _.difference(Object.keys(ctx.body), keyWords).length === 0) {
             ctx.body = Object.assign(ctx.body, { statusCode, error })
         } else { // 否则重新构造
-            if (ctx.body) {
+            if (ctx.body instanceof RssChannel) {
                 ctx.body = Object.assign({
                     language: 'zh-cn',
                     ttl: CACHE.CACHE_AGE / 60,
@@ -41,8 +42,8 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
             }
             ctx.body = {
                 statusCode,
-                error,
                 message,
+                error,
                 data: data || ctx.body,
             }
         }

@@ -1,5 +1,6 @@
 import Koa = require('koa')
-import { HttpError } from '@/models'
+import path = require('path')
+import fs = require('fs-extra')
 
 export * from './notFound'
 export * from './test'
@@ -14,8 +15,21 @@ export * from './test'
  * @param {Koa.Next} next
  */
 export async function index(ctx: Koa.Context, next: Koa.Next) {
+    let data = {
+        ip: ctx.ip,
+    }
+    if (await fs.pathExists('package.json')) {
+        try {
+            const packages = JSON.parse((await fs.readFile('package.json')).toString())
+            const { name, description, version } = packages
+            data = Object.assign({ name, description, version }, data)
+        } catch (error) {
+
+        }
+    }
     ctx.status = 200
     ctx.body = {
         message: 'Welcome to super-search-hub',
+        data: Object.assign({ date: new Date() }, data),
     }
 }

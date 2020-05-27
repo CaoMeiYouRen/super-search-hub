@@ -19,6 +19,7 @@
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true, //不允许对同一文件进行大小写不一致的引用。
+        "resolveJsonModule": true,
         "baseUrl": ".",
         "paths": {
             "@/*": [

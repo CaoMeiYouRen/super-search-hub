@@ -3,7 +3,7 @@ import Lru = require('lru-cache')
 import Redis = require('ioredis')
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
-import { CACHE, REDIS_CONFIG } from '@/config'
+import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
 export const globalCache: KoaCache = {
     async get(key) {
         throw new Error('globalCache.get not implemented.')
@@ -78,7 +78,7 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
     const methods = ['GET', 'HEAD']
     const hash = md5(ctx.url)
     // 是否禁用缓存
-    const nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache
+    const nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache || IS_DEBUG
     if (methods.includes(ctx.method) && !nocache) {
         let value = await globalCache.get(hash)
         if (value) {
