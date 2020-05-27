@@ -16,4 +16,4 @@ COPY package.json dist /home/app/
 
 EXPOSE 80
 
-CMD ["npm", "start"]
+CMD ["node","dist/index.js"]
