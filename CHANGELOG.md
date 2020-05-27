@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.7](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.6...v1.0.7) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 完善缓存机制和根路径响应 ([b9a91e9](https://github.com/CaoMeiYouRen/super-search-hub/commit/b9a91e9))
+
 ## [1.0.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.5...v1.0.6) (2020-05-27)
 
 
