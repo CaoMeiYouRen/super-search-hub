@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.0...v1.0.1) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 移除不必要的文件 ([a97aa72](https://github.com/CaoMeiYouRen/super-search-hub/commit/a97aa72))
+
 # 1.0.0 (2020-05-27)
 
 
