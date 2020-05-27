@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.5...v1.0.6) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 修复docker配置 ([c07a96c](https://github.com/CaoMeiYouRen/super-search-hub/commit/c07a96c))
+
 ## [1.0.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.4...v1.0.5) (2020-05-27)
 
 
