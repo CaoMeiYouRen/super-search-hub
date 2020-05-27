@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.4...v1.0.5) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 修复Dockerfile启动命令 ([30200da](https://github.com/CaoMeiYouRen/super-search-hub/commit/30200da))
+
 ## [1.0.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.3...v1.0.4) (2020-05-27)
 
 
