@@ -17,6 +17,7 @@ module.exports = {
                 "changelogTitle": "# super-search-hub"
             }
         ],
+        '@semantic-release/npm',
         '@semantic-release/github',
         [
             "@semantic-release/git",
