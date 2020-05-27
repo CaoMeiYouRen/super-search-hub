@@ -1,5 +1,13 @@
 # super-search-hub
 
+## [1.0.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.3...v1.0.4) (2020-05-27)
+
+
+### 🐛 Bug 修复
+
+* 修复CI问题 ([dfbfb6d](https://github.com/CaoMeiYouRen/super-search-hub/commit/dfbfb6d))
+* 修复github-release问题 ([bddcf92](https://github.com/CaoMeiYouRen/super-search-hub/commit/bddcf92))
+
 ## [1.0.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.2...v1.0.3) (2020-05-27)
 
 
