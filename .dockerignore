@@ -13,6 +13,8 @@ assets
 coverage
 docs
 test
+logs
+log
 .codecov.yml
 .eslint*
 .prettier*

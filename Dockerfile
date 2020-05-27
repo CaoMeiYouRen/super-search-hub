@@ -12,7 +12,7 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.11/main/" > /etc/apk/repositories
     && apk add --no-cache --update "nodejs=${NODE_VERSION}" \
     && node -v
 
-COPY package.json dist /home/app/
+COPY . /home/app/
 
 EXPOSE 80
 

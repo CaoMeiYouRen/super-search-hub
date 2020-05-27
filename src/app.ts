@@ -16,14 +16,14 @@ const app = new Koa()
 const router = new Router()
 
 app.proxy = true
-app.use(cors())
-app.use(appLogger)
 app.use(responseTime)
+app.use(appLogger)
 app.use(responseFormat)
 app.use(catchError)
 app.use(timeout)
 app.use(bodyParser())
 app.use(limiter)
+app.use(cors())
 app.use(cache)
 app.use(requestTransform)
 // 加载路由
