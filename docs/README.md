@@ -1,4 +1,4 @@
-# super-search-hub 
+# 介绍
 
 设计参考：[RSSHub](https://github.com/DIYgod/RSSHub)
 
