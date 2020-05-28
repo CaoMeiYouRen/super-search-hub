@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.2.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.3...v1.2.0) (2020-05-28)
+
+
+### ✨ 新功能
+
+* 改text参数为keyword ([36ad375](https://github.com/CaoMeiYouRen/super-search-hub/commit/36ad375))
+
 ## [1.1.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.2...v1.1.3) (2020-05-28)
 
 
