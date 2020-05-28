@@ -9,6 +9,8 @@ const routes = new Router()
 // 根路径
 routes.all('/', index)
 
+routes.all('/status', index)
+
 // 测试路由
 routes.all('/test/:status?', test)
 

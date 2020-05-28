@@ -9,9 +9,9 @@ docker-compose*
 LICENSE
 .vscode
 .github
-/assets
+# /assets
 /coverage
-/docs
+# /docs
 /test
 /logs
 /log
