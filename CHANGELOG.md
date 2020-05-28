@@ -1,5 +1,13 @@
 # super-search-hub
 
+## [1.1.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.0...v1.1.1) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 修复文档BUG ([d734236](https://github.com/CaoMeiYouRen/super-search-hub/commit/d734236))
+* 完善API文档；修复文档静态资源缺失的BUG ([0c9da54](https://github.com/CaoMeiYouRen/super-search-hub/commit/0c9da54))
+
 # [1.1.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.9...v1.1.0) (2020-05-28)
 
 
