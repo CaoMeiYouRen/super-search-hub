@@ -14,12 +14,13 @@
 
 通用参数约定
 
--   text : string 查询内容
--   page : number 第几页结果，默认为1
--   limit : number 条数限制，默认为10
--   filter :string 过滤参数，将在返回结果的基础上进行过滤
--   nocache : boolean 是否禁用缓存，默认启用缓存(false)
--   token : string 持有token可以不限制接口调用次数
+-   text : string 查询内容。原则上必须有text 
+-   page : number [可选] 第几页结果，默认为1
+-   limit : number  [可选] 条数限制，默认为10
+-   filter :string  [可选] 过滤参数，将在返回结果的基础上进行过滤
+-   sort: string  [可选]  排序方式
+-   nocache : boolean [可选]  是否禁用缓存，默认启用缓存(false)
+-   token : string  [可选] 持有token可以不限制接口调用次数
 
 
 
@@ -27,7 +28,7 @@
 ```json
 {
     "statusCode": 404,//状态码
-    "error": "Not Found",//状态码对应的text，仅>=400时存在
+    "error": "Not Found",//状态码对应的status text，仅>=400时存在
     "message": "Welcome to super-search-hub",//说明文本，成功或失败的说明
     "data": {}//返回的数据，数组或对象
 }

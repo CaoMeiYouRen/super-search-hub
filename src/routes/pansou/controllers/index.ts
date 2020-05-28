@@ -21,20 +21,17 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             link: 'http://www.pansou.com/',
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
-            item: [],
+            item: data?.list?.data?.map(e => {
+                let item = new RssItem({
+                    title: e.title,
+                    link: e.link,
+                    description: e.des,
+                    guid: e.link,
+                })
+                return item
+            }).slice(0, limit),
             count: data?.list?.count,
         })
-        // console.log(channel instanceof RssChannel)
-        channel.item = data?.list?.data?.map(e => {
-            let item = new RssItem({
-                title: e.title,
-                link: e.link,
-                description: e.des,
-                guid: e.link,
-            })
-            return item
-        })
-        // ctx.body = { data: channel }
         ctx.body = channel
     } else {
         let message = IS_DEBUG ? result['stack'] : result['message']
