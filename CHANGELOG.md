@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.0.9](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.8...v1.0.9) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 优化了缓存机制 ([420edaa](https://github.com/CaoMeiYouRen/super-search-hub/commit/420edaa))
+
 ## [1.0.8](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.7...v1.0.8) (2020-05-28)
 
 
