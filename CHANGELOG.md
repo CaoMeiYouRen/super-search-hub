@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.1.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.9...v1.1.0) (2020-05-28)
+
+
+### ✨ 新功能
+
+* 优化静态资源缓存；优化缓存；挂载文档 ([9cadc17](https://github.com/CaoMeiYouRen/super-search-hub/commit/9cadc17))
+
 ## [1.0.9](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.8...v1.0.9) (2020-05-28)
 
 
