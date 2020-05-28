@@ -55,16 +55,16 @@ module.exports = {
                             collapsable: true,
                             children: [
                                 '',
+                            ],
+                        },
+                        {
+                            title: '路由',
+                            collapsable: false,
+                            sidebarDepth: 1,
+                            children: [
                                 'api',
                             ],
                         },
-                        // {
-                        //     title: '路由',
-                        //     collapsable: false,
-                        //     sidebarDepth: 1,
-                        //     children: [
-                        //     ],
-                        // },
                     ],
                 },
             },

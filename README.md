@@ -51,13 +51,19 @@ routes规范约定
 
 文档约定【待补充】
 
-# 开发流程
+
 
 ## 使用
 
 ```
 npm start
 ```
+
+# 开发流程
+
+## 开发环境
+
+-   Node.js 12 //后续也将尽量使用tls的版本
 
 ## 开发
 
@@ -87,7 +93,7 @@ npm run docs:dev
 ## 文档编译
 
 ```sh
-docs:build
+npm run docs:build
 ```
 
 ## 提交变更
