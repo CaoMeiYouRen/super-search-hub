@@ -21,7 +21,7 @@ export const PORT = Number(env.PORT || 8080)
 // 路由根路径
 export const ROOT_URL = env.ROOT_URL || ''
 // 超时时间
-export const MAX_AGE = Number(env.MAX_AGE || 5000)
+export const TIMEOUT_MAX_AGE = Number(env.TIMEOUT_MAX_AGE || 15000)
 
 /**
  * 访问token

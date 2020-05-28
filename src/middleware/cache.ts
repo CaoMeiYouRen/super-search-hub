@@ -90,6 +90,9 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
             ctx.set({
                 'X-Koa-Cache': 'true',
             })
+            // ctx.cacheControl = {
+            //     maxAge: CACHE.CACHE_AGE,
+            // }
             return
         }
     }

@@ -1,16 +1,17 @@
 import Koa = require('koa')
 import Router = require('koa-router')
-import Logger = require('koa-logger')
+// import Logger = require('koa-logger')
 import bodyParser = require('koa-bodyparser')
-import favicon = require('koa-favicon')
-import mount from 'koa-mount'
+// import favicon = require('koa-favicon')
+// import mount from 'koa-mount'
 import cors = require('@koa/cors')
+import cacheControl from 'koa-cache-control'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
     appLogger, cache, requestTransform,
 } from './middleware'
 import routes from './routes'
-import { ROOT_URL } from './config'
+import { ROOT_URL, CACHE } from './config'
 
 const app = new Koa()
 const router = new Router()
@@ -24,6 +25,9 @@ app.use(timeout)
 app.use(bodyParser())
 app.use(limiter)
 app.use(cors())
+app.use(cacheControl({
+    maxAge: CACHE.CACHE_AGE,
+}))
 app.use(cache)
 app.use(requestTransform)
 // 加载路由
