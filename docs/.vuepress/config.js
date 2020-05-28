@@ -1,9 +1,23 @@
+const moment = require('moment-timezone')
+console.log(moment.tz.guess())
 module.exports = {
     base: '/',
     dest: 'public',
-    plugins: {
-        '@vuepress/plugin-back-to-top': true,
-    },
+    plugins: [
+        '@vuepress/plugin-back-to-top',
+        '@vuepress/active-header-links',
+        '@vuepress/nprogress',
+        [
+            '@vuepress/last-updated',
+            {
+                transformer: (timestamp, lang) => {
+                    moment.tz.setDefault('Asia/Shanghai') //设置 +8:00 时区
+                    moment.locale(lang)
+                    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
+                }
+            }
+        ]
+    ],
     locales: {
         '/': {
             lang: 'zh-CN',
