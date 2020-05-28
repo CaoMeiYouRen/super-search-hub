@@ -22,7 +22,6 @@ log
 *.md
 process.json
 app.json
-tsconfig.json
 
 .travis.yml
 
