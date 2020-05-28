@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.1.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.2...v1.1.3) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 修复钉钉推送问题 ([6e21a87](https://github.com/CaoMeiYouRen/super-search-hub/commit/6e21a87))
+
 ## [1.1.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.1...v1.1.2) (2020-05-28)
 
 
