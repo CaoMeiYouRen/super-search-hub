@@ -23,5 +23,5 @@ cache:
         - node_modules
 notifications:
     webhooks:
-        - https://oapi.dingtalk.com/robot/send?access_token=$DINGTALK_ACCESS_TOKEN
-        - $JENKINS_WEBHOOKS
+        - "https://oapi.dingtalk.com/robot/send?access_token=${DINGTALK_ACCESS_TOKEN}"
+        - "${JENKINS_WEBHOOKS}"
