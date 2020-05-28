@@ -1,5 +1,7 @@
 # super-search-hub 
 
+![build status](https://travis-ci.com/CaoMeiYouRen/super-search-hub.svg?branch=master)
+
 设计参考：[RSSHub](https://github.com/DIYgod/RSSHub)
 
 设计目标：
