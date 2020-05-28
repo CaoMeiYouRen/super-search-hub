@@ -55,7 +55,7 @@ routes规范约定
 
 ## 使用
 
-```
+```sh
 npm start
 ```
 
@@ -67,20 +67,20 @@ npm start
 
 ## 开发
 
-```
+```sh
 npm i
 npm run dev
 ```
 
 ## 编译
 
-```
+```sh
 npm run build
 ```
 
 ## 风格检查
 
-```
+```sh
 npm run lint
 ```
 

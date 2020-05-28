@@ -63,9 +63,9 @@ export default {
   },
   methods: {
     renderMarkdown(item) {
-    const md = require('markdown-it')({
-            html: true,
-    });
+        const md = require('markdown-it')({
+                html: true,
+        });
         return md.render(item);
     },
   }

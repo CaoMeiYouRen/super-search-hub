@@ -1,4 +1,4 @@
-# 介绍
+# super-search-hub 
 
 设计参考：[RSSHub](https://github.com/DIYgod/RSSHub)
 
@@ -25,7 +25,6 @@
 
 
 接口返回格式约定
-
 ```json
 {
     "statusCode": 404,//状态码
@@ -52,30 +51,36 @@ routes规范约定
 
 文档约定【待补充】
 
-# 开发流程
+
 
 ## 使用
 
-```
+```sh
 npm start
 ```
 
+# 开发流程
+
+## 开发环境
+
+-   Node.js 12 //后续也将尽量使用tls的版本
+
 ## 开发
 
-```
+```sh
 npm i
 npm run dev
 ```
 
 ## 编译
 
-```
+```sh
 npm run build
 ```
 
 ## 风格检查
 
-```
+```sh
 npm run lint
 ```
 
@@ -88,7 +93,7 @@ npm run docs:dev
 ## 文档编译
 
 ```sh
-docs:build
+npm run docs:build
 ```
 
 ## 提交变更
