@@ -37,6 +37,8 @@ export const LIMIT = {
     LIMIT_MAX: Number(env.LIMIT_MAX || 30),
 }
 
+export const STATIC_MAX_AGE = Number(env.STATIC_MAX_AGE || 0)
+
 /**
  * 内存缓存
  */

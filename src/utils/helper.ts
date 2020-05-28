@@ -1,4 +1,4 @@
-import moment = require('moment')
+import moment from 'moment'
 import colors = require('colors')
 import { IS_DEBUG } from '@/config'
 /**
@@ -39,14 +39,14 @@ export function printTime(str: any) {
 export const Log = {
     log(msg: any) {
         if (IS_DEBUG) {
-            console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
+            console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}: ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
         }
         // else {
         //     accessLogger.log(msg)
         // }
     },
     info(msg: any) {
-        console.info(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} : ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
+        console.info(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}: ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg))}`)
     },
     /**
      * 打印错误到控制台
@@ -56,6 +56,6 @@ export const Log = {
      * @param {*} msg
      */
     error(msg: any) {
-        console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))} :`, colors.red(msg))
+        console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(msg))
     },
 }

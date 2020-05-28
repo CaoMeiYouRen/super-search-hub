@@ -1,17 +1,20 @@
+import path = require('path')
+import fs = require('fs-extra')
 import Koa = require('koa')
 import Router = require('koa-router')
-// import Logger = require('koa-logger')
 import bodyParser = require('koa-bodyparser')
-// import favicon = require('koa-favicon')
-// import mount from 'koa-mount'
 import cors = require('@koa/cors')
+import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
+// import favicon = require('koa-favicon')
+// import Logger = require('koa-logger')
+// import mount from 'koa-mount'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
     appLogger, cache, requestTransform,
 } from './middleware'
 import routes from './routes'
-import { ROOT_URL, CACHE } from './config'
+import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
 
 const app = new Koa()
 const router = new Router()
@@ -25,6 +28,12 @@ app.use(timeout)
 app.use(bodyParser())
 app.use(limiter)
 app.use(cors())
+if (fs.pathExistsSync(path.join(__dirname, '../public'))) {
+    // 文档并非必须，如果有则挂载
+    app.use(serve(path.join(__dirname, '../public'), {
+        maxAge: STATIC_MAX_AGE * 1000,
+    }))
+}
 app.use(cacheControl({
     maxAge: CACHE.CACHE_AGE,
 }))

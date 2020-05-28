@@ -1,4 +1,5 @@
 import Koa = require('koa')
+import mime from 'mime'
 import status from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
@@ -15,7 +16,8 @@ import { RssChannel } from '@/models'
  */
 export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
     await next()
-    if (ctx.body) {
+
+    if (mime.getExtension(ctx.type) === 'json' && ctx.body) { // 格式化错误和json
         const statusCode = ctx.status || 500
         const error = ctx.status >= 400 ? status[ctx.status] : undefined
         const message = ctx.body?.message

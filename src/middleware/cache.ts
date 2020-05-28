@@ -4,7 +4,7 @@ import Redis = require('ioredis')
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
 import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
-export const globalCache: KoaCache = {
+const globalCache: KoaCache = {
     async get(key) {
         throw new Error('globalCache.get not implemented.')
     },
@@ -74,13 +74,14 @@ if (CACHE.CACHE_TYPE === CACHE.CACHE_TYPE_MEMORY) {
  * @param {Koa.Next} next
  */
 export async function cache(ctx: Koa.Context, next: Koa.Next) {
+    ctx.cache = globalCache
     // 需要缓存的方法
     const methods = ['GET', 'HEAD']
     const hash = md5(ctx.url)
     // 是否禁用缓存
     const nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache || IS_DEBUG
     if (methods.includes(ctx.method) && !nocache) {
-        let value = await globalCache.get(hash)
+        let value = await ctx.cache.get(hash)
         if (value) {
             try {
                 value = JSON.parse(value)
@@ -90,14 +91,11 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
             ctx.set({
                 'X-Koa-Cache': 'true',
             })
-            // ctx.cacheControl = {
-            //     maxAge: CACHE.CACHE_AGE,
-            // }
             return
         }
     }
     await next()
     if (methods.includes(ctx.method) && !nocache && ctx.body) {
-        await globalCache.set(hash, ctx.body)
+        await ctx.cache.set(hash, ctx.body)
     }
 }

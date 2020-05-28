@@ -5,7 +5,7 @@
 设计目标：
 
 -   将任何能搜索的网页的搜索结果处理成标准的RSS规范格式。
-    同时支持json和xml。
+-   同时支持json和xml。
 -   返回结果以json优先，xml通过转换产生
 -   目标并不是支持RSS阅读器，而是将搜索结果转换为一种统一的格式，方便进行二次开发。仅参考RSS规范进行设计
 -   项目的dist文件应当可以在node.js环境下直接运行，无需其他依赖【除redis缓存外】
@@ -47,10 +47,11 @@ routes规范约定
 -   文件夹下必须有 index.ts 
     -   index.ts 中只允许挂载路由，业务逻辑请在其他文件完成
     -   路由一律采用默认导出的形式，即`export default router`
+    -   路由名称同文件夹名称，若文件夹名称为` example`，则挂载路由为`router.use('/example', example.routes(), example.allowedMethods())`
 
 文档约定【待补充】
 
-
+# 开发流程
 
 ## 使用
 
@@ -75,6 +76,18 @@ npm run build
 
 ```
 npm run lint
+```
+
+## 文档开发
+
+```sh
+npm run docs:dev
+```
+
+## 文档编译
+
+```sh
+docs:build
 ```
 
 ## 提交变更

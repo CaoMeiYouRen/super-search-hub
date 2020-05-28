@@ -13,7 +13,7 @@ export async function catchError(ctx: Koa.Context, next: Koa.Next) {
             message = e.message
             statusCode = e.statusCode
         } else if (e instanceof Error) {
-            // 开发阶段打印堆栈信息，否则打印message
+            // 开发阶段打印堆栈信息，否则打印 message
             message = IS_DEBUG ? e.stack : e.message
         }
         if (statusCode >= 500) {

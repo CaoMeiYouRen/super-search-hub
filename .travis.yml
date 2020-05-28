@@ -8,6 +8,8 @@ install:
     - npm install
 script:
     - npm run build
+    - npm run docs:changelog
+    - npm run docs:build
 
 deploy:
     provider: script
