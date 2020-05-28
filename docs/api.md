@@ -4,5 +4,5 @@
 
 ### 网盘搜索
 
-<Route author="CaoMeiYouRen" example="/pansou/?text=888888" path="/pansou/?text=:text" :paramsDesc="['搜索关键词']" />
+<Route author="CaoMeiYouRen" example="/pansou/?keyword=888888" path="/pansou/?keyword=keyword" :paramsDesc="['搜索关键词']" />
 

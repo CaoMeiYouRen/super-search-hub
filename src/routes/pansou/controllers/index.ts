@@ -5,12 +5,12 @@ import { PansouResult } from '../models'
 import { IS_DEBUG, CACHE } from '@/config'
 
 export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { text, page, limit } = ctx.query
-    if (!text) {
+    const { keyword, page, limit } = ctx.query
+    if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
     const result = await ajax('http://106.15.195.249:8011/search_new', {
-        q: text,
+        q: keyword,
         p: page,
     })
     ctx.status = result.status
