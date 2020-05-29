@@ -4,6 +4,8 @@ import fs = require('fs-extra')
 
 export * from './notFound'
 export * from './test'
+export * from './robots'
+
 
 /**
  * 根路径响应

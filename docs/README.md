@@ -1,6 +1,6 @@
 # 介绍
 
-设计参考：[RSSHub](https://github.com/DIYgod/RSSHub)
+设计参考和灵感来源：[RSSHub](https://github.com/DIYgod/RSSHub)
 
 设计目标：
 

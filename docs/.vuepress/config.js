@@ -60,6 +60,15 @@ module.exports = {
                     },
                 ],
                 sidebar: {
+                    '/joinus/': [
+                        '',
+                    ],
+                    '/install/': [
+                        '',
+                    ],
+                    '/support/': [
+                        '',
+                    ],
                     '/changelog/': [
                         '',
                     ],
