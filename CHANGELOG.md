@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.2.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.0...v1.2.1) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 新增文档；新增反爬虫 ([76fdc1e](https://github.com/CaoMeiYouRen/super-search-hub/commit/76fdc1e))
+
 # [1.2.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.3...v1.2.0) (2020-05-28)
 
 
