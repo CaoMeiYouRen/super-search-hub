@@ -14,7 +14,7 @@ export async function test(ctx: Koa.Context, next: Koa.Next) {
     if (ctx.query?.error) {
         throw new Error('出现了Error')
     }
-    if (ctx.query?.httpError) {
+    if (ctx.query?.httpError || ctx.query?.httperror || ctx.query?.http_error) {
         throw new HttpError(500, '出现了HttpError')
     }
     // console.log(ctx.url)

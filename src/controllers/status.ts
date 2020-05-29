@@ -2,14 +2,12 @@ import os = require('os')
 import path = require('path')
 import fs = require('fs-extra')
 import Koa = require('koa')
+import pidusage from 'pidusage'
+import { dataFormat, timeFromNow } from '@/utils'
 
-export * from './notFound'
-export * from './robots'
-export * from './status'
-export * from './test'
 
 /**
- * 根路径响应
+ * 状态监测路由
  *
  * @author CaoMeiYouRen
  * @date 2020-05-26
@@ -17,9 +15,24 @@ export * from './test'
  * @param {Koa.Context} ctx
  * @param {Koa.Next} next
  */
-export async function index(ctx: Koa.Context, next: Koa.Next) {
+export async function status(ctx: Koa.Context, next: Koa.Next) {
+    const stats = await pidusage(process.pid)
     let data = {
         ip: ctx.ip,
+        stat: {
+            memory: dataFormat(stats.memory),
+            cpu: `${stats.cpu} %`,
+            runtime: timeFromNow(stats.elapsed),
+        },
+        os: {
+            type: os.type(),
+            release: os.release(),
+            cpuArch: os.arch(),
+            cupNum: os.cpus().length,
+            totalmem: dataFormat(os.totalmem()),
+            freemem: dataFormat(os.freemem()),
+            uptime: timeFromNow(os.uptime() * 1000),
+        },
     }
     if (await fs.pathExists('package.json')) {
         try {
@@ -32,7 +45,6 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
     }
     ctx.status = 200
     ctx.body = {
-        message: 'Welcome to super-search-hub',
         data: Object.assign({ date: new Date() }, data),
     }
 }

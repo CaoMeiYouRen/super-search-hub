@@ -1,15 +1,26 @@
 import dotenv = require('dotenv')
 import path = require('path')
 import fs = require('fs-extra')
+let envParsed = {}
+// 载入本地变量
+if (fs.existsSync('.env.local')) {
+    const envFound = dotenv.config({ path: '.env.local' })
+    if (envFound.error) {
+        console.error(envFound.error)
+    } else {
+        envParsed = Object.assign({}, envFound.parsed)
+    }
+}
 if (fs.existsSync('.env')) {
     const envFound = dotenv.config()
     if (envFound.error) {
         console.error(envFound.error)
     } else {
-        if (process.env.NODE_ENV === 'development') {
-            console.log(envFound.parsed)
-        }
+        envParsed = Object.assign(envFound.parsed, envParsed)
     }
+}
+if (process.env.NODE_ENV === 'development') {
+    console.log(envParsed)
 }
 const env = process.env
 /**
@@ -43,10 +54,7 @@ export const STATIC_MAX_AGE = Number(env.STATIC_MAX_AGE || 0)
  * 内存缓存
  */
 const CACHE_TYPE_MEMORY = 'memory'
-/**
- * redis缓存
- */
-const CACHE_TYPE_REDIS = 'redis'
+
 /**
  * 缓存类型
  */
@@ -55,8 +63,6 @@ export const CACHE = {
     CACHE_TYPE,
     CACHE_AGE: Number(env.CACHE_AGE || 300),
     CACHE_MAX: Number(env.CACHE_MAX || Infinity),
-    CACHE_TYPE_MEMORY,
-    CACHE_TYPE_REDIS,
 }
 
 const REDIS_PORT = Number(env.REDIS_PORT || 6379)
@@ -80,3 +86,8 @@ export const UA = env.UA || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebK
  * 是否阻止爬虫
  */
 export const DISALLOW_ROBOT = Boolean(env.DISALLOW_ROBOT)
+
+/**
+ * 时区
+ */
+export const TZ = env.TZ || ''

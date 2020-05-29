@@ -1,3 +1,3 @@
 export * from './ajax'
-export * from './helper'
 export * from './encrypt'
+export * from './helper'

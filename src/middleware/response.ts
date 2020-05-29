@@ -4,7 +4,7 @@ import status from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
 import { CACHE } from '@/config'
-import { RssChannel } from '@/models'
+import { RssChannel, HttpStatusCode } from '@/models'
 /**
  * 格式化返回结果
  *
@@ -18,8 +18,8 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
     await next()
 
     if (mime.getExtension(ctx.type) === 'json' && ctx.body) { // 格式化错误和json
-        const statusCode = ctx.status || 500
-        const error = ctx.status >= 400 ? status[ctx.status] : undefined
+        const statusCode = ctx.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+        const error = ctx.status >= HttpStatusCode.BAD_REQUEST ? status[ctx.status] : undefined
         const message = ctx.body?.message
         const data = ctx.body?.data
         if (data instanceof RssChannel) {

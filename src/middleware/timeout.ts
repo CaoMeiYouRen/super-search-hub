@@ -1,6 +1,6 @@
 import Koa = require('koa')
 import { TIMEOUT_MAX_AGE } from '@/config'
-import { HttpError } from '@/models/error'
+import { HttpError } from '@/models'
 
 /**
  * 捕捉超时

@@ -9,7 +9,7 @@ log4js.configure({
             alwaysIncludePattern: true, // 文件名始终以日期区分
             daysToKeep: 30, // 大于0则会删除x天之前的日
             encoding: 'utf-8',
-            filename: path.join(logDir, 'access.log'),
+            filename: path.join(logDir, 'access'),
         },
         application: {
             type: 'dateFile',
@@ -17,7 +17,7 @@ log4js.configure({
             alwaysIncludePattern: true, // 文件名始终以日期区分
             daysToKeep: 30, // 大于0则会删除x天之前的日
             encoding: 'utf-8',
-            filename: path.join(logDir, 'application.log'),
+            filename: path.join(logDir, 'app'),
         },
         error: {
             type: 'dateFile',
@@ -25,7 +25,7 @@ log4js.configure({
             alwaysIncludePattern: true, // 文件名始终以日期区分
             daysToKeep: 30, // 大于0则会删除x天之前的日
             encoding: 'utf-8',
-            filename: path.join(logDir, 'error.log'), // 生成文件名
+            filename: path.join(logDir, 'error'), // 生成文件名
         },
         out: {
             type: 'console',

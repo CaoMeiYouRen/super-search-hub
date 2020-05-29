@@ -4,6 +4,7 @@ import Redis = require('ioredis')
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
 import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
+import { CacheType } from '@/models'
 const globalCache: KoaCache = {
     async get(key) {
         throw new Error('globalCache.get not implemented.')
@@ -12,7 +13,7 @@ const globalCache: KoaCache = {
         throw new Error('globalCache.set not implemented.')
     },
 }
-if (CACHE.CACHE_TYPE === CACHE.CACHE_TYPE_MEMORY) {
+if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
     const memoryCache = new Lru({
         maxAge: CACHE.CACHE_AGE * 1000,
         max: CACHE.CACHE_MAX,
@@ -37,7 +38,7 @@ if (CACHE.CACHE_TYPE === CACHE.CACHE_TYPE_MEMORY) {
         }
         return memoryCache.set(key, value, maxAge)
     }
-} else if (CACHE.CACHE_TYPE === CACHE.CACHE_TYPE_REDIS) {
+} else if (CACHE.CACHE_TYPE === CacheType.REDIS) {
     const redis = new Redis({
         port: REDIS_CONFIG.REDIS_PORT,
         host: REDIS_CONFIG.REDIS_HOST,

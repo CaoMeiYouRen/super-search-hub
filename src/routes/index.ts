@@ -2,14 +2,14 @@ import Router = require('koa-router')
 import path = require('path')
 import fs = require('fs-extra')
 import router from './router'
-import { notFound, test, index, robots } from '@/controllers'
+import { notFound, test, index, robots, status } from '@/controllers'
 
 const routes = new Router()
 
 // 根路径
 routes.all('/', index)
 
-routes.all('/status', index)
+routes.all('/status', status)
 
 routes.get('/robots.txt', robots)
 

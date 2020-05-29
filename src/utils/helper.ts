@@ -1,6 +1,8 @@
-import moment from 'moment'
+import moment from 'moment-timezone'
 import colors = require('colors')
-import { IS_DEBUG } from '@/config'
+import { IS_DEBUG, TZ } from '@/config'
+
+moment.tz.setDefault(TZ) // 设置时区
 /**
  * 延时一段时间
  *
@@ -58,4 +60,49 @@ export const Log = {
     error(msg: any) {
         console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(msg))
     },
+}
+
+/**
+ * 格式化流量数据
+ *
+ * @author CaoMeiYouRen
+ * @date 2019-07-25
+ * @export
+ * @param {number} data 单位B
+ * @returns {string}
+ */
+export function dataFormat(data: number): string {
+    let arr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+    for (let i = 0; i < arr.length; i++) {
+        if (data < 1024) {
+            return `${data.toFixed(2)} ${arr[i]}`
+        }
+        data /= 1024
+    }
+    return `${data.toFixed(2)} PB`
+}
+/**
+ * 格式化时间
+ *
+ * @author CaoMeiYouRen
+ * @date 2020-05-29
+ * @export
+ * @param {number} time
+ * @returns
+ */
+export function timeFromNow(time: number) {
+    let arr = [
+        { name: 'ms', len: 1000 },
+        { name: 's', len: 60 },
+        { name: 'min', len: 60 },
+        { name: 'h', len: 24 },
+        { name: 'day', len: Infinity },
+    ]
+    for (let i = 0; i < arr.length; i++) {
+        if (time < arr[i].len) {
+            return `${time.toFixed(2)} ${arr[i].name}`
+        }
+        time /= arr[i].len
+    }
+    return `${time.toFixed(2)} day`
 }

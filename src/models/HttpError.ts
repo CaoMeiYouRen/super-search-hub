@@ -1,3 +1,5 @@
+import { HttpStatusCode } from './HttpStatusCode'
+
 /**
  * 自定义HttpError
  *
@@ -8,8 +10,8 @@
  * @extends {Error}
  */
 export class HttpError extends Error {
-    statusCode: number
-    constructor(statusCode: number, message: string) {
+    statusCode: HttpStatusCode
+    constructor(statusCode: HttpStatusCode, message: string) {
         super(message)
         this.statusCode = statusCode
     }
