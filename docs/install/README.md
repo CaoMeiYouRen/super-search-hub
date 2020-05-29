@@ -88,10 +88,10 @@ docker rm super-search-hub
 
 配置运行在 docker 中的 super-search-hub，最便利的方法是使用 docker 环境变量
 
-以设置缓存时间为 1 小时举例，只需要在运行时增加参数: `-e CACHE_EXPIRE=3600`
+以设置缓存时间为 1 小时举例，只需要在运行时增加参数: `-e CACHE_AGE=3600`
 
 ```bash
-docker run -d --name super-search-hub -p 1200:1200 -e CACHE_EXPIRE=3600 -e GITHUB_ACCESS_TOKEN=example caomeiyouren/super-search-hub
+docker run -d --name super-search-hub -p 1200:1200 -e CACHE_AGE=3600 caomeiyouren/super-search-hub
 ```
 
 该部署方式不包括 redis 依赖，如有需要请改用 Docker Compose 部署方式或自行部署外部依赖
