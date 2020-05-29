@@ -1,3 +1,76 @@
+## [1.2.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.2...v1.2.3) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 修改生成日志指令位置 ([c9fa208](https://github.com/CaoMeiYouRen/super-search-hub/commit/c9fa208))
+
+
+
+## [1.2.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.1...v1.2.2) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 更新文档 ([4dc09b5](https://github.com/CaoMeiYouRen/super-search-hub/commit/4dc09b5))
+
+
+
+## [1.2.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.0...v1.2.1) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 新增文档；新增反爬虫 ([76fdc1e](https://github.com/CaoMeiYouRen/super-search-hub/commit/76fdc1e))
+
+
+
+# [1.2.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.3...v1.2.0) (2020-05-28)
+
+
+### ✨ 新功能
+
+* 改text参数为keyword ([36ad375](https://github.com/CaoMeiYouRen/super-search-hub/commit/36ad375))
+
+
+
+## [1.1.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.2...v1.1.3) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 修复钉钉推送问题 ([6e21a87](https://github.com/CaoMeiYouRen/super-search-hub/commit/6e21a87))
+
+
+
+## [1.1.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.1...v1.1.2) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 修复文档的时区问题 ([41d5bfb](https://github.com/CaoMeiYouRen/super-search-hub/commit/41d5bfb))
+
+
+
+## [1.1.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.1.0...v1.1.1) (2020-05-28)
+
+
+### 🐛 Bug 修复
+
+* 修复文档BUG ([d734236](https://github.com/CaoMeiYouRen/super-search-hub/commit/d734236))
+* 完善API文档；修复文档静态资源缺失的BUG ([0c9da54](https://github.com/CaoMeiYouRen/super-search-hub/commit/0c9da54))
+
+
+
+# [1.1.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.9...v1.1.0) (2020-05-28)
+
+
+### ✨ 新功能
+
+* 优化静态资源缓存；优化缓存；挂载文档 ([9cadc17](https://github.com/CaoMeiYouRen/super-search-hub/commit/9cadc17))
+
+
+
 ## [1.0.9](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.0.8...v1.0.9) (2020-05-28)
 
 
