@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.0...v1.3.1) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 1.完善文档 2.修改默认端口为8080 ([3f57715](https://github.com/CaoMeiYouRen/super-search-hub/commit/3f57715))
+
 # [1.3.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.3...v1.3.0) (2020-05-29)
 
 
