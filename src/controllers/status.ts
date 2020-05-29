@@ -18,6 +18,7 @@ import { dataFormat, timeFromNow } from '@/utils'
 export async function status(ctx: Koa.Context, next: Koa.Next) {
     const stats = await pidusage(process.pid)
     let data = {
+        nodeVersion: process.versions.node,
         ip: ctx.ip,
         stat: {
             memory: dataFormat(stats.memory),

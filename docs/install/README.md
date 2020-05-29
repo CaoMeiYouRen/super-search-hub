@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # 部署
 
 由于个人服务器的性能和带宽都十分有限，因此本项目推荐自行部署。如有疑问请上[issues](https://github.com/CaoMeiYouRen/super-search-hub/issues)提问
@@ -62,7 +66,7 @@ docker pull caomeiyouren/super-search-hub
 然后运行 super-search-hub 即可
 
 ```bash
-docker run -d --name super-search-hub -p 8080:80 caomeiyouren/super-search-hub
+docker run -d --name super-search-hub -p 8080:8080 caomeiyouren/super-search-hub
 ```
 
 在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)，即可访问
@@ -162,9 +166,9 @@ yarn start
 pm2 start dist/index.js --name  super-search-hub
 ```
 
-在浏览器中打开 [http://127.0.0.1:80/](http://127.0.0.1:80/)
+在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
-详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://localhost:80/` 即可正常使用
+详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://localhost:8080/` 即可正常使用
 
 ### 添加配置
 
@@ -197,42 +201,5 @@ git pull
 
 通过设置环境变量来配置 super-search-hub
 
-```ini
-# 端口
-PORT=80
-# 根路由
-ROOT_URL=''
-# 超时时间(毫秒)
-TIMEOUT_MAX_AGE=15000
-
-# 配置访问token，有token的可以跳过限流等权限验证
-TOKEN='123456'
-
-# 返回的item项数
-ITEM_LIMIT=10
-
-# 限流区间，每多少秒
-LIMIT_INTERVAL=60
-# 限流值，每个区间内可访问多少次
-LIMIT_MAX=30
-
-# 静态文件缓存时间(秒)
-STATIC_MAX_AGE=86400
-
-# 缓存类型 redis/memory
-CACHE_TYPE='memory'
-# 缓存时间(秒)
-CACHE_AGE=300
-# cache的最大长度，默认无穷大
-CACHE_MAX=''
-
-# Redis配置
-REDIS_PORT=6379
-REDIS_HOST='127.0.0.1'
-REDIS_PASSWORD=''
-# Redis前缀
-REDIS_KEY_PREFIX='my-redis-'
-# 是否阻止爬虫
-DISALLOW_ROBOT=true
-```
+<<< @/.env
 

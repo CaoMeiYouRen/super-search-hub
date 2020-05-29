@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
 import { UA } from '@/config'
+import { HttpStatusCode } from '@/models'
 
 /**
  * axios 封装，可满足大部分情况下的需求，若无法满足则重新封装 axios。
@@ -34,7 +35,7 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
             e = error
         }
 
-        e.status = error?.response?.status || 500
+        e.status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
         e.data = error?.response?.data
 
         console.log(e)
@@ -42,15 +43,3 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
         return e
     }
 }
-
-// async function start() {
-//     // const result = await ajax('https://api.cmyr.ltd/robot/v2.0/test/123456?status=500&token=123456')
-//     // const result = await ajax('https://www.google.com.hk')
-//     const result = await ajax('http://127.0.0.1/test')
-//     console.log(result.status)
-//     console.log(result.data)
-//     console.log(result.headers)
-// }
-// setTimeout(() => {
-//     start()
-// }, 2000)

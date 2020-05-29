@@ -1,3 +1,12 @@
+# [1.3.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.3...v1.3.0) (2020-05-29)
+
+
+### ✨ 新功能
+
+* 1.使用枚举重构HttpStatus和CacheTpye 2.新增.env.local配置 3.优化/status路由 ([9c11cef](https://github.com/CaoMeiYouRen/super-search-hub/commit/9c11cef))
+
+
+
 ## [1.2.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.2...v1.2.3) (2020-05-29)
 
 

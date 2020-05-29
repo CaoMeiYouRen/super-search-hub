@@ -1,6 +1,6 @@
 const moment = require('moment-timezone')
-console.log(moment.tz.guess())
 module.exports = {
+    port: 4000,
     base: '/',
     dest: 'public',
     plugins: [
