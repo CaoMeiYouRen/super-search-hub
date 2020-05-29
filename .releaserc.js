@@ -34,7 +34,7 @@ module.exports = {
         [
             '@semantic-release/exec',
             {
-                prepareCmd: 'docker build -t caomeiyouren/super-search-hub .',
+                prepareCmd: 'npm run docs:changelog && npm run docs:build && docker build -t caomeiyouren/super-search-hub .',
             },
         ],
         [
