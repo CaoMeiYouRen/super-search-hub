@@ -10,11 +10,17 @@
 -   目标并不是支持RSS阅读器，而是将搜索结果转换为一种统一的格式，方便进行二次开发。仅参考RSS规范进行设计
 -   项目的dist文件应当可以在node.js环境下直接运行，无需其他依赖【除redis缓存外】
 
+开发这个项目的原因
+
+-   对于杂七杂八的搜索结果感到厌烦，希望能整一个统一的格式
+-   真实原因是对于”搜索机器人“这个项目感到无力，在不使用编程的情况下觉得太难处理了，为此模仿RssHub产生了这个项目
+
 
 
 通用参数约定
 
 -   keyword: string 查询内容。原则上必须有keyword
+-   type: string [可选] 返回格式(json/xml)，默认为json
 -   page: number [可选] 第几页结果，默认为1
 -   limit: number  [可选] 条数限制，默认为10
 -   filter:string  [可选] 过滤参数，将在返回结果的基础上进行过滤
@@ -51,53 +57,3 @@ routes规范约定
 
 文档约定【待补充】
 
-
-
-## 使用
-
-```sh
-npm start
-```
-
-# 开发流程
-
-## 开发环境
-
--   Node.js 12 //后续也将尽量使用tls的版本
-
-## 开发
-
-```sh
-npm i
-npm run dev
-```
-
-## 编译
-
-```sh
-npm run build
-```
-
-## 风格检查
-
-```sh
-npm run lint
-```
-
-## 文档开发
-
-```sh
-npm run docs:dev
-```
-
-## 文档编译
-
-```sh
-npm run docs:build
-```
-
-## 提交变更
-
-```sh
-npm run commit #请勿直接提交git commit
-```

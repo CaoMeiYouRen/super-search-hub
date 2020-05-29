@@ -1,6 +1,6 @@
 # 部署
 
-出于个人服务器的性能和带宽都十分有限，因此本项目推荐自行部署。如有疑问请上[issues](https://github.com/CaoMeiYouRen/super-search-hub/issues)提问
+由于个人服务器的性能和带宽都十分有限，因此本项目推荐自行部署。如有疑问请上[issues](https://github.com/CaoMeiYouRen/super-search-hub/issues)提问
 
 部署涉及到以下基本编程常识:
 
