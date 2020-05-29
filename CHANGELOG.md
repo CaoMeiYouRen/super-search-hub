@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.2.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.2...v1.2.3) (2020-05-29)
+
+
+### 🐛 Bug 修复
+
+* 修改生成日志指令位置 ([c9fa208](https://github.com/CaoMeiYouRen/super-search-hub/commit/c9fa208))
+
 ## [1.2.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.2.1...v1.2.2) (2020-05-29)
 
 
