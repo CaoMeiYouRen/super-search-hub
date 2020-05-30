@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.1...v1.3.2) (2020-05-30)
+
+
+### 🐛 Bug 修复
+
+* 修改了细节 ([27d567c](https://github.com/CaoMeiYouRen/super-search-hub/commit/27d567c))
+
 ## [1.3.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.0...v1.3.1) (2020-05-29)
 
 
