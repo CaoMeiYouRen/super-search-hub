@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.3...v1.3.4) (2020-05-30)
+
+
+### 🐛 Bug 修复
+
+* 修复文档和修改文档错误 ([fbbb30e](https://github.com/CaoMeiYouRen/super-search-hub/commit/fbbb30e))
+
 ## [1.3.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.2...v1.3.3) (2020-05-30)
 
 
