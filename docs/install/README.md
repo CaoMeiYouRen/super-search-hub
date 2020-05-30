@@ -100,7 +100,7 @@ docker run -d --name super-search-hub -p 1200:1200 -e CACHE_AGE=3600 caomeiyoure
 
 该部署方式不包括 redis 依赖，如有需要请改用 Docker Compose 部署方式或自行部署外部依赖
 
-更多配置项请看 [#配置](#pei-zhi)
+更多配置项请看 [#配置](#配置)
 
 ## 手动部署
 
@@ -113,7 +113,7 @@ docker run -d --name super-search-hub -p 1200:1200 -e CACHE_AGE=3600 caomeiyoure
     -   编译环境（travis-ci）为 Node 12.17.0【保持Node 12 的最新版】
     -   运行环境（Docker）为 Node 12.15.0 【为保持Docker环境一致被锁定版本】
     -   所以请尽量在Node 12 环境下使用。后续也将随Node tls 版本的更新而更新（即tls大版本更新本项目也将跟进）
-    -   Node.js多版本管理推荐使用 nvm(Linux) 或 nvm-windows
+    -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 ### 安装
 

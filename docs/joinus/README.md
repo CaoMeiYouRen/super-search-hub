@@ -12,15 +12,15 @@ sidebar: auto
 
 ## 开发新路由
 
-### 开发环境要求
+### 开发环境
 
--   Node.js >= 12 
-
-### 开发语言要求
+-   Node.js >= 12.14.0
+    -   后续也将同步更新到 tls 版本，届时请及时更新自己的开发环境
+    -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 -   TypeScript >= 3.9.3
-    -   请优先使用 TypeScript 进行开发。如果你觉得自己并不会使用TypeScript，那么没有关系，你只需要按照JavaScript的写法来写就行。因为TypeScript是JavaScript的超集，所以所有的JavaScript代码都是合法的TypeScript代码
-    -   本人使用TypeScript开发的原因是我看到了JavaScript在多人合作上的缺陷。全部类型都靠猜这谁理解的了？作为一个开源项目，必然需要借助他人的力量，所以选择了TypeScript。
+    -   请优先使用 [TypeScript](https://www.typescriptlang.org/) 进行开发。如果你觉得自己并不会使用TypeScript，那么没有关系，你只需要按照JavaScript的写法来写就行。因为TypeScript是JavaScript的超集，所以所有的JavaScript代码都是合法的TypeScript代码
+    -   本人使用TypeScript开发的原因是我看到了JavaScript在多人合作上的缺陷。JavaScript缺乏类型导致在开发上有诸多不便，没有类型提示会导致多人合作的困难
 
 ### 调试
 
@@ -31,11 +31,9 @@ npm run dev
 
 启动后请在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
-### 添加路由
+### 路由规范约定
 
 在`src/routes`下添加新建路由。路由需符合以下规范约定
-
-**routes规范约定**
 
 -   文件夹以目标网站主域名命名，在不混淆的情况下不包含顶级域名。
 -   如果需要取子域名则在主域名文件夹下再划分
@@ -46,13 +44,14 @@ npm run dev
 -   文件夹下必须有 index.ts 
     -   index.ts 中只允许挂载子路由，业务逻辑请在其他文件完成
         -   若业务逻辑过多请自行划分模块
+        -   模块划分请参考 [开发技巧](#开发技巧) 下的 使用约定文件夹命名
     -   路由一律采用默认导出的形式，即`export default router`
 -   路由一律在`routes/router.ts`文件中挂载
     -   路由名称同文件夹名称，若文件夹名称为` example`，则挂载路由为`router.use('/example', example.routes(), example.allowedMethods())`
 
 对于使用的query参数，请遵从以下约定
 
-**通用参数约定**
+### 通用参数约定
 
 -   keyword: string 查询内容。原则上必须有keyword
 -   type: string [可选] 返回格式(json/xml)，默认为json
@@ -63,33 +62,31 @@ npm run dev
 -   nocache: boolean [可选]  是否禁用缓存，默认启用缓存(false)
 -   token: string  [可选] 持有token可以不限制接口调用次数
 
-**返回数据格式约定**
+### 返回数据格式约定
 
 返回的数据格式需遵从`src/models/Rss.ts`下的`RssChannel`类和`RssItem `类的规范。
 
-出于数据格式化的需求，请务必使用 RssChannel 类的构造函数来生成结果
-
-即 
+出于数据格式化的需求，请务必使用 RssChannel 类的构造函数来生成结果，即。
 
 ```ts
 const channel: RssChannel = new RssChannel({})
 ```
 
-**获取源数据**
+### 获取源数据
 
 本项目使用 [axios](https://github.com/axios/axios) 来发起http请求。
 
 在`src/utils/ajax.ts`文件夹下已经封装好`ajax`函数，可以直接使用
 
-**处理源数据**
+### 处理源数据
 
 1.  如果源数据为 json 则直接处理即可
 2.  如果源数据为 HTML 则使用 [cheerio](https://github.com/cheeriojs/cheerio) 进行处理
     -   cheerio 选择器与 jquery 选择器几乎相同。参考 cheerio 文档：[https://cheerio.js.org/](https://cheerio.js.org/)
 
-**开发技巧** 
+### 开发技巧
 
-开发技巧属于推荐规范而非必须遵守的规范。遵守该规范能让你的开发更加简单
+开发技巧属于推荐规范而非必须遵守的规范，但遵守该规范能让你的开发更加简单，也更容易和其他人合作
 
 -   使用约定文件夹命名
     -   config 配置。路由文件一般不太需要单独的配置文件，如有需要可以合并到`src/config`下
@@ -112,9 +109,9 @@ const channel: RssChannel = new RssChannel({})
     -   本项目使用了`module-alias`来设置模块别名，`@`指向`src`目录
     -   例如调用`src/utils/ajax.ts`，无论路由层级有多深，都可以使用`@/utils/ajax`直接引入
 -   使用 async/await 而不是回调函数
-    -   async/await 算是 Promise 的一个语法糖，可以像同步函数那样编写异步函数，非常建议使用
+    -   async/await 是 Promise 的一个语法糖，可以像同步函数那样编写异步函数，非常建议使用
 -   使用可选链而不是 `&&`
-    -   使用 `obj?.item`而不是`obj&&obj.item`
+    -   使用 `obj?.item`而不是`obj && obj.item`
     -   你可能会疑惑这是什么语法，这是es11的新语法，当可选链中有一个为undefined或unll时就返回undefined而不是报错。
     -   当然这个语法的兼容性还不是很好，因此TypeScript的编译目标也设置为了es2019
 -   请尽可能的使用 TypeScript 支持的新语法
@@ -128,6 +125,86 @@ const channel: RssChannel = new RssChannel({})
     -   但我认为单元测试（unit test）还是十分有必要的。对于业务逻辑和工具类函数尽可能进行测试，这有助于代码的健壮性
     -   单元测试文件请使用 *.test.ts 或 *.spec.ts 后缀
 
+### 实例演示
+
+以 **盘搜** 接口为例演示具体开发流程
+
+1.  在`routes`文件夹下新建`pansou`文件夹，并新建index.ts
+
+2.  新建 `controllers`文件夹用于编写业务逻辑
+
+3.  经过抓包发现pansou使用的是`http://106.15.195.249:8011/search_new`这个接口，主要参数为`q`查询内容和`p`第几页
+
+4.  分析返回数据格式，在pansou下新建models，编写数据模型
+
+5.  获取查询参数，使用`ajax`函数发起请求
+
+    ```ts
+    const { keyword, page, limit } = ctx.query //page 和 limit 已经经过数据处理，均为 number 类型
+    if (!keyword) {
+        throw new HttpError(400, '提交的搜索内容为空！') //如果需要抛出异常请使用 HttpError 类
+    }
+    const result = await ajax('http://106.15.195.249:8011/search_new', {
+        q: keyword,
+        p: page,
+    })
+    ```
+
+6.  返回数据格式化
+
+    ```ts
+    ctx.status = result.status
+    if (ctx.status === 200) {
+        const data: PansouResult = result.data //请在返回值中声明数据类型，方便处理数据
+        //请一定要使用 RssChannel 构造函数
+        const channel: RssChannel = new RssChannel({
+            title: '网盘搜索',
+            link: 'http://www.pansou.com/',
+            description: '网盘搜索',
+            webMaster: 'CaoMeiYouRen',
+            item: data?.list?.data?.map(e => {//使用可选链将有效解决undefined问题
+            let item = new RssItem({
+            title: e.title,
+            link: e.link,
+            description: e.des,
+            guid: e.link,
+        })
+        return item
+    }).slice(0, limit),
+        count: data?.list?.count,
+    })
+    ctx.body = channel
+    } else {
+        let message = IS_DEBUG ? result['stack'] : result['message']//建议进行异常处理，如果需要抛出异常请使用 HttpError 类
+        ctx.body = { message }
+    }
+    ```
+
+7.  挂载控制器到`pansou/index.ts`
+
+    ```ts
+    import Router = require('koa-router')
+    import { index } from './controllers'
+    const router = new Router()
+    
+    router.get('/', index)
+    
+    export default router
+    ```
+
+8.  挂载盘搜到 `routes/router.ts`
+
+    ```ts
+    import Router = require('koa-router')
+    const router = new Router()
+    
+    import pansou from './pansou'
+    router.use('/pansou', pansou.routes(), pansou.allowedMethods())
+    
+    export default router
+    ```
+
+9.  最终效果详见 `routes/pansou`
 
 ### 风格检查
 
@@ -163,9 +240,7 @@ npm run docs:dev
 
 若没有热更新可重新执行命令
 
-**文档规范**
-
-【待编写】
+### 文档规范【待编写】
 
 参考现有的文档编写即可
 
@@ -196,8 +271,7 @@ npm run commit
     -   对于本项目而言，路由的破坏性更新并不算本项目的破坏性更新，因此即便出现了路由的破坏性更新，也按照`feat`提交
 
 ::: danger 警告
-破坏性更新将由草梅友仁慎重审查后合并
-:::    
-    
+破坏性更新将由草梅友仁慎重审查后合并或拒绝
+:::       
 
 提交的描述可以使用中文或英文，只需要描述清楚改动即可
