@@ -12,6 +12,18 @@ sidebar: auto
 
 ## 开发新路由
 
+### 技术栈要求
+
+本人假定你已经掌握以下技术的使用
+
+-   Node.js [**必须**]
+-   Koa2 [**必须**]
+-   TypeScript [**可选**]
+-   ES2019[**可选**]
+-   Markdown [**可选**]
+-   Git [**可选**]
+-   ……
+
 ### 开发环境
 
 -   Node.js >= 12.14.0
@@ -113,7 +125,7 @@ const channel: RssChannel = new RssChannel({})
 -   使用可选链而不是 `&&`
     -   使用 `obj?.item`而不是`obj && obj.item`
     -   你可能会疑惑这是什么语法，这是es11的新语法，当可选链中有一个为undefined或unll时就返回undefined而不是报错。
-    -   当然这个语法的兼容性还不是很好，因此TypeScript的编译目标也设置为了es2019
+    -   当然这个语法的兼容性还不是很好，因此TypeScript的编译目标也设置为es2019
 -   请尽可能的使用 TypeScript 支持的新语法
     -   新语法会在很大程度上带来更加简洁的写法，也会更加方便
 -   在表达清晰的情况下尽可能写注释

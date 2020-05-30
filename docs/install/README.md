@@ -10,14 +10,21 @@ sidebar: auto
 
 1. 命令行操作
 1. [Git](https://git-scm.com/)
+    -   [Git 教程](https://www.runoob.com/git/git-tutorial.html)
 1. [Node.js](https://nodejs.org/)
+    -   [安装教程](https://www.runoob.com/nodejs/nodejs-install-setup.html)
 1. [npm](https://www.npmjs.com/get-npm) 或 [yarn](https://yarnpkg.com/zh-Hans/docs/install)
+    -   [NPM 使用介绍](https://www.runoob.com/nodejs/nodejs-npm.html)
+    -   [Yarn 中文文档](https://yarn.bootcss.com/)
 
 部署到可外网访问则可能涉及到:
 
 1. [Nginx](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
+    -   [Nginx 安装配置](https://www.runoob.com/linux/nginx-install-setup.html)
 1. [Docker](https://www.docker.com/get-started) 或 [docker-compose](https://docs.docker.com/compose/install/)
+    -   [Docker教程](https://www.runoob.com/docker/docker-tutorial.html)
 1. [Redis](https://redis.io/download)
+    -   [Redis 教程](https://www.runoob.com/redis/redis-tutorial.html)
 
 ## Docker Compose 部署
 
@@ -178,7 +185,7 @@ pm2 start dist/index.js --name  super-search-hub
 
 ```ini
 CACHE_TYPE=redis
-CACHE_EXPIRE=600
+CACHE_AGE=3600
 ```
 
 注意它不会覆盖已有的环境变量，更多规则请参考 [dotenv](https://github.com/motdotla/dotenv)
@@ -200,6 +207,4 @@ git pull
 ## 配置
 
 通过设置环境变量来配置 super-search-hub
-
 <<< @/.env
-
