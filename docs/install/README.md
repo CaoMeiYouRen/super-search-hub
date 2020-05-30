@@ -116,9 +116,9 @@ docker run -d --name super-search-hub -p 1200:1200 -e CACHE_AGE=3600 caomeiyoure
 ### 运行环境要求
 
 -   Node.js >= 12 
-    -   本项目开发环境为 Node 12.14.0
-    -   编译环境（travis-ci）为 Node 12.17.0【保持Node 12 的最新版】
-    -   运行环境（Docker）为 Node 12.15.0 【为保持Docker环境一致被锁定版本】
+    -   本项目开发环境为 Node 12.14.0 【后续将调整一致】
+    -   编译环境（travis-ci）为 Node 12.15.0【保持和运行环境一致】
+    -   运行环境（Docker）为 Node 12.15.0 【为保持Docker环境下版本一致被锁定版本】
     -   所以请尽量在Node 12 环境下使用。后续也将随Node tls 版本的更新而更新（即tls大版本更新本项目也将跟进）
     -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 

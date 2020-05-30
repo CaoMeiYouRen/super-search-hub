@@ -126,6 +126,8 @@ const channel: RssChannel = new RssChannel({})
     -   使用 `obj?.item`而不是`obj && obj.item`
     -   你可能会疑惑这是什么语法，这是es11的新语法，当可选链中有一个为undefined或unll时就返回undefined而不是报错。
     -   当然这个语法的兼容性还不是很好，因此TypeScript的编译目标也设置为es2019
+-   适度使用箭头函数和三元表达式
+    -   箭头函数和三元表达式可以简化代码，但如果使用过多反而会造成逻辑混乱
 -   请尽可能的使用 TypeScript 支持的新语法
     -   新语法会在很大程度上带来更加简洁的写法，也会更加方便
 -   在表达清晰的情况下尽可能写注释
@@ -175,17 +177,17 @@ const channel: RssChannel = new RssChannel({})
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.list?.data?.map(e => {//使用可选链将有效解决undefined问题
-            let item = new RssItem({
-            title: e.title,
-            link: e.link,
-            description: e.des,
-            guid: e.link,
+                let item = new RssItem({
+                    title: e.title,
+                    link: e.link,
+                    description: e.des,
+                    guid: e.link,
+                })
+                return item
+            }).slice(0, limit),
+            count: data?.list?.count,
         })
-        return item
-    }).slice(0, limit),
-        count: data?.list?.count,
-    })
-    ctx.body = channel
+        ctx.body = channel
     } else {
         let message = IS_DEBUG ? result['stack'] : result['message']//建议进行异常处理，如果需要抛出异常请使用 HttpError 类
         ctx.body = { message }
@@ -262,7 +264,7 @@ npm run docs:dev
 npm run docs:build
 ```
 
-实际上文档的编译时交给CI做的，你只需要检查下能否顺利通过编译即可
+实际上文档的编译是交给CI做的，你只需要检查下能否顺利通过编译即可
 
 ### 提交变更
 

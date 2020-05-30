@@ -3,11 +3,12 @@ import http = require('http')
 import path = require('path')
 import fs = require('fs-extra')
 import colors = require('colors')
-import moduleAlias = require('module-alias')
+import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
 import { PORT } from '@/config'
 import { Log } from '@/utils'
+import { errorLogger } from '@/middleware'
 // const Debugger = debug('express:server')
 
 /**
@@ -76,7 +77,9 @@ function onListening(): void {
 }
 process.on('uncaughtException', (err) => {
     console.error(err)
+    errorLogger.error(err)
 })
 process.on('unhandledRejection', (reason: any, p) => {
     console.error('Unhandled Rejection at: ', p)
+    errorLogger.error(p)
 })

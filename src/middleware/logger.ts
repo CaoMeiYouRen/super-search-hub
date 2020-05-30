@@ -41,7 +41,7 @@ log4js.configure({
 export const appLogger = log4js.koaLogger(log4js.getLogger('application'), {
     format: ':remote-addr - ":method :url HTTP/:http-version" - :status :content-length :response-timems ":referrer"',
 })
-export const accessLogger = log4js.getLogger('access')
+// export const accessLogger = log4js.getLogger('access')
 export const errorLogger = log4js.getLogger('error')
 
 // morgan.format('app-combined', ':remote-addr - [:time] ":method :url HTTP/:http-version" :status - :response-time ms')
