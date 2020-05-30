@@ -71,9 +71,8 @@ function onError(error: any): void {
  */
 function onListening(): void {
     console.log('################################################')
-    Log.info(`运行地址为  http://127.0.0.1:${httpPort}`)
+    Log.info(`运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
-    // console.log(`接口文档http://127.0.0.1:${httpPort}/robot/v2.0/docs/`)
 }
 process.on('uncaughtException', (err) => {
     console.error(err)
