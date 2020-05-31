@@ -14,7 +14,7 @@ sidebar: auto
 
 **建议仔细阅读本文档后再进行路由开发。**
 
-**强烈建议阅读[开发技巧](#开发技巧) **
+**强烈建议阅读 **[开发技巧](#开发技巧)
 
 ### 技术栈要求
 
@@ -163,6 +163,7 @@ const channel: RssChannel = new RssChannel({})
 -   适度使用箭头函数和三元表达式
     
     -   箭头函数和三元表达式可以简化代码，但如果使用过多反而会造成逻辑混乱
+    -   禁止在一行逻辑中写多个三元表达式，如有需要请拆成多行
     
 -   请尽可能的使用 TypeScript 支持的新语法
     
@@ -189,7 +190,7 @@ const channel: RssChannel = new RssChannel({})
 
 3.  经过抓包发现pansou使用的是`http://106.15.195.249:8011/search_new`这个接口，主要参数为`q`查询内容和`p`第几页
 
-4.  分析返回数据格式，在pansou下新建models，编写数据模型
+4.  分析返回数据格式，在pansou下新建models，编写数据模型 `PansouResult`
 
 5.  获取查询参数，使用`ajax`函数发起请求
 
@@ -292,7 +293,9 @@ npm run docs:dev
 
 修改文档后将同步更改。
 
-若没有热更新可重新执行命令
+::: tip 提示
+vuepress 的热更新功能存在bug，有时会无法热更新。如果没有热更新可重新执行命令
+:::
 
 ### 文档规范【待编写】
 
@@ -318,11 +321,11 @@ npm run commit
 #若觉得修改太多也可分开提交。先 git add 一部分，执行 git cz 提交后再提交另外一部分
 ```
 
-关于选项，参考[https://github.com/semantic-release/semantic-release 的文档
+关于选项，参考 [semantic-release](https://github.com/semantic-release/semantic-release) 的文档
 
--   若为BUG修复，则选择fix
--   若为新增功能，则选择feat
--   若为移除某些功能，则选则 perf  或 填写 BREAKING CHANGE
+-   若为BUG修复，则选择 fix
+-   若为新增功能，则选择 feat
+-   若为移除某些功能，则选则 perf  或填写 BREAKING CHANGE
     -    perf 和其他破坏性更新，若不是为了修复BUG，原则上将拒绝该PR
     -   对于本项目而言，路由的破坏性更新并不算本项目的破坏性更新，因此即便出现了路由的破坏性更新，也按照`feat`提交
 

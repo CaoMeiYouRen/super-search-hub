@@ -118,7 +118,7 @@ docker run -d --name super-search-hub -p 1200:1200 -e CACHE_AGE=3600 caomeiyoure
 -   Node.js >= 12 
     -   本项目开发环境为 Node 12.15.0 【和运行环境一致】
     -   编译环境（travis-ci）为 Node 12.15.0【和运行环境一致】
-    -   运行环境（Docker）为 Node 12.15.0 【alpine 3.11 下最新 Nodejs 版本为 12.15.0】
+    -   运行环境（Docker）为 Node 12.15.0 【alpine 3.11 下最新 Nodejs lts版本为 12.15.0】
     -   所以请尽量在Node 12 环境下使用。后续也将随Node lts 版本的更新而更新（即lts大版本更新本项目也将跟进）
     -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
@@ -175,7 +175,7 @@ pm2 start dist/index.js --name  super-search-hub
 
 在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
 
-详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://localhost:8080/` 即可正常使用
+详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://127.0.0.1:8080/` 即可正常使用
 
 ### 添加配置
 
@@ -192,7 +192,7 @@ CACHE_AGE=3600
 
 该部署方式不包括 redis 依赖，如有需要请改用 Docker Compose 部署方式或自行部署外部依赖
 
-更多配置项请看 [#配置](#pei-zhi)
+更多配置项请看 [#配置](#配置)
 
 ### 更新
 
