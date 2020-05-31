@@ -1,6 +1,6 @@
 import Koa = require('koa')
 import mime from 'mime'
-import status from 'http-status'
+import HttpStatus from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
 import { CACHE } from '@/config'
@@ -19,7 +19,7 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
 
     if (mime.getExtension(ctx.type) === 'json' && ctx.body) { // 格式化错误和json
         const statusCode = ctx.status || HttpStatusCode.INTERNAL_SERVER_ERROR
-        const error = ctx.status >= HttpStatusCode.BAD_REQUEST ? status[ctx.status] : undefined
+        const error = ctx.status >= HttpStatusCode.BAD_REQUEST ? HttpStatus[ctx.status] : undefined
         const message = ctx.body?.message
         const data = ctx.body?.data
         if (data instanceof RssChannel) {

@@ -1,6 +1,6 @@
 import Koa = require('koa')
 import { TIMEOUT_MAX_AGE } from '@/config'
-import { HttpError } from '@/models'
+import { HttpError, HttpStatusCode } from '@/models'
 
 /**
  * 捕捉超时
@@ -17,7 +17,7 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
     await Promise.race([
         new Promise(((resolve, reject) => {
             t = setTimeout(() => {
-                reject(new HttpError(408, '请求超时'))
+                reject(new HttpError(HttpStatusCode.REQUEST_TIMEOUT, '请求超时'))
             }, time)
         })),
         new Promise(((resolve, reject) => {
