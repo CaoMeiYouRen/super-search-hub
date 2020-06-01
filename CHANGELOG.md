@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.7](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.6...v1.3.7) (2020-06-01)
+
+
+### 🐛 Bug 修复
+
+* 修复CI配置问题导致日志生成错误 ([59eadb0](https://github.com/CaoMeiYouRen/super-search-hub/commit/59eadb0))
+
 ## [1.3.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.5...v1.3.6) (2020-06-01)
 
 

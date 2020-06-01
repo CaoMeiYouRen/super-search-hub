@@ -1,3 +1,48 @@
+## [1.3.7](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.6...v1.3.7) (2020-06-01)
+
+
+### 🐛 Bug 修复
+
+* 修复CI配置问题导致日志生成错误 ([59eadb0](https://github.com/CaoMeiYouRen/super-search-hub/commit/59eadb0))
+
+
+
+## [1.3.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.5...v1.3.6) (2020-06-01)
+
+
+### 🐛 Bug 修复
+
+* 修改Node.js版本为12.17.0 ([235213b](https://github.com/CaoMeiYouRen/super-search-hub/commit/235213b))
+
+
+
+## [1.3.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.4...v1.3.5) (2020-05-31)
+
+
+### 🐛 Bug 修复
+
+* 修复CI问题 ([642e1d6](https://github.com/CaoMeiYouRen/super-search-hub/commit/642e1d6))
+
+
+
+## [1.3.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.3...v1.3.4) (2020-05-30)
+
+
+### 🐛 Bug 修复
+
+* 修复文档和修改文档错误 ([fbbb30e](https://github.com/CaoMeiYouRen/super-search-hub/commit/fbbb30e))
+
+
+
+## [1.3.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.2...v1.3.3) (2020-05-30)
+
+
+### 🐛 Bug 修复
+
+* 修复docker配置错误 ([99bea96](https://github.com/CaoMeiYouRen/super-search-hub/commit/99bea96))
+
+
+
 ## [1.3.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.1...v1.3.2) (2020-05-30)
 
 
