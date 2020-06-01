@@ -32,7 +32,7 @@ sidebar: auto
 
 ### 开发环境
 
--   Node.js >= 12.15.0
+-   Node.js >= 12.17.0
     -   后续也将同步更新到 lts 版本，届时请及时更新自己的开发环境
     -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
