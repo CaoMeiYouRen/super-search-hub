@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.5...v1.3.6) (2020-06-01)
+
+
+### 🐛 Bug 修复
+
+* 修改Node.js版本为12.17.0 ([235213b](https://github.com/CaoMeiYouRen/super-search-hub/commit/235213b))
+
 ## [1.3.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.4...v1.3.5) (2020-05-31)
 
 
