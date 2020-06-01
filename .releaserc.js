@@ -20,6 +20,12 @@ module.exports = {
             },
         ],
         '@semantic-release/npm',
+        [
+            '@semantic-release/exec',
+            {
+                prepareCmd: 'npm run docs:build && docker build -t caomeiyouren/super-search-hub .',
+            },
+        ],
         '@semantic-release/github',
         [
             '@semantic-release/git',
@@ -30,12 +36,6 @@ module.exports = {
                     'CHANGELOG.md',
                     'package.json',
                 ],
-            },
-        ],
-        [
-            '@semantic-release/exec',
-            {
-                prepareCmd: 'npm run docs:build && docker build -t caomeiyouren/super-search-hub .',
             },
         ],
         [
