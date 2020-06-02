@@ -26,12 +26,21 @@ module.exports = {
                 prepareCmd: 'npm run docs:build && docker build -t caomeiyouren/super-search-hub .',
             },
         ],
-        '@semantic-release/github',
+        [
+            '@semantic-release/github',
+            {
+                assets: [
+                    {
+                        path: 'dist/index.js',
+                        label: 'index.js (${nextRelease.gitTag})'
+                    }
+                ],
+            }
+        ],
         [
             '@semantic-release/git',
             {
                 assets: [
-                    'dist',
                     "docs",
                     'CHANGELOG.md',
                     'package.json',

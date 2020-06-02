@@ -3,8 +3,14 @@ import path = require('path')
 import fs = require('fs-extra')
 import Koa = require('koa')
 import pidusage from 'pidusage'
+import git from 'git-rev-sync'
 import { dataFormat, timeFromNow } from '@/utils'
-
+let gitHash: string
+try {
+    gitHash = git.long()
+} catch (e) {
+    gitHash = process.env?.HEROKU_SLUG_COMMIT || process.env?.VERCEL_GITHUB_COMMIT_SHA || 'unknown'
+}
 
 /**
  * 状态监测路由
@@ -19,6 +25,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
     const stat = await pidusage(process.pid)
     let data = {
         nodeVersion: process.versions.node,
+        gitHash,
         ip: ctx.ip,
         stat: {
             memory: dataFormat(stat.memory),
