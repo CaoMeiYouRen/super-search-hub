@@ -5,11 +5,12 @@ import Koa = require('koa')
 import pidusage from 'pidusage'
 import git from 'git-rev-sync'
 import { dataFormat, timeFromNow } from '@/utils'
-let gitHash: string
+// 仅开放环境下显示gitHash
+let gitHash: any
 try {
     gitHash = git.long()
 } catch (e) {
-    gitHash = process.env?.HEROKU_SLUG_COMMIT || process.env?.VERCEL_GITHUB_COMMIT_SHA || 'unknown'
+    gitHash = process.env.HEROKU_SLUG_COMMIT || process.env.VERCEL_GITHUB_COMMIT_SHA
 }
 
 /**
