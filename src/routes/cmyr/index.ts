@@ -1,4 +1,4 @@
-import Router = require('koa-router')
+import Router = require('@koa/router')
 import { index } from './controllers'
 const router = new Router()
 

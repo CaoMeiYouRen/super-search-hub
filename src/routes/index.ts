@@ -1,4 +1,4 @@
-import Router = require('koa-router')
+import Router = require('@koa/router')
 import path = require('path')
 import fs = require('fs-extra')
 import router from './router'

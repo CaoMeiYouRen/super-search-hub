@@ -240,7 +240,7 @@ const channel: RssChannel = new RssChannel({})
 7.  挂载控制器到`pansou/index.ts`
 
     ```ts
-    import Router = require('koa-router')
+    import Router = require('@koa/router')
     import { index } from './controllers'
     const router = new Router()
     
@@ -252,7 +252,7 @@ const channel: RssChannel = new RssChannel({})
 8.  挂载盘搜到 `routes/router.ts`
 
     ```ts
-    import Router = require('koa-router')
+    import Router = require('@koa/router')
     const router = new Router()
     
     import pansou from './pansou'

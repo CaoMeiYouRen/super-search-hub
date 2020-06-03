@@ -1,6 +1,9 @@
 const path = require('path')
+const env = process.env
+const IS_DEBUG = env.NODE_ENV === 'development'
 module.exports = {
-    mode: 'production',
+    devtool: IS_DEBUG ? 'source-map' : '',
+    mode: env.NODE_ENV || 'production',
     entry: {
         build: path.join(__dirname, './src/bin/www.ts')
     },

@@ -1,4 +1,4 @@
-import Router = require('koa-router')
+import Router = require('@koa/router')
 const router = new Router()
 
 import cmyr from './cmyr'

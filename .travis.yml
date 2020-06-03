@@ -3,7 +3,7 @@ node_js: 12.17.0
 services:
     - docker
 install:
-    - npm install
+    - yarn
 script:
     - npm run lint
     - npm run build
@@ -26,6 +26,6 @@ notifications:
             - secure: dzEw88cbYm55iZknUGWkny226YyHB+c5KRSlEgTYWQVmsR4cwAqyrDGrtuEDnVQOCFeX/vJHoMqU/9/ZYj5i4tI7DYBF2qRYITxdAxXraXlGQuKhOXZPxJjUYklWz8bd3NH7lCO9gvwwxynxEkW6zEcn/31tsoI7XaKF14k7z0YZ+1z61RKAsZT75td+L/nTz7XbUjGGKfETRscEI1FfUBovzoJN1Xoou80zDfOPzLwjgUoWMzPviEJ+TqVZijWvrjW4G2lXM0sY3HvG0otfxcQoejbp2cPQXHcRnFuOOvsPeRuI2TVrref+siPHo1Ln8UAjcIIcKnrPgXmPHAHvQ5XxYaKdjz8FfTS7IDTUJ27vpsRGcRr5NhmOsJHhSWrXui+z+yA+fYnd/NYAlJU73tcPji8MOSGryGGxtg6jStlOb1aDXaX6Z2zH7+O7FZbZzSNAlMhfv/iByitcHKEPDAr88pR8ejdZwkxl7PS6c95NQzHyKmSGG8IS7aTK9Lg8PQtoIqI2I8Ve7gm/KlCRymDX8W7Y7OlDXcv6RClKhax1P1aVQAZKxZGgrRzhzQz0eYbFD1WZ1mBBLgJn+fKIhiSJ/DwYlgCoQIzXPtW+y2FjwPuFPWFwfYT0NM0vFjpB8Qt8LaY8sUzryJ0r6HIopYvOlUJ8lH39dnBPRe+L8Ug=
         on_success: always # default: always
         on_failure: always # default: always
-        on_start:  always # default: never change
+        on_start: always # default: never change
         on_cancel: always # default: always
         on_error: always
