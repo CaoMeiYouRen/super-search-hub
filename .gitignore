@@ -20,7 +20,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-test
+# test
 logs
 log
 yarn.lock
