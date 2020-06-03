@@ -73,10 +73,10 @@ docker pull caomeiyouren/super-search-hub
 然后运行 super-search-hub 即可
 
 ```bash
-docker run -d --name super-search-hub -p 8080:8080 caomeiyouren/super-search-hub
+docker run -d --name super-search-hub -p 4365:4365 caomeiyouren/super-search-hub
 ```
 
-在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)，即可访问
+在浏览器中打开 [http://127.0.0.1:4365/](http://127.0.0.1:4365/)，即可访问
 
 您可以使用下面的命令来关闭 RSSHub
 
@@ -173,9 +173,9 @@ yarn start
 pm2 start dist/index.js --name  super-search-hub
 ```
 
-在浏览器中打开 [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+在浏览器中打开 [http://127.0.0.1:4365/](http://127.0.0.1:4365/)
 
-详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://127.0.0.1:8080/` 即可正常使用
+详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://127.0.0.1:4365/` 即可正常使用
 
 ### 添加配置
 

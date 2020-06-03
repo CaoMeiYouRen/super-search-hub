@@ -14,6 +14,6 @@ RUN echo "https://mirrors.aliyun.com/alpine/v3.12/main/" > /etc/apk/repositories
 
 COPY . /home/app/
 
-EXPOSE 80
+EXPOSE 4365
 
 CMD ["node","dist/index.js"]

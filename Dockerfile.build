@@ -20,6 +20,6 @@ COPY . /home/app
 
 RUN npm run build
 
-EXPOSE 80
+EXPOSE 4365
 
 CMD ["npm", "start"]

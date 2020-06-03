@@ -19,16 +19,19 @@ if (fs.existsSync('.env')) {
         envParsed = Object.assign(envFound.parsed, envParsed)
     }
 }
-if (process.env.NODE_ENV === 'development') {
-    console.log(envParsed)
-}
 const env = process.env
+
 /**
  * 是否为debug
  */
 export const IS_DEBUG = env.NODE_ENV === 'development'
+
+if (IS_DEBUG) {
+    console.log(envParsed)
+}
+
 // 运行端口
-export const PORT = Number(env.PORT || 8080)
+export const PORT = Number(env.PORT || 4365)
 // 路由根路径
 export const ROOT_URL = env.ROOT_URL || ''
 // 超时时间
