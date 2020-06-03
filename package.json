@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
-    "@koa/router": "^8.0.8",
+    "@koa/router": "^9.0.1",
     "@types/koa-static": "^4.0.1",
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
