@@ -46,7 +46,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
     }
     if (await fs.pathExists('package.json')) {
         try {
-            const packages = JSON.parse((await fs.readFile('package.json')).toString())
+            const packages = await fs.readJSON('package.json')
             const { name, description, version } = packages
             data = Object.assign({ name, version, description }, data)
         } catch (error) {

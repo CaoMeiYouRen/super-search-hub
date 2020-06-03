@@ -29,6 +29,12 @@ export class RssItem {
      * @type {Date}
      */
     pubDate?: Date
+    /**
+     * 图片数组
+     *
+     * @type {string[]}
+     */
+    images?: string[]
 
     constructor(data?: RssItem) {
         Object.assign(this, data)

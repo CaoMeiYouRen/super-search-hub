@@ -6,9 +6,6 @@ import bodyParser = require('koa-bodyparser')
 import cors = require('@koa/cors')
 import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
-// import favicon = require('koa-favicon')
-// import Logger = require('koa-logger')
-// import mount from 'koa-mount'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
     appLogger, cache, requestTransform,

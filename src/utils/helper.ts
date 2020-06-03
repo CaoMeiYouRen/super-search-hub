@@ -58,7 +58,7 @@ export const Log = {
      * @param {*} msg
      */
     error(msg: any) {
-        console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(typeof msg === 'string' ? msg : JSON.stringify(msg, null, 4)))
+        console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(msg))
     },
 }
 
