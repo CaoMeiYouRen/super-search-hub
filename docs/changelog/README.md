@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.11...v1.4.0) (2020-06-03)
+
+
+### ✨ 新功能
+
+* 新增测试文件 ([b808744](https://github.com/CaoMeiYouRen/super-search-hub/commit/b808744))
+
+
+### 🐛 Bug 修复
+
+* 新增覆盖率汇报；修复时区问题 ([31c2eff](https://github.com/CaoMeiYouRen/super-search-hub/commit/31c2eff))
+
+
+
 ## [1.3.11](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.10...v1.3.11) (2020-06-03)
 
 
