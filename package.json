@@ -24,9 +24,12 @@
     "commit": "git add . && git cz && git push",
     "changelog": "conventional-changelog -p cmyr-config -i CHANGELOG.md -s -r 0",
     "release": "semantic-release",
-    "test": "npm run test:unit && npm run test:e2e",
-    "test:unit": "mocha -r ts-node/register test/register.ts src/**/*.test.ts -R nyan",
-    "test:e2e": "mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 10000"
+    "test": "mocha -r ts-node/register test/register.ts src/**/*.test.ts test/**/*.test.ts -R nyan -t 10000",
+    "test:unit": "mocha -r ts-node/register test/register.ts src/**/*.test.ts -R nyan -t 10000",
+    "test:e2e": "mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 10000",
+    "test:nyc": "rimraf coverage && nyc --reporter=lcov --reporter=text mocha -r ts-node/register test/register.ts src/**/*.test.ts test/**/*.test.ts -R nyan -t 10000",
+    "coverage": "codecov",
+    "precoverage": "npm run test:nyc"
   },
   "engines": {
     "node": ">=12"
@@ -128,6 +131,7 @@
     "@vuepress/plugin-google-analytics": "^1.5.0",
     "@vuepress/plugin-nprogress": "^1.5.0",
     "babel-eslint": "^10.1.0",
+    "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "conventional-changelog-cli": "^2.0.34",
     "conventional-changelog-cmyr-config": "^1.2.3",

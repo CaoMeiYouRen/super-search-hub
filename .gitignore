@@ -24,3 +24,6 @@ yarn-error.log*
 logs
 log
 yarn.lock
+.nyc_output
+coverage
+.coverage

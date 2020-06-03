@@ -1,5 +1,9 @@
 import should from 'should'
+import moment from 'moment-timezone'
 import { timeFormat, sleep, dataFormat, timeFromNow } from '../helper'
+
+moment.tz.setDefault('Asia/Shanghai')
+
 describe('helper', () => {
     describe('timeFormat', () => {
         it('返回 2019-12-26 16:49:53', () => {
