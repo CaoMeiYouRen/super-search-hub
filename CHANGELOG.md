@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.3.9](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.8...v1.3.9) (2020-06-03)
+
+
+### 🐛 Bug 修复
+
+* 修改默认端口为4365 ([6d7b30e](https://github.com/CaoMeiYouRen/super-search-hub/commit/6d7b30e))
+
 ## [1.3.8](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.7...v1.3.8) (2020-06-02)
 
 
