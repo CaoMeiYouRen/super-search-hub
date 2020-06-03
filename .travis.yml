@@ -3,7 +3,7 @@ node_js: 12.17.0
 services:
     - docker
 install:
-    - yarn
+    - npm install
 script:
     - npm run lint
     - npm run build

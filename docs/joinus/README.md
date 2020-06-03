@@ -33,7 +33,10 @@ sidebar: auto
 ### 开发环境
 
 -   Node.js >= 12.17.0
-    -   后续也将同步更新到 lts 版本，届时请及时更新自己的开发环境
+    -   开发环境推荐和运行环境一致
+    -   编译环境（travis-ci）为 Node 12.17.0【和运行环境一致】
+    -   运行环境（Docker）为 Node 12.17.0【alpine 3.12 下最新 Nodejs lts 版本为 12.17.0】
+    -   后续也将随 Node lts 版本的更新而更新，届时请及时更新自己的开发环境
     -   Node.js多版本管理推荐使用 [nvm](https://github.com/nvm-sh/nvm) 或 [nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 -   TypeScript >= 3.9.3
