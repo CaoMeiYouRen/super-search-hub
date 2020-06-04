@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.2...v1.5.0) (2020-06-04)
+
+
+### ✨ 新功能
+
+* 1.新增cluster，优化多核cpu利用 ([d02a3e1](https://github.com/CaoMeiYouRen/super-search-hub/commit/d02a3e1))
+
+
+
 ## [1.4.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.1...v1.4.2) (2020-06-04)
 
 
