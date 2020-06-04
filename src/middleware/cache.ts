@@ -5,7 +5,7 @@ import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
 import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
 import { CacheType } from '@/models'
-const globalCache: KoaCache = {
+export const globalCache: KoaCache = {
     async get(key) {
         throw new Error('globalCache.get not implemented.')
     },

@@ -1,6 +1,15 @@
 import Koa = require('koa')
 declare interface KoaCache {
     get(key: string): Promise<any>
+    /**
+     *
+     * @author CaoMeiYouRen
+     * @date 2020-06-04
+     * @param {string} key
+     * @param {*} value
+     * @param {number} [maxAge] 单位：秒
+     * @returns {Promise<any>}
+     */
     set(key: string, value: any, maxAge?: number): Promise<any>
 }
 declare module 'koa' {

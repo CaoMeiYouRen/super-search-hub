@@ -1,6 +1,7 @@
 import Koa = require('koa')
 import { HttpError, HttpStatusCode } from '@/models'
 import { TOKEN, IP_CONFIG, ENABLE_ACCESS_CONTROL } from '@/config'
+import { globalCache } from './cache'
 /**
  * 访问控制
  *
@@ -11,7 +12,6 @@ import { TOKEN, IP_CONFIG, ENABLE_ACCESS_CONTROL } from '@/config'
  * @param {Koa.Next} next
  */
 export async function accessControl(ctx: Koa.Context, next: Koa.Next) {
-
     if (ENABLE_ACCESS_CONTROL) {
         const ip = ctx.ipv4 || ''
         const token = ctx.query?.token
@@ -34,9 +34,10 @@ export async function accessControl(ctx: Koa.Context, next: Koa.Next) {
             throw new HttpError(HttpStatusCode.UNAUTHORIZED, '未提供token且该IP不在白名单中')
         }
         // 其余情况均同意
-        await next()
-    } else {
-        await next()
     }
-
+    // 拉黑ip的情况
+    if (await globalCache.get(`ip-ban-${ctx.ipv4}`)) {
+        throw new HttpError(HttpStatusCode.BAD_REQUEST, '您已被拉入访问黑名单！')
+    }
+    await next()
 }

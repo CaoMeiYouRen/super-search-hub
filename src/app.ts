@@ -8,7 +8,7 @@ import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
-    appLogger, cache, requestTransform, requestIpTransform, accessControl,
+    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit,
 } from './middleware'
 import routes from './routes'
 import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
@@ -27,6 +27,7 @@ app.use(cors())
 app.use(bodyParser())
 app.use(accessControl)
 app.use(limiter)
+app.use(highLimit)
 if (fs.pathExistsSync(path.join(__dirname, '../public'))) {
     // 文档并非必须，如果有则挂载
     app.use(serve(path.join(__dirname, '../public'), {

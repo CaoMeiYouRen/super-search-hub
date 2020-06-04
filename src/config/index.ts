@@ -54,6 +54,11 @@ export const IP_CONFIG = {
 export const ENABLE_ACCESS_CONTROL = Boolean(TOKEN || IP_CONFIG.IP_WHITELIST.length || IP_CONFIG.IP_BLACKLIST.length)
 
 export const ITEM_LIMIT = Number(env.ITEM_LIMIT || 10)
+
+export const DAY_LIMIT_MAX = Number(env.DAY_LIMIT_MAX ?? 1000)
+
+export const BAN_TIME = Number(env.BAN_TIME ?? 24)
+
 /**
  * 限流配置
  */

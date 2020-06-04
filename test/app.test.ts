@@ -7,7 +7,7 @@ let server: http.Server
 describe('app e2e测试', () => {
     before((done) => {
         server = app.listen(PORT, () => {
-            console.log(`HTTP已启动：http://127.0.0.1:${PORT}`)
+            console.log(`测试服务器已启动：http://127.0.0.1:${PORT}`)
             done()
         })
     })
