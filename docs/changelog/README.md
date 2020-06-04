@@ -1,3 +1,12 @@
+## [1.5.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.5.0...v1.5.1) (2020-06-04)
+
+
+### 🐛 Bug 修复
+
+* 修改多线程模式可以自定义 ([ff50771](https://github.com/CaoMeiYouRen/super-search-hub/commit/ff50771))
+
+
+
 # [1.5.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.2...v1.5.0) (2020-06-04)
 
 
