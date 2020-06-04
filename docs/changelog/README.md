@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.0...v1.4.1) (2020-06-04)
+
+
+### 🐛 Bug 修复
+
+* 优化缓存机制 ([a0752cf](https://github.com/CaoMeiYouRen/super-search-hub/commit/a0752cf))
+
+
+
 # [1.4.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.3.11...v1.4.0) (2020-06-03)
 
 
