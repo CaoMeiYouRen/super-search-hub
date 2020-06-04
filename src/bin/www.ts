@@ -8,12 +8,12 @@ import colors = require('colors')
 import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
-import { PORT, IS_DEBUG } from '@/config'
+import { PORT, IS_DEBUG, ENABLE_CLUSTER } from '@/config'
 import { Log } from '@/utils'
 import { errorLogger } from '@/middleware'
 const httpPort = normalizePort(PORT)
 const numCPUs = os.cpus().length
-if (cluster.isMaster && !IS_DEBUG) {
+if (ENABLE_CLUSTER && cluster.isMaster && !IS_DEBUG) {
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork()
     }
@@ -64,7 +64,8 @@ function onError(error: any): void {
  */
 function onListening(): void {
     console.log('################################################')
-    Log.info(`worker ${cluster.worker.id} 运行地址为 http://127.0.0.1:${httpPort}`)
+    const workerId = cluster?.worker?.id || ''
+    Log.info(`worker ${workerId} 运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
 }
 

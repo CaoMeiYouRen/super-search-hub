@@ -1,6 +1,7 @@
 import os = require('os')
 import path = require('path')
 import fs = require('fs-extra')
+import cluster = require('cluster')
 import Koa = require('koa')
 import pidusage from 'pidusage'
 import git from 'git-rev-sync'
@@ -28,6 +29,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
         nodeVersion: process.versions.node,
         gitHash,
         ip: ctx.ip,
+        workerId: cluster?.worker?.id,
         stat: {
             memory: dataFormat(stat.memory),
             cpu: `${stat.cpu} %`,

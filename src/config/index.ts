@@ -34,6 +34,8 @@ if (IS_DEBUG) {
 export const PORT = Number(env.PORT || 4365)
 // 路由根路径
 export const ROOT_URL = env.ROOT_URL || ''
+// 启用多线程
+export const ENABLE_CLUSTER = env.ENABLE_CLUSTER === 'true'
 // 超时时间
 export const TIMEOUT_MAX_AGE = Number(env.TIMEOUT_MAX_AGE || 15000)
 

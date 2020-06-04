@@ -9,6 +9,7 @@ services:
         environment:
             PORT: 4365
             NODE_ENV: production
+            ENABLE_CLUSTER: "true"
             CACHE_TYPE: redis
             REDIS_URL: "redis://redis:6379/"
             REDIS_HOST: "redis"
