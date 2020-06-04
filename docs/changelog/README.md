@@ -1,3 +1,12 @@
+## [1.4.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.1...v1.4.2) (2020-06-04)
+
+
+### 🐛 Bug 修复
+
+* 优化访问控制和限流 ([9983333](https://github.com/CaoMeiYouRen/super-search-hub/commit/9983333))
+
+
+
 ## [1.4.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.4.0...v1.4.1) (2020-06-04)
 
 
