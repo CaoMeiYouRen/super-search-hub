@@ -24,6 +24,7 @@ export async function test(ctx: Koa.Context, next: Koa.Next) {
     console.log(ctx.params)
     console.log(ctx.query)
     console.log(ctx.request.body)
+    ctx.noCache = true
     ctx.body = {
         message: 'Welcome to super-search-hub',
         data: {

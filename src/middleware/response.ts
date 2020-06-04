@@ -17,7 +17,7 @@ import { RssChannel, HttpStatusCode } from '@/models'
 export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
     await next()
 
-    if (mime.getExtension(ctx.type) === 'json' && ctx.body) { // 格式化错误和json
+    if (mime.getExtension(ctx.type) === 'json' && ctx.body && !ctx.noFormat) { // 格式化错误和json
         const statusCode = ctx.status || HttpStatusCode.INTERNAL_SERVER_ERROR
         const error = ctx.status >= HttpStatusCode.BAD_REQUEST ? HttpStatus[ctx.status] : undefined
         const message = ctx.body?.message

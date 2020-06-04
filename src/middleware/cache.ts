@@ -77,13 +77,13 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
 export async function cache(ctx: Koa.Context, next: Koa.Next) {
     ctx.cache = globalCache
     // 不缓存的路由
-    const nocacheRoutes = ['/status']
+    // const noCacheRoutes = ['/status']
     // 需要缓存的方法
     const methods = ['GET', 'HEAD']
     const hash = md5(ctx.url)
     // 是否禁用缓存
-    const nocache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache || IS_DEBUG
-    if (methods.includes(ctx.method) && !nocache && !nocacheRoutes.includes(ctx.path)) {
+    const noCache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache || ctx.params?.noCache || ctx.query?.noCache || ctx.request.body?.noCache || IS_DEBUG
+    if (methods.includes(ctx.method) && !noCache) {
         let value = await ctx.cache.get(hash)
         if (value) {
             try {
@@ -98,7 +98,7 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
         }
     }
     await next()
-    if (methods.includes(ctx.method) && !nocache && ctx.body) {
+    if (methods.includes(ctx.method) && !noCache && !ctx.noCache && ctx.body) {
         await ctx.cache.set(hash, ctx.body)
     }
 }

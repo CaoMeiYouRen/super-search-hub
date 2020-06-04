@@ -57,4 +57,5 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
     ctx.body = {
         data: Object.assign({ date: new Date() }, data),
     }
+    ctx.noCache = true
 }
