@@ -49,14 +49,9 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "npm run lint && npm run test",
       "commit-msg": "validate-commit-msg"
     }
-  },
-  "lint-staged": {
-    ".{ts,js}": [
-      "npm run lint",
-      "git add ."
-    ]
   },
   "changelog": {
     "language": "zh"
@@ -76,6 +71,7 @@
     "http-status": "^1.4.2",
     "iconv-lite": "^0.5.1",
     "ioredis": "^4.17.1",
+    "ip-address": "git+https://github.com/CaoMeiYouRen/ip-address.git",
     "koa": "^2.12.0",
     "koa-bodyparser": "^4.3.0",
     "koa-cache-control": "^2.0.0",

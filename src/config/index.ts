@@ -41,6 +41,17 @@ export const TIMEOUT_MAX_AGE = Number(env.TIMEOUT_MAX_AGE || 15000)
  * 访问token
  */
 export const TOKEN = env.TOKEN || ''
+/**
+* IP黑白名单
+ */
+export const IP_CONFIG = {
+    IP_WHITELIST: (env.IP_WHITELIST || '').split(','),
+    IP_BLACKLIST: (env.IP_BLACKLIST || '').split(','),
+}
+/**
+ * 启用访问控制
+ */
+export const ENABLE_ACCESS_CONTROL = Boolean(TOKEN || IP_CONFIG.IP_WHITELIST.length || IP_CONFIG.IP_BLACKLIST.length)
 
 export const ITEM_LIMIT = Number(env.ITEM_LIMIT || 10)
 /**
@@ -54,14 +65,9 @@ export const LIMIT = {
 export const STATIC_MAX_AGE = Number(env.STATIC_MAX_AGE || 0)
 
 /**
- * 内存缓存
- */
-const CACHE_TYPE_MEMORY = 'memory'
-
-/**
  * 缓存类型
  */
-const CACHE_TYPE = env.CACHE_TYPE || CACHE_TYPE_MEMORY
+const CACHE_TYPE = env.CACHE_TYPE || 'memory'
 export const CACHE = {
     CACHE_TYPE,
     CACHE_AGE: Number(env.CACHE_AGE || 300),

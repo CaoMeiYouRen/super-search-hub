@@ -1,3 +1,4 @@
+export * from './accessControl'
 export * from './cache'
 export * from './catchError'
 export * from './limit'

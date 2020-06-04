@@ -83,7 +83,7 @@ npm run dev
 -   filter:string  [可选] 过滤参数，将在返回结果的基础上进行过滤
 -   sort: string  [可选]  排序方式
 -   noCache/nocache: boolean [可选]  是否禁用缓存，默认启用缓存(false)
--   token: string  [可选] 持有token可以不限制接口调用次数
+-   token: string  [可选] 持有token可以不限制接口调用次数（也可以通过配置ip白名单实现）
 
 ### 返回数据格式约定
 

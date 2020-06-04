@@ -23,5 +23,18 @@ declare module 'koa' {
          * @type {boolean}
          */
         noCache?: boolean
+
+        /**
+         * token是否正确或是否在白名单内
+         *
+         * @type {boolean}
+         */
+        auth?: boolean
+        /**
+         * ipv4
+         *
+         * @type {string}
+         */
+        ipv4?: string
     }
 }

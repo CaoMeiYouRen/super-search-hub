@@ -1,5 +1,6 @@
 import moment from 'moment-timezone'
 import colors = require('colors')
+import { Address6, Address4 } from 'ip-address'
 import { IS_DEBUG, TZ } from '@/config'
 
 moment.tz.setDefault(TZ) // 设置时区
@@ -105,4 +106,28 @@ export function timeFromNow(time: number) {
         time /= arr[i].len
     }
     return `${time.toFixed(2)} day`
+}
+
+/**
+ * 格式化ip为ipv4。
+ * 例如 ::ffff:127.0.0.1 => 127.0.0.1
+ *
+ * @author CaoMeiYouRen
+ * @date 2019-12-12
+ * @export
+ * @param {string} ip
+ * @returns
+ */
+export function ipFormat(ip: string): string {
+    const ipv6 = new Address6(ip)
+    let ipv4: Address4
+    if (ipv6.isValid()) {
+        ipv4 = ipv6.to4()
+    } else {
+        ipv4 = new Address4(ip)
+    }
+    if (ipv4.isValid()) {
+        return ipv4.address
+    }
+    return ''
 }

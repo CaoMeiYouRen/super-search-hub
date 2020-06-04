@@ -1,6 +1,6 @@
 import should from 'should'
 import moment from 'moment-timezone'
-import { timeFormat, sleep, dataFormat, timeFromNow } from '../helper'
+import { timeFormat, sleep, dataFormat, timeFromNow, ipFormat } from '../helper'
 
 moment.tz.setDefault('Asia/Shanghai')
 
@@ -36,6 +36,16 @@ describe('helper', () => {
         })
         it('返回 7.00 day', () => {
             timeFromNow(7 * 24 * 60 * 60 * 1000).should.equal('7.00 day')
+        })
+    })
+    describe('ipFormat', () => {
+        it('::ffff:127.0.0.1 => 127.0.0.1', () => {
+            const ip = '::ffff:127.0.0.1'
+            should(ipFormat(ip)).be.equal('127.0.0.1')
+        })
+        it('127.0.0.1 => 127.0.0.1', () => {
+            const ip = '127.0.0.1'
+            should(ipFormat(ip)).be.equal('127.0.0.1')
         })
     })
 })

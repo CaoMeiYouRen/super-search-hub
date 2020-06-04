@@ -1,5 +1,5 @@
 import Koa = require('koa')
-import { HttpError } from '@/models'
+import { HttpError, HttpStatusCode } from '@/models'
 /**
  * 处理404
  *
@@ -10,5 +10,5 @@ import { HttpError } from '@/models'
  * @param {Koa.Next} next
  */
 export async function notFound(ctx: Koa.Context, next: Koa.Next) {
-    throw new HttpError(404, `Cannot ${ctx.method} ${ctx.path}`)
+    throw new HttpError(HttpStatusCode.NOT_FOUND, `Cannot ${ctx.method} ${ctx.path}`)
 }

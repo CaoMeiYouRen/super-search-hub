@@ -8,7 +8,7 @@ import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
-    appLogger, cache, requestTransform,
+    appLogger, cache, requestTransform, requestIpTransform, accessControl,
 } from './middleware'
 import routes from './routes'
 import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
@@ -18,13 +18,15 @@ const router = new Router()
 
 app.proxy = true
 app.use(responseTime)
+app.use(requestIpTransform)
 app.use(appLogger)
 app.use(responseFormat)
 app.use(catchError)
 app.use(timeout)
-app.use(bodyParser())
-app.use(limiter)
 app.use(cors())
+app.use(bodyParser())
+app.use(accessControl)
+app.use(limiter)
 if (fs.pathExistsSync(path.join(__dirname, '../public'))) {
     // 文档并非必须，如果有则挂载
     app.use(serve(path.join(__dirname, '../public'), {

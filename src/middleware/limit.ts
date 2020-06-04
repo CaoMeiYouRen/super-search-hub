@@ -1,6 +1,6 @@
 import RateLimit from 'koa2-ratelimit/dist/RateLimit'
 import { store } from '@/db'
-import { LIMIT, TOKEN } from '@/config'
+import { LIMIT } from '@/config'
 
 export const limiter = RateLimit.middleware({
     interval: { sec: LIMIT.LIMIT_INTERVAL },
@@ -8,6 +8,6 @@ export const limiter = RateLimit.middleware({
     message: '请求次数超限; Too many requests, please try again later.',
     store,
     skip(ctx) {
-        return ctx.query?.token && ctx.query?.token === TOKEN
+        return ctx.auth
     },
 })
