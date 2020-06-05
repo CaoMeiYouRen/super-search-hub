@@ -51,7 +51,7 @@ export async function feedback(title: string, text?: string) {
             const meta = Object.entries({ time, name, version, ip }).map(e => {
                 return `## ${e[0]}: ${e[1]}`
             }).join('\n')
-            text = `${meta}\n${text}`
+            text = text?`${meta}\n${text}`:meta
             return dingtalk(title, text)
         }
     } catch (error) {
