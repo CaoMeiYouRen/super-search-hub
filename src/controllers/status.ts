@@ -32,7 +32,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
         workerId: cluster?.worker?.id,
         stat: {
             memory: dataFormat(stat.memory),
-            cpu: `${stat.cpu} %`,
+            cpu: `${stat.cpu.toFixed(2)} %`,
             runtime: timeFromNow(stat.elapsed),
         },
         os: {

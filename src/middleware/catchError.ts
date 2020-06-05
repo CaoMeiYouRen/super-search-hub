@@ -1,7 +1,7 @@
 import Koa = require('koa')
 import { HttpError, HttpStatusCode } from '@/models'
-import { IS_DEBUG } from '@/config'
-import { Log } from '@/utils'
+import { IS_DEBUG, ENABLE_PUSH } from '@/config'
+import { Log, feedback } from '@/utils'
 import { errorLogger } from './logger'
 export async function catchError(ctx: Koa.Context, next: Koa.Next) {
     try {
@@ -15,6 +15,10 @@ export async function catchError(ctx: Koa.Context, next: Koa.Next) {
         } else if (e instanceof Error) {
             // 开发阶段打印堆栈信息，否则打印 message
             message = IS_DEBUG ? e.stack : e.message
+            if (ENABLE_PUSH) {
+                let title = '服务器出现非 HttpError ，请及时处理'
+                await feedback(title, `${e.stack}`)
+            }
         }
         if (statusCode >= HttpStatusCode.INTERNAL_SERVER_ERROR) {
             Log.error(e)

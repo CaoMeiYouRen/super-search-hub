@@ -43,3 +43,23 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
         return e
     }
 }
+
+/**
+ * 获取本机外网IP
+ *
+ * @author CaoMeiYouRen
+ * @date 2019-07-24
+ * @export
+ * @returns {Promise<string>}
+ */
+export async function getPublicIP(): Promise<string> {
+    try {
+        const res = await axios.get('https://ipv4.icanhazip.com/')
+        let ip: string = res.data
+        ip = ip.replace(/\n/g, '')
+        return ip
+    } catch (error) {
+        console.log(error)
+        return ''
+    }
+}

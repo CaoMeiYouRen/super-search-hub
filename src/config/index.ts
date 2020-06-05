@@ -107,3 +107,14 @@ export const DISALLOW_ROBOT = Boolean(env.DISALLOW_ROBOT)
  * 时区
  */
 export const TZ = env.TZ || ''
+/**
+ * 是否启用推送
+ */
+export const ENABLE_PUSH = !IS_DEBUG && Boolean(env.DINGTALK_ACCESS_TOKEN)
+/**
+ * 钉钉配置
+ */
+export const DINGTALK = {
+    DINGTALK_ACCESS_TOKEN: env.DINGTALK_ACCESS_TOKEN || '',
+    DINGTALK_SECRET: env.DINGTALK_SECRET || '',
+}

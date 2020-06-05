@@ -8,8 +8,8 @@ import colors = require('colors')
 import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
-import { PORT, IS_DEBUG, ENABLE_CLUSTER } from '@/config'
-import { Log } from '@/utils'
+import { PORT, IS_DEBUG, ENABLE_CLUSTER, ENABLE_PUSH } from '@/config'
+import { Log, feedback, dingtalk } from '@/utils'
 import { errorLogger } from '@/middleware'
 const httpPort = normalizePort(PORT)
 const numCPUs = os.cpus().length
@@ -67,15 +67,31 @@ function onListening(): void {
     const workerId = cluster?.worker?.id || ''
     Log.info(`worker ${workerId} 运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
+    if (ENABLE_PUSH && (!workerId || workerId === 1)) {
+        let title = '服务器已顺利启动'
+        feedback(title)
+    }
 }
 
 
 process.on('uncaughtException', (err) => {
     console.error(err)
     errorLogger.error(err)
+    if (ENABLE_PUSH) {
+        let title = '服务器出现 uncaughtException ，请及时处理'
+        feedback(title, `${err.stack}`).catch(e => {
+            console.error(e)
+        })
+    }
 })
 
-process.on('unhandledRejection', (reason: any, p) => {
+process.on('unhandledRejection', (reason, p) => {
     console.error('Unhandled Rejection at: ', p)
     errorLogger.error(p)
+    if (ENABLE_PUSH) {
+        let title = '服务器出现 unhandledRejection ，请及时处理'
+        feedback(title, `${p}`).catch(e => {
+            console.error(e)
+        })
+    }
 })
