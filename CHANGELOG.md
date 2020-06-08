@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.7.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.6.0...v1.7.0) (2020-06-08)
+
+
+### ✨ 新功能
+
+* 1.新增xml格式渲染 2.修复每日限流bug 3.优化types定义 4.优化错误捕捉 ([4b18398](https://github.com/CaoMeiYouRen/super-search-hub/commit/4b18398))
+
 # [1.6.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.5.3...v1.6.0) (2020-06-08)
 
 
