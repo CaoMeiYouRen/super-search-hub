@@ -205,4 +205,5 @@ git pull
 ## 配置
 
 通过设置环境变量来配置 super-search-hub
+
 <<< @/.env
