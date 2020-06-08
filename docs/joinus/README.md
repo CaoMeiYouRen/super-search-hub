@@ -127,6 +127,7 @@ const channel: RssChannel = new RssChannel({})
         -   如果源数据返回的数据为json格式，请尽可能编写一个数据模型类。
         -   原因是如果有后来人想修改这个接口的数据，有数据模型会十分方便
         -   如果数据模型发生变化，改动起来也比较方便
+        -   [json转ts类网站](https://apihelper.jccore.cn/jsontool)
     -   services 业务逻辑
     -   utils 工具类
     -   test 或 \_\_test\_\_ 单元测试文件

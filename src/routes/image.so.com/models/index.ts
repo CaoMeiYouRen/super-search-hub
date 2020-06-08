@@ -1,3 +1,4 @@
+/* ImageItem */
 export class ImageItem {
     id: string
     qqface_down_url: boolean
@@ -32,6 +33,8 @@ export class ImageItem {
     fnum: string
     comm_purl: string
 }
+  
+/* ImageSoResult */
 export class ImageSoResult {
     total: number
     end: boolean

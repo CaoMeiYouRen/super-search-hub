@@ -77,11 +77,11 @@ export class RssChannel {
     /**
      * feed 内容的最后修改日期
      *
-     * @type {Date}
+     * @type {(Date | string)}
      */
-    lastBuildDate?: Date
+    lastBuildDate?: Date | string
     /**
-     * 作者邮箱 或 GitHub用户名
+     * 管理员邮箱 或 GitHub用户名
      *
      * @type {string}
      */

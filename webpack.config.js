@@ -25,16 +25,13 @@ module.exports = {
         __filename: false,
         __dirname: false,
     },
-    plugins: [
-    ],
+    plugins: [],
     module: {
-        rules: [
-            {
-                test: /\.(ts|tsx)$/,
-                use: 'ts-loader',//配置加载typescript
-                exclude: /node_modules/
-            }
-        ]
+        rules: [{
+            test: /\.(ts|tsx)$/,
+            use: 'ts-loader', //配置加载typescript
+            exclude: /node_modules/
+        },]
     },
     resolve: {
         //路径别名

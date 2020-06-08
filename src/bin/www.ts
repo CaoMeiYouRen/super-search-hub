@@ -65,7 +65,7 @@ function onError(error: any): void {
 function onListening(): void {
     console.log('################################################')
     const workerId = cluster?.worker?.id || ''
-    Log.info(`worker ${workerId} 运行地址为 http://127.0.0.1:${httpPort}`)
+    Log.info(`${workerId ? `worker ${workerId}` : ''} 运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
     if (ENABLE_PUSH && (!workerId || workerId === 1)) {
         let title = '服务器已顺利启动'

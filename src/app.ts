@@ -8,7 +8,7 @@ import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
-    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit,
+    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit, template,
 } from './middleware'
 import routes from './routes'
 import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
@@ -17,11 +17,16 @@ const app = new Koa()
 const router = new Router()
 
 app.proxy = true
+
 app.use(responseTime)
 app.use(requestIpTransform)
 app.use(appLogger)
+
 app.use(responseFormat)
 app.use(catchError)
+app.use(template)
+app.use(responseFormat)
+
 app.use(timeout)
 app.use(cors())
 app.use(bodyParser())

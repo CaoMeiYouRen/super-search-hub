@@ -35,9 +35,5 @@ export async function accessControl(ctx: Koa.Context, next: Koa.Next) {
         }
         // 其余情况均同意
     }
-    // 拉黑ip的情况
-    if (await globalCache.get(`ip-ban-${ctx.ipv4}`)) {
-        throw new HttpError(HttpStatusCode.BAD_REQUEST, '您已被拉入访问黑名单！')
-    }
     await next()
 }

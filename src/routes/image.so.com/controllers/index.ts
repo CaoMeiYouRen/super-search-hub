@@ -6,7 +6,8 @@ import { IS_DEBUG, CACHE } from '@/config'
 import { ImageSoResult } from '../models'
 
 export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+    // thumb 是否使用360图床源，可能会被限制
+    const { keyword, page, limit, thumb } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
@@ -23,12 +24,13 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.list?.map(e => {
+                let image = thumb ? e.thumb : e.img
                 let item = new RssItem({
                     title: e.title,
                     link: e.link,
                     description: e.title,
                     guid: e.link,
-                    images: [e.img],
+                    images: [image],
                 })
                 return item
             }).slice(0, limit),
