@@ -16,6 +16,14 @@ sidebar: auto
 
 **强烈建议阅读[开发技巧](#开发技巧)**
 
+### 开发前需知
+
+并非所有的路由都符合本项目要求，为防止被查水表，以下几种路由的 PR 将被拒绝
+
+-   违反国家相关法律法规的（主要为 R18 网站）
+
+-   ……（待完善）
+
 ### 技术栈要求
 
 本人假定你已经掌握以下技术的使用
@@ -340,10 +348,10 @@ npm run commit
 
 关于选项，参考 [semantic-release](https://github.com/semantic-release/semantic-release) 的文档
 
--   若为BUG修复，则选择 fix
--   若为新增功能，则选择 feat
--   若为移除某些功能，则选则 perf  或填写 BREAKING CHANGE
-    -    perf 和其他破坏性更新，若不是为了修复BUG，原则上将拒绝该PR
+-   若为BUG修复，则选择 `fix`
+-   若为新增功能，则选择 `feat`
+-   若为移除某些功能，则选择 `perf`  或填写 `BREAKING CHANGE`
+    -    `perf` 和其他破坏性更新，若不是为了修复BUG，原则上将拒绝该PR
     -   对于本项目而言，路由的破坏性更新并不算本项目的破坏性更新，因此即便出现了路由的破坏性更新，也按照`feat`提交
 
 ::: danger 警告

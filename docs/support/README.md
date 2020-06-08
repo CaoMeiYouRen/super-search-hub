@@ -4,13 +4,13 @@ sidebar: auto
 
 # 支持 super-search-hub
 
-super-search-hub 是采用 MIT 许可的开源项目, 使用完全免费. 但是随着项目规模的增长, 也需要有相应的资金支持才能持续项目的维护与开发.
+super-search-hub 是采用 MIT 许可的开源项目, 使用完全免费。但也需要一定的资金来支持项目的维护与开发
 
-你可以通过下列的方法来赞助 super-search-hub 的开发.
+你可以通过下列的方法来赞助 super-search-hub 的开发。
 
 ## 周期性赞助
 
-周期性赞助可以获得额外的回报, 比如更快的 GitHub 响应或者你的名字会出现在 super-search-hub 的 GitHub 仓库和现在我们的官网中.
+周期性赞助可以获得额外的回报, 比如更快的 GitHub 响应或者你的名字会出现在 super-search-hub 的 GitHub 仓库和现在我们的官网中。
 
 -   通过 [爱发电](https://afdian.net/@caomeiyouren) 赞助
 
