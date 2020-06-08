@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.6.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.5.3...v1.6.0) (2020-06-08)
+
+
+### ✨ 新功能
+
+* 新增360图片搜索路由 ([f1ec22b](https://github.com/CaoMeiYouRen/super-search-hub/commit/f1ec22b))
+
 ## [1.5.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.5.2...v1.5.3) (2020-06-05)
 
 
