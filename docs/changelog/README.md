@@ -1,3 +1,12 @@
+## [1.8.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.1...v1.8.2) (2020-06-09)
+
+
+### 🐛 Bug 修复
+
+* 优化Rss模型；优化xml格式返回的空行；延迟服务器启动提示 ([24ede83](https://github.com/CaoMeiYouRen/super-search-hub/commit/24ede83))
+
+
+
 ## [1.8.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.0...v1.8.1) (2020-06-09)
 
 
