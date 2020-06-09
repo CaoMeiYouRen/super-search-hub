@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.7.0...v1.8.0) (2020-06-08)
+
+
+### ✨ 新功能
+
+* 新增bilibili路由 ([dd5c601](https://github.com/CaoMeiYouRen/super-search-hub/commit/dd5c601))
+
+
+
 # [1.7.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.6.0...v1.7.0) (2020-06-08)
 
 
