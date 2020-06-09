@@ -12,3 +12,8 @@
 
 <Route author="CaoMeiYouRen" example="/image.so.com/?keyword=888888" path="/image.so.com/?keyword=keyword&thumb=true" :paramsDesc="['搜索关键词']" />
 
+## bilibili
+
+### 视频搜索
+
+<Route author="CaoMeiYouRen" example="/bilibili/?keyword=888888&page=1" path="/bilibili/?keyword=keyword&&page=page" :paramsDesc="['搜索关键词']" />

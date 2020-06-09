@@ -18,7 +18,7 @@ export class RssItem {
      */
     description: string
     /**
-     * 唯一标识符
+     * 唯一标识符，一般为链接
      *
      * @type {string}
      */
@@ -26,11 +26,11 @@ export class RssItem {
     /**
      * 最后发布时间
      *
-     * @type {Date}
+     * @type {(Date | string)}
      */
-    pubDate?: Date
+    pubDate?: Date | string
     /**
-     * 图片数组
+     * 图片数组。会统一挂载在 description 最后面
      *
      * @type {string[]}
      */
@@ -74,6 +74,12 @@ export class RssChannel {
      */
     count?: number
 
+    /**
+     * 每页的数量
+     *
+     * @type {number}
+     */
+    pageSize?: number
     /**
      * feed 内容的最后修改日期
      *

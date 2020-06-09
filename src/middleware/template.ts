@@ -82,11 +82,16 @@ export async function template(ctx: Koa.Context, next: Koa.Next) {
             if (data.lastBuildDate instanceof Date) {
                 data.lastBuildDate = data.lastBuildDate.toISOString()
             }
+            data.description = data.description.replace(/\n/g, '<br/>')
             data.item = data.item.map(e => {
                 if (e.images) {
-                    e.description += `<br>${e.images?.map(m => {
+                    e.description += `\n${e.images?.map(m => {
                         return `<img src="${m}" referrerpolicy="no-referrer">`
-                    }).join('<br>')}`
+                    }).join('\n')}`
+                }
+                e.description = e.description.replace(/\n/g, '<br/>')
+                if (e.pubDate instanceof Date) {
+                    e.pubDate = e.pubDate.toISOString()
                 }
                 return e
             })

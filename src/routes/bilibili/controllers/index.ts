@@ -47,7 +47,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
     ctx.status = result.status
     if (ctx.status === 200) {
         const data: BilibiliResult = result.data
-        const channel: RssChannel = new RssChannel({
+        const channel = new RssChannel({
             title: 'B站搜索',
             link: url,
             description: 'B站搜索',
@@ -55,12 +55,15 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             item: data?.data?.result?.map(e => {
                 return new RssItem({
                     title: e.title?.replace(/<[^>]*>/g, ''),
-                    link: e.arcurl,
-                    description: e.description,
+                    link: `https://www.bilibili.com/video/av${e.aid}`,
+                    description: `作者: ${e.author}\n点击: ${e.play}    收藏: ${e.favorites}\n弹幕: ${e.video_review}    评论: ${e.review}\n简介: ${e.description}`,
                     guid: e.arcurl,
+                    images: [`https:${e.pic}`],
                     pubDate: new Date(e.pubdate * 1000),
                 })
-            }),
+            }).slice(0, limit),
+            pageSize: data?.data?.result?.length,
+            count: data?.data?.numResults,
         })
         ctx.body = channel
     } else {

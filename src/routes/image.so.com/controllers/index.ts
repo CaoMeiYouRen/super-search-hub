@@ -34,6 +34,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                 })
                 return item
             }).slice(0, limit),
+            pageSize: data?.list?.length,
             count: data?.total,
         })
         ctx.body = channel
