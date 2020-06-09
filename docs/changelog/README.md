@@ -1,3 +1,12 @@
+## [1.8.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.0...v1.8.1) (2020-06-09)
+
+
+### 🐛 Bug 修复
+
+* 新增pageSize；新增bilibili文档；优化xml返回格式 ([71f7592](https://github.com/CaoMeiYouRen/super-search-hub/commit/71f7592))
+
+
+
 # [1.8.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.7.0...v1.8.0) (2020-06-08)
 
 
