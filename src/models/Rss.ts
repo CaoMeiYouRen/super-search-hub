@@ -6,6 +6,18 @@ export class RssItem {
      */
     title: string
     /**
+     * 文章作者
+     *
+     * @type {string}
+     */
+    author?: string
+    /**
+     * 文章分类
+     *
+     * @type {(string | string[])}
+     */
+    category?: string | string[]
+    /**
      * 指向此项的超链接
      *
      * @type {string}
@@ -35,6 +47,24 @@ export class RssItem {
      * @type {string[]}
      */
     images?: string[]
+    /**
+     * 音频链接、磁力链接
+     *
+     * @type {string}
+     */
+    enclosure_url?: string
+    /**
+     * 时间戳 (播放长度) , 一般是秒数，可选
+     *
+     * @type {string}
+     */
+    enclosure_length?: string
+    /**
+     * 类型
+     *
+     * @type {string}
+     */
+    enclosure_type?: string
 
     constructor(data?: RssItem) {
         Object.assign(this, data)
@@ -104,7 +134,12 @@ export class RssChannel {
      * @type {number}
      */
     ttl?: number
-
+    /**
+     * 版权声明
+     *
+     * @type {string}
+     */
+    copyright?: string
     constructor(data?: RssChannel) {
         Object.assign(this, data)
     }

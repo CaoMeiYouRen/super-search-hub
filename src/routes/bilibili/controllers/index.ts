@@ -56,7 +56,8 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                 return new RssItem({
                     title: e.title?.replace(/<[^>]*>/g, ''),
                     link: `https://www.bilibili.com/video/av${e.aid}`,
-                    description: `作者: ${e.author}\n点击: ${e.play}    收藏: ${e.favorites}\n弹幕: ${e.video_review}    评论: ${e.review}\n简介: ${e.description}`,
+                    author: e.author,
+                    description: `点击: ${e.play}    收藏: ${e.favorites}\n弹幕: ${e.video_review}    评论: ${e.review}\n简介: ${e.description}`,
                     guid: e.arcurl,
                     images: [`https:${e.pic}`],
                     pubDate: new Date(e.pubdate * 1000),

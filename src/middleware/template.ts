@@ -1,4 +1,3 @@
-import path from 'path'
 import Koa = require('koa')
 import art from 'art-template'
 import xml2js = require('xml2js')
@@ -100,7 +99,7 @@ export async function template(ctx: Koa.Context, next: Koa.Next) {
             // // console.log(JSON.stringify(obj, null, 4))
             // let builder = new xml2js.Builder()
             // xml = builder.buildObject(obj)
-            ctx.body = xml
+            ctx.body = xml.replace(/(\n[\s|\t]*\r*\n)/g, '\n')
         }
 
     }
