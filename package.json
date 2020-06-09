@@ -71,7 +71,7 @@
     "fs-extra": "^9.0.0",
     "git-rev-sync": "^2.0.0",
     "http-status": "^1.4.2",
-    "iconv-lite": "^0.5.1",
+    "iconv-lite": "^0.6.0",
     "ioredis": "^4.17.1",
     "ip-address": "git+https://github.com/CaoMeiYouRen/ip-address.git",
     "koa": "^2.12.0",
