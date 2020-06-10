@@ -20,7 +20,17 @@ if (fs.existsSync('.env')) {
     }
 }
 const env = process.env
+/**
+ * 运行环境 development | production
+ */
+export const NODE_ENV = env.NODE_ENV
+/**
+ * 运行环境 development | production | test
+ * 为了避免和 webpack 默认的环境变量冲突
+ */
+export const MODE_ENV = env.MODE_ENV
 
+export const IS_TEST = MODE_ENV === 'test'
 /**
  * 是否为debug
  */

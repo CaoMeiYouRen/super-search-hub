@@ -68,7 +68,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
         })
         ctx.body = channel
     } else {
-        let message = IS_DEBUG ? result['stack'] : result['message']
+        const message = IS_DEBUG ? result['stack'] : result['message']
         ctx.body = { message }
     }
 }

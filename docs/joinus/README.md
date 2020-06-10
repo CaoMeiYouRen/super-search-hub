@@ -80,9 +80,9 @@ npm run dev
 -   路由一律在`routes/router.ts`文件中挂载
     -   路由名称同文件夹名称，若文件夹名称为` example`，则挂载路由为`router.use('/example', example.routes(), example.allowedMethods())`
 
-对于使用的query参数，请遵从以下约定
-
 ### 通用参数约定
+
+对于使用的query参数，请遵从以下约定
 
 -   keyword: string 查询内容。原则上必须有keyword
 -   type: string [可选] 返回格式(json/xml)，默认为json
@@ -114,6 +114,8 @@ const channel: RssChannel = new RssChannel({})
 1.  如果源数据为 json 则直接处理即可
 2.  如果源数据为 HTML 则使用 [cheerio](https://github.com/cheeriojs/cheerio) 进行处理
     -   cheerio 选择器与 jquery 选择器几乎相同。参考 cheerio 文档：[https://cheerio.js.org/](https://cheerio.js.org/)
+3.  如果源数据为 xml 则使用 `xml2js` 处理，将 xml 转换为 js 对象后再处理即可(可以考虑为处理后的数据编写数据模型，可选)
+4.  其他格式的数据请根据自己的经验和业界惯例选择合适的处理方法，必要时借助第三方包进行格式转换。
 
 ### 开发技巧
 
@@ -127,7 +129,7 @@ const channel: RssChannel = new RssChannel({})
         -   如果源数据返回的数据为json格式，请尽可能编写一个数据模型类。
         -   原因是如果有后来人想修改这个接口的数据，有数据模型会十分方便
         -   如果数据模型发生变化，改动起来也比较方便
-        -   [json转ts类网站](https://apihelper.jccore.cn/jsontool)
+        -   如果接口比较复杂可以使用这个网站来快速生成数据模型类 [json转ts类网站](https://apihelper.jccore.cn/jsontool)
     -   services 业务逻辑
     -   utils 工具类
     -   test 或 \_\_test\_\_ 单元测试文件

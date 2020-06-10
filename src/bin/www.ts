@@ -8,7 +8,7 @@ import colors = require('colors')
 import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
-import { PORT, IS_DEBUG, ENABLE_CLUSTER, ENABLE_PUSH } from '@/config'
+import { PORT, IS_DEBUG, ENABLE_CLUSTER, ENABLE_PUSH, NODE_ENV, MODE_ENV, IS_TEST } from '@/config'
 import { Log, feedback, dingtalk } from '@/utils'
 import { errorLogger } from '@/middleware'
 const httpPort = normalizePort(PORT)
@@ -19,9 +19,16 @@ if (ENABLE_CLUSTER && cluster.isMaster && !IS_DEBUG) {
     }
 } else {
     app.on('error', onError)
-    app.listen(httpPort, () => {
+    const server = app.listen(httpPort, () => {
         onListening()
     })
+    if (IS_TEST) {
+        Log.info('测试服务器已启动')
+        setTimeout(() => {
+            server.close()
+            Log.info('测试服务器顺利关闭')
+        }, 5000)
+    }
 }
 // const Debugger = debug('express:server')
 
@@ -67,10 +74,10 @@ function onListening(): void {
     const workerId = cluster?.worker?.id || ''
     Log.info(`${workerId ? `worker ${workerId}` : ''} 运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
-    if (ENABLE_PUSH && (!workerId || workerId === 1)) {
+    if (!IS_TEST && ENABLE_PUSH && (!workerId || workerId === 1)) {
         setTimeout(() => {
-            let title = '服务器已顺利启动'
-            feedback(title) 
+            const title = '服务器已顺利启动'
+            feedback(title)
         }, 5000)
     }
 }
@@ -79,8 +86,11 @@ function onListening(): void {
 process.on('uncaughtException', (err) => {
     console.error(err)
     errorLogger.error(err)
+    if (IS_TEST) {
+        process.exit(1)
+    }
     if (ENABLE_PUSH) {
-        let title = '服务器出现 uncaughtException ，请及时处理'
+        const title = '服务器出现 uncaughtException ，请及时处理'
         feedback(title, `${err.stack}`).catch(e => {
             console.error(e)
         })
@@ -90,8 +100,11 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, p) => {
     console.error('Unhandled Rejection at: ', p)
     errorLogger.error(p)
+    if (IS_TEST) {
+        process.exit(1)
+    }
     if (ENABLE_PUSH) {
-        let title = '服务器出现 unhandledRejection ，请及时处理'
+        const title = '服务器出现 unhandledRejection ，请及时处理'
         feedback(title, `${p}`).catch(e => {
             console.error(e)
         })

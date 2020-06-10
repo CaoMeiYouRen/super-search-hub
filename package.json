@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src --fix --ext .ts,.js",
+    "lint": "cross-env NODE_ENV=production eslint src --fix --ext .ts,.js",
     "start": "node dist/index.js",
     "dev": "cross-env NODE_ENV=development ts-node-dev src/bin/www.ts",
     "dev:webpack": "cross-env NODE_ENV=development webpack --config ./webpack.config.js && npm run start",
@@ -26,9 +26,11 @@
     "changelog": "conventional-changelog -p cmyr-config -i CHANGELOG.md -s -r 0",
     "release": "semantic-release",
     "test": "mocha -r ts-node/register test/register.ts src/**/*.test.ts test/**/*.test.ts -R nyan -t 10000",
+    "posttest": "npm run test:webpack",
     "test:unit": "mocha -r ts-node/register test/register.ts src/**/*.test.ts -R nyan -t 10000",
     "test:e2e": "mocha -r ts-node/register test/register.ts test/**/*.test.ts -R nyan -t 10000",
     "test:nyc": "rimraf coverage && nyc --reporter=lcov --reporter=text mocha -r ts-node/register test/register.ts src/**/*.test.ts test/**/*.test.ts -R nyan -t 10000",
+    "test:webpack": "rimraf dist && cross-env NODE_ENV=development webpack --config ./webpack.config.js && cross-env MODE_ENV=test CACHE_TYPE=memory npm run start",
     "coverage": "codecov",
     "precoverage": "npm run test:nyc"
   },

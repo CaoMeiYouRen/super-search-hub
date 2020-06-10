@@ -73,7 +73,7 @@ export const Log = {
  * @returns {string}
  */
 export function dataFormat(data: number): string {
-    let arr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+    const arr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
     for (let i = 0; i < arr.length; i++) {
         if (data < 1024) {
             return `${data.toFixed(2)} ${arr[i]}`
@@ -92,7 +92,7 @@ export function dataFormat(data: number): string {
  * @returns
  */
 export function timeFromNow(time: number) {
-    let arr = [
+    const arr = [
         { name: 'ms', len: 1000 },
         { name: 's', len: 60 },
         { name: 'min', len: 60 },

@@ -24,8 +24,8 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.list?.map(e => {
-                let image = thumb ? e.thumb : e.img
-                let item = new RssItem({
+                const image = thumb ? e.thumb : e.img
+                const item = new RssItem({
                     title: e.title,
                     link: e.link,
                     description: e.title,
@@ -39,7 +39,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
         })
         ctx.body = channel
     } else {
-        let message = IS_DEBUG ? result['stack'] : result['message']
+        const message = IS_DEBUG ? result['stack'] : result['message']
         ctx.body = { message }
     }
 }

@@ -1,3 +1,4 @@
+const IS_PROD = process.env.NODE_ENV === 'production'
 module.exports = {
     root: true,
     globals: {
@@ -41,7 +42,7 @@ module.exports = {
         'keyword-spacing': [2, { before: true, after: true }], // 强制关键字周围空格的一致性
         'arrow-spacing': [2, { before: true, after: true }], // 要求箭头函数的箭头之前或之后有空格
         'no-var': 2, // 要求使用 let 或 const 而不是 var
-        'prefer-const': 0, // 建议使用const
+        'prefer-const': IS_PROD ? 2 : 0, // 建议使用const
         eqeqeq: 2, // 要求使用要求使用 === 和 !==
         'space-infix-ops': 2, // 要求操作符周围有空格
         'template-curly-spacing': [2, 'never'], // 强制模板字符串中空格的使用

@@ -3,7 +3,7 @@ const env = process.env
 const IS_DEBUG = env.NODE_ENV === 'development'
 module.exports = {
     devtool: IS_DEBUG ? 'source-map' : '',
-    mode: env.NODE_ENV || 'production',
+    mode: IS_DEBUG ? 'development' : 'production',
     entry: {
         build: path.join(__dirname, './src/bin/www.ts')
     },

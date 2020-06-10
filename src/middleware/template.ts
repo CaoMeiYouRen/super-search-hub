@@ -88,13 +88,13 @@ export async function template(ctx: Koa.Context, next: Koa.Next) {
                         return `<img src="${m}" referrerpolicy="no-referrer">`
                     }).join('\n')}`
                 }
-                e.description = e.description.replace(/\n/g, '<br/>')
+                e.description = e.description.replace(/\r\n/g, '\n').replace(/\n/g, '<br/>')
                 if (e.pubDate instanceof Date) {
                     e.pubDate = e.pubDate.toISOString()
                 }
                 return e
             })
-            let xml = art.render(template_xml, ctx.body.data, { escape: true })
+            const xml = art.render(template_xml, ctx.body.data, { escape: true })
             // let obj = await xml2js.parseStringPromise(xml, {})
             // // console.log(JSON.stringify(obj, null, 4))
             // let builder = new xml2js.Builder()
