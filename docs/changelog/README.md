@@ -1,3 +1,12 @@
+## [1.8.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.3...v1.8.4) (2020-06-10)
+
+
+### 🐛 Bug 修复
+
+* 修复 link；修改测试端口为随机 ([ca29a92](https://github.com/CaoMeiYouRen/super-search-hub/commit/ca29a92))
+
+
+
 ## [1.8.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.2...v1.8.3) (2020-06-10)
 
 
