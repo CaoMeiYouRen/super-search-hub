@@ -6,7 +6,7 @@ import Koa = require('koa')
 import pidusage from 'pidusage'
 import git from 'git-rev-sync'
 import { dataFormat, timeFromNow } from '@/utils'
-// 仅开放环境下显示gitHash
+// 仅开发环境下显示gitHash
 let gitHash: any
 try {
     gitHash = git.long()
