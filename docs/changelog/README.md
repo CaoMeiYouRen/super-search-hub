@@ -1,3 +1,12 @@
+## [1.8.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.2...v1.8.3) (2020-06-10)
+
+
+### 🐛 Bug 修复
+
+* 新增 webpack 打包后的运行测试；修改 eslint 风格；修正部分细节 ([c130973](https://github.com/CaoMeiYouRen/super-search-hub/commit/c130973))
+
+
+
 ## [1.8.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.1...v1.8.2) (2020-06-09)
 
 
