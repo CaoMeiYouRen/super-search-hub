@@ -2,7 +2,8 @@ import http = require('http')
 import request = require('supertest')
 import should from 'should'
 import { app } from '../src/app'
-import { PORT } from '../src/config'
+// import { PORT } from '../src/config'
+const PORT = Math.floor(Math.random() * 55535 + 10000)
 let server: http.Server
 describe('app e2e测试', () => {
     before((done) => {

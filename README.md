@@ -1,4 +1,4 @@
-<h1 align="center">super-search-hub </h1>
+<h1 align="center">super-search-hub</h1>
 <p>
   <a href="https://travis-ci.com/CaoMeiYouRen/super-search-hub" target="_blank">
     <img alt="build" src="https://travis-ci.com/CaoMeiYouRen/super-search-hub.svg?branch=master" />
@@ -6,7 +6,6 @@
    <a href="https://codecov.io/github/CaoMeiYouRen/super-search-hub?branch=master" target="_blank">
     <img alt="Test coverage" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/super-search-hub.svg?style=flat-square" />
   </a>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.3.8-blue.svg?cacheSeconds=2592000" />
   <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
   <a href="https://github.com/CaoMeiYouRen/super-search-hub#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />

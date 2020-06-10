@@ -2,6 +2,7 @@ import path = require('path')
 import fs = require('fs-extra')
 import Koa = require('koa')
 import cheerio = require('cheerio')
+import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 import { IS_DEBUG, CACHE } from '@/config'
@@ -49,7 +50,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
         const data: BilibiliResult = result.data
         const channel = new RssChannel({
             title: 'B站搜索',
-            link: url,
+            link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: 'B站搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.data?.result?.map(e => {

@@ -1,4 +1,5 @@
 import Koa = require('koa')
+import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 
@@ -20,7 +21,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
         const data: ImageSoResult = result.data
         const channel: RssChannel = new RssChannel({
             title: '360图片搜索',
-            link: 'https://image.so.com/j',
+            link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.list?.map(e => {

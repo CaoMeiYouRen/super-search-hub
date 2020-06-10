@@ -91,6 +91,7 @@
     "moment": "^2.26.0",
     "moment-timezone": "^0.5.31",
     "pidusage": "^2.0.20",
+    "query-string": "^6.13.0",
     "rimraf": "^3.0.2",
     "ts-dingtalk-robot": "^1.0.0",
     "ts-loader": "^7.0.4",

@@ -1,4 +1,5 @@
 import Koa = require('koa')
+import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 import { PansouResult } from '../models'
@@ -18,7 +19,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
         const data: PansouResult = result.data
         const channel: RssChannel = new RssChannel({
             title: '网盘搜索',
-            link: 'http://www.pansou.com/',
+            link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
             item: data?.list?.data?.map(e => {
