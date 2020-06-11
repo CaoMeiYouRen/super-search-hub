@@ -1,3 +1,12 @@
+## [1.8.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.5...v1.8.6) (2020-06-11)
+
+
+### 🐛 Bug 修复
+
+* 完善 bilibili 搜索 ([8b1c35f](https://github.com/CaoMeiYouRen/super-search-hub/commit/8b1c35f))
+
+
+
 ## [1.8.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.4...v1.8.5) (2020-06-11)
 
 
