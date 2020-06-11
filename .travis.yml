@@ -6,7 +6,7 @@ branchs:
 services:
     - docker
 install:
-    - npm install
+    - yarn
 script:
     - npm run lint
     - npm run test
