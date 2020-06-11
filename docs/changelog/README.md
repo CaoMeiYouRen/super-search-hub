@@ -1,3 +1,12 @@
+## [1.8.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.4...v1.8.5) (2020-06-11)
+
+
+### 🐛 Bug 修复
+
+* 修改npm install为yarn ([76d4c1d](https://github.com/CaoMeiYouRen/super-search-hub/commit/76d4c1d))
+
+
+
 ## [1.8.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.3...v1.8.4) (2020-06-10)
 
 
