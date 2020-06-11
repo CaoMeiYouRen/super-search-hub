@@ -1,5 +1,27 @@
 # 介绍
 
+<p>
+   <a href="https://github.com/CaoMeiYouRen/super-search-hub" target="_blank">
+    <img alt="Version" src="https://img.shields.io/github/package-json/v/CaoMeiYouRen/super-search-hub">
+  </a>
+  <a href="https://travis-ci.com/CaoMeiYouRen/super-search-hub" target="_blank">
+    <img alt="build" src="https://travis-ci.com/CaoMeiYouRen/super-search-hub.svg?branch=master" />
+  </a>
+   <a href="https://codecov.io/github/CaoMeiYouRen/super-search-hub?branch=master" target="_blank">
+    <img alt="Test coverage" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/super-search-hub.svg?style=flat-square" />
+  </a>
+  <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
+  <a href="https://github.com/CaoMeiYouRen/super-search-hub#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/super-search-hub/graphs/commit-activity" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/CaoMeiYouRen/super-search-hub/blob/master/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/CaoMeiYouRen/super-search-hub" />
+  </a>
+</p>
+
 设计参考和灵感来源：[RSSHub](https://github.com/DIYgod/RSSHub)
 
 设计目标：

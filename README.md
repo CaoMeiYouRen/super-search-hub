@@ -1,5 +1,8 @@
 <h1 align="center">super-search-hub</h1>
 <p>
+   <a href="https://github.com/CaoMeiYouRen/super-search-hub" target="_blank">
+    <img alt="Version" src="https://img.shields.io/github/package-json/v/CaoMeiYouRen/super-search-hub">
+  </a>
   <a href="https://travis-ci.com/CaoMeiYouRen/super-search-hub" target="_blank">
     <img alt="build" src="https://travis-ci.com/CaoMeiYouRen/super-search-hub.svg?branch=master" />
   </a>
@@ -17,6 +20,7 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/CaoMeiYouRen/super-search-hub" />
   </a>
 </p>
+
 
 > 将任何能搜索的网页的搜索结果处理成一种统一的格式
 
