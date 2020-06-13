@@ -67,6 +67,7 @@
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "colors": "^1.4.0",
+    "dayjs": "^1.8.28",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "file-stream-rotator": "^0.5.7",

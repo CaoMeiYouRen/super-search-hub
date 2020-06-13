@@ -1,5 +1,5 @@
 /**
- * 移除所有HTML标签。例如<a>123</a>
+ * 移除所有HTML标签。例如\<a\>123\</a\>
  *
  * @author CaoMeiYouRen
  * @date 2020-06-11

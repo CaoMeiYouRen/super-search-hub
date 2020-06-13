@@ -31,8 +31,18 @@ describe('app e2e测试', () => {
             done()
         })
     })
+    it('应该返回 400', (done) => {
+        request(server).get('/400').expect(400, (err, res) => {
+            if (err) {
+                done(err)
+                return
+            }
+            should(res.status === 400).ok()
+            done()
+        })
+    })
     it('应该成功捕捉到 404 错误', (done) => {
-        request(server).get('/404').expect(404, (err, res) => {
+        request(server).get('/404?keyword=888888').expect(404, (err, res) => {
             if (err) {
                 done(err)
                 return

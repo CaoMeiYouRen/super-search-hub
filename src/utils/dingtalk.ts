@@ -1,5 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
+import colors from 'colors'
 import { Robot, Text, Markdown } from 'ts-dingtalk-robot'
 import { DINGTALK, ENABLE_PUSH } from '@/config'
 import { getPublicIP } from './ajax'
@@ -26,7 +27,7 @@ if (ENABLE_PUSH) {
  */
 export async function dingtalk(title: string, text?: string) {
     if (!robot) {
-        console.error('robot未初始化！')
+        console.warn(colors.yellow('robot未初始化！'))
         return
     }
     if (!text) {

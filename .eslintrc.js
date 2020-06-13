@@ -74,5 +74,6 @@ module.exports = {
         'no-useless-constructor': [2], // 禁用不必要的构造函数
         'spaced-comment': [2, 'always'], // 要求或禁止在注释前有空白
         'sort-imports': [0], // import 排序
+        'tno-prototype-builtins': [0],
     },
 }
