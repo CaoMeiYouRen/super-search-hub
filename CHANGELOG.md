@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.9.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.6...v1.9.0) (2020-06-13)
+
+
+### ✨ 新功能
+
+* 新增百度搜索路由 ([c429a75](https://github.com/CaoMeiYouRen/super-search-hub/commit/c429a75))
+
 ## [1.8.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.5...v1.8.6) (2020-06-11)
 
 
