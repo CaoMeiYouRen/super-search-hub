@@ -28,13 +28,11 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             webMaster: 'CaoMeiYouRen',
             item: list?.map((i, e) => {
                 const f = $(e)
-                const link = f.find('h3>a').first().attr('href') || ''
                 const item = new RssItem({
                     title: removeHtmlTag(f.find('h3').first().text()).trim(),
-                    link,
+                    link: f.find('h3>a').first().attr('href') || '',
                     author: removeHtmlTag(f.find('div').last().find('span').first().text()).replace(/@/, ''),
                     description: removeHtmlTag(f.find('div.content p.txt').first().text()),
-                    guid: link,
                     pubDate: new Date(dateParser(removeHtmlTag(f.find('div').last().find('span').last().text()))),
                 })
                 return item

@@ -27,7 +27,6 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     title: e.title,
                     link: e.link,
                     description: e.des,
-                    guid: e.link,
                 })
                 return item
             }).slice(0, limit),

@@ -68,6 +68,9 @@ export class RssItem {
 
     constructor(data?: RssItem) {
         Object.assign(this, data)
+        if (this.link && !this.guid) {
+            this.guid = this.link
+        }
     }
 }
 

@@ -37,12 +37,10 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             webMaster: 'CaoMeiYouRen',
             item: list?.map((i, e) => {
                 const f = $(e)
-                const link = f.find('h3.t>a').first().attr('href') || ''
                 const item = new RssItem({
                     title: removeHtmlTag(f.children('h3').text()).trim(),
-                    link,
+                    link: f.find('h3.t>a').first().attr('href') || '',
                     description: removeHtmlTag(f.find('div.c-abstract').first().text()),
-                    guid: link,
                 })
                 return item
             }).get().slice(0, limit),

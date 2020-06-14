@@ -34,7 +34,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         author: e.author,
                         description: `点击: ${e.play}    收藏: ${e.favorites}\n弹幕: ${e.video_review}    评论: ${e.review}\n简介: ${e.description}`,
                         category: e.typename,
-                        guid: link,
                         images: [`https:${e.pic}`],
                         pubDate: new Date(e.pubdate * 1000),
                     })
@@ -51,7 +50,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         link,
                         description: `${e.desc}\n\ncv:：${e.cv}\n\nstaff：${e.staff}`,
                         category: e.season_type_name,
-                        guid: link,
                         images: [`https:${e.cover}`],
                         pubDate: new Date(e.pubtime * 1000),
                     })
@@ -68,7 +66,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         author: e.uname,
                         description: `人气值：${e.online}`,
                         category: e.cate_name,
-                        guid: link,
                         images: [`https:${e.user_cover}`],
                         pubDate: new Date(e.live_time),
                     })
@@ -81,7 +78,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         author: removeHtmlTag(e.uname),
                         description: e.is_live ? '已开播' : '未开播',
                         category: (e.is_live && e.tags) ? e.tags.split(',') : undefined,
-                        guid: link,
                         images: [`https:${e.uface}`],
                     })
                 }))
@@ -96,7 +92,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         link,
                         description: `阅读: ${e.view}    点赞: ${e.like}    评论：${e.reply}\n${e.desc}`,
                         category: e.category_name,
-                        guid: link,
                         images: e.image_urls.map(img => `https:${img}`),
                         pubDate: new Date(e.pub_time * 1000),
                     })
@@ -112,7 +107,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         title: removeHtmlTag(e.title),
                         link,
                         description: e.description,
-                        guid: link,
                         author: e.author,
                         images: [`https:${e.cover}`],
                         pubDate: new Date(e.update * 1000),
@@ -123,13 +117,11 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             case 'bili_user': {
                 const dataResult: BiliUserResult[] = data?.data?.result
                 item = dataResult?.map(e => {
-                    const link = `https://space.bilibili.com/${e.mid}`
                     return new RssItem({
                         title: e.uname,
-                        link,
+                        link: `https://space.bilibili.com/${e.mid}`,
                         author: e.uname,
                         description: `等级：${e.level}  关注：${e.fans}   视频数：${e.videos}\n${e.usign}`,
-                        guid: link,
                         images: [`https:${e.upic}`],
                     })
                 })
@@ -138,13 +130,11 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             case 'photo': {
                 const dataResult: PhotoResult[] = data?.data?.result
                 item = dataResult?.map(e => {
-                    const link = `https://h.bilibili.com/${e.mid}`
                     return new RssItem({
                         title: escape2Html(e.title),
-                        link,
+                        link: `https://h.bilibili.com/${e.id}`,
                         author: e.uname,
                         description: `浏览: ${e.view}    收藏：${e.like}`,
-                        guid: link,
                         images: [e.cover],
                     })
                 })

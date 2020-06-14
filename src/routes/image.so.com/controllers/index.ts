@@ -30,7 +30,6 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     title: e.title,
                     link: e.link,
                     description: e.title,
-                    guid: e.link,
                     images: [image],
                 })
                 return item

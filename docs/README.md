@@ -51,7 +51,7 @@
 -   动漫之家
 -   萌娘百科
 -   码云
--   谷歌
+-   Google
 -   Youtube
 -   GitHub
 -   pixiv
