@@ -24,6 +24,8 @@
 
 > 将任何能搜索的网页的搜索结果处理成一种统一的格式
 
+#### 注意：本项目并非npm模块，还无法作为npm模块安装！！（未来可能会有这个计划）
+
 ## ✨ Demo
 
 部署案例 [https://searchhub.cmyr.icu/](https://searchhub.cmyr.icu/)
