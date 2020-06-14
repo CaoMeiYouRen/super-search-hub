@@ -27,4 +27,4 @@ sort：排序方式, 综合:totalrank 最多点击:click 最新发布:pubdate(�
 
 ### 搜索
 
-<Route author="CaoMeiYouRen" example="/baidu/www?keyword=888888" path="/bilibili/?keyword=keyword"  />
+<Route author="CaoMeiYouRen" example="/baidu/www/?keyword=888888" path="/bilibili/?keyword=keyword"  />

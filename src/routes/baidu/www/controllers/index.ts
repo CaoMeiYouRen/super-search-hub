@@ -6,22 +6,28 @@ import path = require('path')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax, removeHtmlTag } from '@/utils'
 import { IS_DEBUG, CACHE } from '@/config'
-
+async function getBaiduCookie(ctx: Koa.Context) {
+    let Cookie: string = await ctx.cache?.get('baidu-cookie')
+    if (!Cookie) {
+        const result = await ajax('https://www.baidu.com/')
+        if (result.headers['set-cookie'] && result.headers['set-cookie'][0]) {
+            Cookie = result.headers['set-cookie'][0]
+            await ctx.cache?.set('baidu-cookie', Cookie, -1)
+        }
+    }
+    return Cookie
+}
 export async function index(ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
-    const Cookie = await ctx.cache?.get('www.baidu.com/s-cookie') || ''
-
+    const Cookie = (await getBaiduCookie(ctx)) ?? ''
     const result = await ajax('https://www.baidu.com/s', {
         wd: keyword,
     }, {}, 'GET', {
         Cookie,
     })
-    if (result.headers['set-cookie'] && result.headers['set-cookie'][0]) {
-        await ctx.cache?.set('www.baidu.com/s-cookie', result.headers['set-cookie'][0])
-    }
     ctx.status = result.status
     if (ctx.status === 200) {
         const data = result.data
