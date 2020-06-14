@@ -1,5 +1,12 @@
 # super-search-hub
 
+## [1.9.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.1...v1.9.2) (2020-06-14)
+
+
+### 🐛 Bug 修复
+
+* 修复 bilibili 路由中photo link错误的bug；优化代码 ([69a941e](https://github.com/CaoMeiYouRen/super-search-hub/commit/69a941e))
+
 ## [1.9.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.0...v1.9.1) (2020-06-14)
 
 
