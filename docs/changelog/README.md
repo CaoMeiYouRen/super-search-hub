@@ -1,3 +1,12 @@
+## [1.9.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.0...v1.9.1) (2020-06-14)
+
+
+### 🐛 Bug 修复
+
+* 发布到npm ([9a421cb](https://github.com/CaoMeiYouRen/super-search-hub/commit/9a421cb))
+
+
+
 # [1.9.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.8.6...v1.9.0) (2020-06-13)
 
 
