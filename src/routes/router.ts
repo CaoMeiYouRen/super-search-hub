@@ -1,9 +1,10 @@
 import Router = require('@koa/router')
-import wwwBaidu from './baidu/www'
+import { HttpError } from '@/models'
+import baidu from './baidu'
 import bilibili from './bilibili'
 import imageSoCom from './image.so.com'
 import pansou from './pansou'
-import { HttpError } from '@/models'
+import kisssub from './kisssub'
 
 const router = new Router()
 
@@ -20,7 +21,9 @@ router.use('/image.so.com', imageSoCom.routes(), imageSoCom.allowedMethods())
 
 router.use('/bilibili', bilibili.routes(), bilibili.allowedMethods())
 
-router.use('/baidu/www', wwwBaidu.routes(), wwwBaidu.allowedMethods())
+router.use('/baidu', baidu.routes(), baidu.allowedMethods())
+
+router.use('/kisssub', kisssub.routes(), kisssub.allowedMethods())
 
 // import weibo from './weibo'
 // router.use('/weibo/article', weibo.routes(), weibo.allowedMethods())

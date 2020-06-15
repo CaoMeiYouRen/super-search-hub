@@ -4,6 +4,7 @@
   "author": "CaoMeiYouRen",
   "description": "将任何能搜索的网页的搜索结果处理成一种统一的格式",
   "main": "dist/index.js",
+  "jsdelivr": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -15,7 +16,6 @@
     "dev:webpack": "cross-env NODE_ENV=development webpack --config ./webpack.config.js && npm run start",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.js",
     "prebuild": "rimraf dist",
-    "build:test": "tsc && webpack --config ./webpack.config.js && node dist/index.js",
     "docs:dev": "nodemon --ext md,vue,js,css --watch docs --exec vuepress dev docs",
     "docs:dev2": "vuepress dev docs",
     "docs:build": "vuepress build docs",
@@ -96,6 +96,7 @@
     "pidusage": "^2.0.20",
     "query-string": "^6.13.0",
     "rimraf": "^3.0.2",
+    "rss-parser": "^3.8.0",
     "ts-dingtalk-robot": "^1.0.0",
     "ts-loader": "^7.0.4",
     "typescript": "^3.9.5",

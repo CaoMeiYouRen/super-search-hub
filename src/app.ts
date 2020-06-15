@@ -8,7 +8,7 @@ import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
     responseFormat, responseTime, timeout, catchError, limiter,
-    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit, template,
+    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit, template, rssFormat,
 } from './middleware'
 import routes from './routes'
 import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
@@ -44,6 +44,8 @@ app.use(cacheControl({
 }))
 app.use(cache)
 app.use(requestTransform)
+app.use(rssFormat)
+
 // 加载路由
 router.use(ROOT_URL, routes.routes(), routes.allowedMethods())
 app.use(router.routes()).use(router.allowedMethods())

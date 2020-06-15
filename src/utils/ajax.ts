@@ -1,6 +1,11 @@
 import axios, { AxiosResponse } from 'axios'
-import { UA } from '@/config'
-import { HttpStatusCode } from '@/models'
+import iconv from 'iconv-lite'
+import queryString = require('query-string')
+import { UA, CACHE } from '@/config'
+import { HttpStatusCode, HttpError } from '@/models'
+import { getCharset } from './regexp'
+import { globalCache } from '@/middleware'
+import { md5 } from './encrypt'
 
 /**
  * axios 封装，可满足大部分情况下的需求，若无法满足则重新封装 axios。
@@ -15,7 +20,7 @@ import { HttpStatusCode } from '@/models'
  * @param {*} [headers={}] 请求头
  * @returns
  */
-export async function ajax(url: string, query: any = {}, data: any = {}, method: any = 'GET', headers: any = {}): Promise<AxiosResponse<any>> {
+export async function ajax(url: string, query: any = {}, data: any = {}, method: any = 'GET', headers: any = {}, charset?: string): Promise<AxiosResponse<any>> {
     try {
         headers = Object.assign({ 'User-Agent': UA, Referer: url }, headers)
         const result = await axios(url, {
@@ -24,7 +29,24 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
             params: query,
             data,
             timeout: 10000,
+            responseType: 'arraybuffer',
+            transformResponse(_data: any, _headers?: any) {
+                if (!_data) {
+                    return _data
+                }
+                const _charset = charset || getCharset(_data?.toString()) || 'UTF-8'
+                _data = iconv.decode(_data, _charset)
+                try {
+                    _data = JSON.parse(_data)
+                } catch (error) {
+
+                }
+                return _data
+            },
         })
+        if (!result.data) {
+            throw new HttpError(406, '源站访问失败！')
+        }
         return result
     } catch (error) {
         let e: any = {}
@@ -34,15 +56,38 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
         } else {
             e = error
         }
-
-        e.status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
-        e.data = error?.response?.data
-
+        if (!(e instanceof HttpError)) {
+            e.status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+            e.data = error?.response?.data
+        }
         console.log(e)
-
         return e
     }
 }
+class AjaxConfig {
+    query?: any = {}
+    data?: any = {}
+    method?: any = 'GET'
+    headers?: any = {}
+    charset?: string
+}
+
+/**
+ * 同 ajax 封装。只是多了个缓存参数。会直接返回data内容
+ */
+export async function cacheAjax(url: string, config: AjaxConfig = {}, maxAge = CACHE.CACHE_AGE * 1000): Promise<any> {
+    const hash = `cache-ajax-${md5(url + queryString.stringify(config.query))}`
+    const value = await globalCache.get(hash)
+    if (value) {
+        return value
+    }
+    const result = await ajax(url, config.query, config.data, config.method, config.headers, config.charset)
+    if (result.data) {
+        await globalCache.set(hash, result.data, maxAge)
+    }
+    return result.data
+}
+
 
 /**
  * 获取本机外网IP

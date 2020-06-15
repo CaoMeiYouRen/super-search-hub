@@ -42,9 +42,9 @@
 
 -   bilibili [√]
 -   百度 [√]
--   贴吧
--   微博
--   爱恋动漫
+-   贴吧 [√]
+-   微博 [x]
+-   爱恋动漫 [√]
 -   动漫花园
 -   知网
 -   360图片搜索 [√]
@@ -54,7 +54,7 @@
 -   Google
 -   Youtube
 -   GitHub
--   pixiv
+-   Pixiv
 -   Twitter
 -   Facebook
 -   ……（暂时只想到这么多，以后有空再补）

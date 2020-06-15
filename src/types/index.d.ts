@@ -1,5 +1,13 @@
 import Koa = require('koa')
 declare interface KoaCache {
+    /**
+     *
+     *
+     * @author CaoMeiYouRen
+     * @date 2020-06-15
+     * @param {string} key
+     * @returns {Promise<any>} 返回的数据如果是json格式会自动转换为对象，其余情况为字符串
+     */
     get(key: string): Promise<any>
     /**
      *

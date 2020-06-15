@@ -1,6 +1,7 @@
 import Koa = require('koa')
 import Lru = require('lru-cache')
 import Redis = require('ioredis')
+import mime from 'mime'
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
 import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
@@ -24,6 +25,10 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
             let value: any = memoryCache.get(key)
             if (value) {
                 value += ''
+                try {
+                    value = JSON.parse(value)
+                } catch (error) {
+                }
             }
             return value
         }
@@ -50,6 +55,10 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
             let value: any = await redis.get(key)
             if (value) {
                 value += ''
+                try {
+                    value = JSON.parse(value)
+                } catch (error) {
+                }
             }
             return value
         }
@@ -80,16 +89,15 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
     // const noCacheRoutes = ['/status']
     // 需要缓存的方法
     const methods = ['GET', 'HEAD']
+    const types = ['json', 'xml']
     const hash = md5(ctx.url)
+
     // 是否禁用缓存
     const noCache = ctx.params?.nocache || ctx.query?.nocache || ctx.request.body?.nocache || ctx.params?.noCache || ctx.query?.noCache || ctx.request.body?.noCache || IS_DEBUG
+    // const noCache = false
     if (methods.includes(ctx.method) && !noCache) {
-        let value = await ctx.cache.get(hash)
+        const value = await ctx.cache.get(hash)
         if (value) {
-            try {
-                value = JSON.parse(value)
-            } catch (error) {
-            }
             ctx.body = value
             ctx.set({
                 'X-Koa-Cache': 'true',
@@ -98,7 +106,7 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
         }
     }
     await next()
-    if (methods.includes(ctx.method) && !noCache && !ctx.noCache && ctx.body) {
+    if (methods.includes(ctx.method) && types.includes(mime.getExtension(ctx.type) || '') && !noCache && !ctx.noCache && ctx.body) {
         await ctx.cache.set(hash, ctx.body)
     }
 }

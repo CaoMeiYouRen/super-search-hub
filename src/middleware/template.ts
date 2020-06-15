@@ -81,7 +81,7 @@ export async function template(ctx: Koa.Context, next: Koa.Next) {
             if (data.lastBuildDate instanceof Date) {
                 data.lastBuildDate = data.lastBuildDate.toISOString()
             }
-            data.description = data.description.replace(/\n/g, '<br/>')
+            data.description = data.description.replace(/\r\n/g, '\n').replace(/\n/g, '<br/>')
             data.item = data.item.map(e => {
                 if (e.images) {
                     e.description += `\n${e.images?.map(m => {

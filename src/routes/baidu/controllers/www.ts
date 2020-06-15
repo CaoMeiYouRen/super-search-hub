@@ -17,7 +17,7 @@ async function getBaiduCookie(ctx: Koa.Context) {
     }
     return Cookie
 }
-export async function index(ctx: Koa.Context, next: Koa.Next) {
+export default async function (ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
@@ -50,8 +50,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                 })
                 return item
             }).get().slice(0, limit),
-            pageSize: data?.list?.length,
-            count: data?.total,
+            count: list?.length,
         })
         ctx.body = channel
     } else {
