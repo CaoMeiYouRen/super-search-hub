@@ -1,3 +1,12 @@
+## [1.9.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.3...v1.9.4) (2020-06-15)
+
+
+### 🐛 Bug 修复
+
+* 修复 百度搜索 ([908b195](https://github.com/CaoMeiYouRen/super-search-hub/commit/908b195))
+
+
+
 ## [1.9.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.2...v1.9.3) (2020-06-14)
 
 
