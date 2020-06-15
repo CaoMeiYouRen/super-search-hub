@@ -12,7 +12,7 @@ async function getBaiduCookie(ctx: Koa.Context) {
         const result = await ajax('https://www.baidu.com/')
         if (result.headers['set-cookie'] && result.headers['set-cookie'][0]) {
             Cookie = result.headers['set-cookie'][0]
-            await ctx.cache?.set('baidu-cookie', Cookie, -1)
+            await ctx.cache?.set('baidu-cookie', Cookie, 3600 * 24 * 365 * 10)
         }
     }
     return Cookie
