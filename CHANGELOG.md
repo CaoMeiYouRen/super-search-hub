@@ -1,5 +1,12 @@
 # super-search-hub
 
+# [1.10.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.4...v1.10.0) (2020-06-15)
+
+
+### ✨ 新功能
+
+* 新增 贴吧、爱恋动漫路由；优化文档；优化utils函数 ([9f22b6d](https://github.com/CaoMeiYouRen/super-search-hub/commit/9f22b6d))
+
 ## [1.9.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.3...v1.9.4) (2020-06-15)
 
 
