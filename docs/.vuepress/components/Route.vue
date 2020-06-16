@@ -7,7 +7,7 @@
     作者: <a v-for="uid in author.split(' ')" :href="`https://github.com/${uid}`" target="_blank"> @{{ uid }} </a>
   </p>
   <p class="example">
-    举例: <a :href="'https://searchhub.cmyr.icu' + path + '?' + queryExample " target="_blank">https://searchhub.cmyr.icu{{ path + '?' + queryExample }}</a>
+    举例: <a :href="'https://searchhub.cmyr.icu' + path + '?' + queryExample " target="_blank">https://searchhub.cmyr.icu{{ path + '?' + queryExample2 }}</a>
   </p>
   <p class="path">
     路由: <code>{{ path }}</code>
@@ -87,6 +87,9 @@ export default {
   computed: {
       queryExample(){
           return queryString.stringify(this.example)
+      },
+      queryExample2(){
+          return Object.entries(this.example).map(e => (e[0] + '=' + e[1])).join('&')
       }
   },
 }

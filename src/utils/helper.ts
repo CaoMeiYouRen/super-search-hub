@@ -1,6 +1,6 @@
 import moment from 'moment-timezone'
 import colors = require('colors')
-import { Address6, Address4 } from 'ip-address'
+import { Address4, Address6 } from 'ip-address'
 import { IS_DEBUG, TZ } from '@/config'
 
 moment.tz.setDefault(TZ) // 设置时区

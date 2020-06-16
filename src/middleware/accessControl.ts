@@ -1,6 +1,6 @@
 import Koa = require('koa')
 import { HttpError, HttpStatusCode } from '@/models'
-import { TOKEN, IP_CONFIG, ENABLE_ACCESS_CONTROL } from '@/config'
+import { ENABLE_ACCESS_CONTROL, IP_CONFIG, TOKEN } from '@/config'
 import { globalCache } from './cache'
 /**
  * 访问控制

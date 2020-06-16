@@ -99,6 +99,12 @@ export class RssChannel {
      * @type {RssItem[]}
      */
     item: RssItem[]
+    /**
+     * 订阅URL
+     *
+     * @type {string}
+     */
+    feedUrl?: string
 
     /**
      * item最大数量

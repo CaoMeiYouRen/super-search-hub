@@ -5,7 +5,7 @@ import queryString = require('query-string')
 import { IS_DEBUG } from '@/config'
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax, escape2Html, removeHtmlTag } from '@/utils'
-import { ArticleResult, BilibiliResult, BiliUserResult, LiveResult, MediaBangumiResult, PhotoResult, TopicResult, VideoResult } from '../models'
+import { ArticleResult, BiliUserResult, BilibiliResult, LiveResult, MediaBangumiResult, PhotoResult, TopicResult, VideoResult } from '../models'
 
 export async function search(ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit, sort = '', search_type = 'video' } = ctx.query
@@ -143,11 +143,11 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
 
         }
         const channel = new RssChannel({
-            title: 'B站搜索',
+            title: `${keyword} - B站搜索`,
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: 'B站搜索',
             webMaster: 'CaoMeiYouRen',
-            item: item.slice(0, limit),
+            item,
             pageSize: data?.data?.pagesize,
             count: data?.data?.numResults,
         })

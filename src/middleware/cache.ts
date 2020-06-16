@@ -4,7 +4,7 @@ import Redis = require('ioredis')
 import mime from 'mime'
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
-import { CACHE, REDIS_CONFIG, IS_DEBUG } from '@/config'
+import { CACHE, IS_DEBUG, REDIS_CONFIG } from '@/config'
 import { CacheType } from '@/models'
 export const globalCache: KoaCache = {
     async get(key) {

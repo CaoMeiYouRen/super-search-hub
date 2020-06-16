@@ -7,11 +7,11 @@ import cors = require('@koa/cors')
 import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
-    responseFormat, responseTime, timeout, catchError, limiter,
-    appLogger, cache, requestTransform, requestIpTransform, accessControl, highLimit, template, rssFormat,
+    accessControl, appLogger, cache, catchError, highLimit,
+    limiter, requestIpTransform, requestTransform, responseFormat, responseTime, rssFormat, template, timeout,
 } from './middleware'
 import routes from './routes'
-import { ROOT_URL, CACHE, STATIC_MAX_AGE } from './config'
+import { CACHE, ROOT_URL, STATIC_MAX_AGE } from './config'
 
 const app = new Koa()
 const router = new Router()

@@ -5,6 +5,7 @@ import bilibili from './bilibili'
 import imageSoCom from './image.so.com'
 import pansou from './pansou'
 import kisssub from './kisssub'
+import tokyotosho from './tokyotosho'
 
 const router = new Router()
 
@@ -24,6 +25,8 @@ router.use('/bilibili', bilibili.routes(), bilibili.allowedMethods())
 router.use('/baidu', baidu.routes(), baidu.allowedMethods())
 
 router.use('/kisssub', kisssub.routes(), kisssub.allowedMethods())
+
+router.use('/tokyotosho', tokyotosho.routes(), tokyotosho.allowedMethods())
 
 // import weibo from './weibo'
 // router.use('/weibo/article', weibo.routes(), weibo.allowedMethods())

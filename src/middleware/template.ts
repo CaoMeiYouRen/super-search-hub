@@ -18,6 +18,7 @@ const template_xml = `<?xml version="1.0" encoding="UTF-8"?>
         <description><![CDATA[{{@ description || title }} - Made with love by Super-Search-Hub(https://github.com/CaoMeiYouRen/super-search-hub)]]></description>
         <generator>Super Search Hub</generator>
         <webMaster>{{ webMaster || 'CaoMeiYouRen'}}</webMaster>
+        {{ if feedUrl }}<feedUrl>{{ feedUrl }}</feedUrl>{{ /if }}
         {{ if itunes_author }}<itunes:author>{{ itunes_author}}</itunes:author>{{ /if }}
         {{ if itunes_category }}<itunes:category text="{{ itunes_category }}"/>{{ /if }}
         {{ if itunes_author }}<itunes:explicit>{{ itunes_explicit || 'clean' }}</itunes:explicit>{{ /if }}
@@ -94,11 +95,7 @@ export async function template(ctx: Koa.Context, next: Koa.Next) {
                 }
                 return e
             })
-            const xml = art.render(template_xml, ctx.body.data, { escape: true })
-            // let obj = await xml2js.parseStringPromise(xml, {})
-            // // console.log(JSON.stringify(obj, null, 4))
-            // let builder = new xml2js.Builder()
-            // xml = builder.buildObject(obj)
+            const xml = art.render(template_xml, ctx.body.data, { escape: false })
             ctx.body = xml.replace(/(\n[\s|\t]*\r*\n)/g, '\n')
         }
 

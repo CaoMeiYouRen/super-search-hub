@@ -5,7 +5,7 @@ import fs = require('fs-extra')
 import path = require('path')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax, removeHtmlTag, restoreUrl } from '@/utils'
-import { IS_DEBUG, CACHE } from '@/config'
+import { CACHE, IS_DEBUG } from '@/config'
 
 export default async function (ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit } = ctx.query
@@ -32,7 +32,7 @@ export default async function (ctx: Koa.Context, next: Koa.Next) {
                     description: removeHtmlTag(f.find('.p_content').first().text()),
                 })
                 return item
-            }).get().slice(0, limit),
+            }).get(),
             count: list?.length,
         })
         ctx.body = channel

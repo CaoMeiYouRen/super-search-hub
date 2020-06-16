@@ -1,5 +1,22 @@
-import { isURL } from './regexp'
-
+/**
+ * 提取HTML页面中的编码
+ *
+ * @author CaoMeiYouRen
+ * @date 2020-06-15
+ * @export
+ * @param {string} text
+ * @returns
+ */
+export function getCharset(text: string) {
+    if (!text) {
+        return text
+    }
+    const result = text.match(/charset="(.*?)">/m)
+    if (result && result.length >= 1) {
+        return result[1]?.toUpperCase()
+    }
+    return ''
+}
 /**
  * 移除所有HTML标签。例如\<a\>123\</a\>
  *
@@ -10,7 +27,7 @@ import { isURL } from './regexp'
  * @returns
  */
 export function removeHtmlTag(str: string) {
-    return str ? str.replace(/<[^>]*>/g, '') : str
+    return str ? str.replace(/<[^>]*>/mg, '') : str
 }
 /**
  * 转义html特殊字符
@@ -52,9 +69,6 @@ export function escape2Html(str: string) {
  * @param {string} baseUrl 基础URL
  */
 export function restoreUrl(originUrl: string, baseUrl: string) {
-    if (isURL(originUrl)) { // 已经是url的直接返回
-        return originUrl
-    }
     if (/^\/\//.test(originUrl)) { // 缺少http前缀
         return `http:${originUrl}`
     }
@@ -70,3 +84,22 @@ export function restoreUrl(originUrl: string, baseUrl: string) {
     return originUrl
 }
 
+/**
+ * 提取磁力链接
+ *
+ * @author CaoMeiYouRen
+ * @date 2020-06-16
+ * @export
+ * @param {string} text
+ * @returns
+ */
+export function getBittorrent(text: string) {
+    if (!text) {
+        return text
+    }
+    const result = text.match(/(magnet:\?xt=urn:btih:)[0-9a-zA-Z]{32,40}([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|])?/m)
+    if (result && result.length >= 1) {
+        return result[0]
+    }
+    return ''
+}

@@ -3,7 +3,7 @@ import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 
-import { IS_DEBUG, CACHE } from '@/config'
+import { CACHE, IS_DEBUG } from '@/config'
 import { ImageSoResult } from '../models'
 
 export async function index(ctx: Koa.Context, next: Koa.Next) {
@@ -20,7 +20,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
     if (ctx.status === 200) {
         const data: ImageSoResult = result.data
         const channel: RssChannel = new RssChannel({
-            title: '360图片搜索',
+            title: `${keyword} - 360图片搜索`,
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
@@ -33,7 +33,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     images: [image],
                 })
                 return item
-            }).slice(0, limit),
+            }),
             pageSize: data?.list?.length,
             count: data?.total,
         })

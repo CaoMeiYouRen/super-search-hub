@@ -1,7 +1,6 @@
 import fs from 'fs-extra'
-import path from 'path'
 import colors from 'colors'
-import { Robot, Text, Markdown } from 'ts-dingtalk-robot'
+import { Markdown, Robot, Text } from 'ts-dingtalk-robot'
 import { DINGTALK, ENABLE_PUSH } from '@/config'
 import { getPublicIP } from './ajax'
 import { timeFormat } from './helper'

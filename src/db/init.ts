@@ -2,8 +2,8 @@ import Store from 'koa2-ratelimit/dist/Store'
 import MemoryStore from 'koa2-ratelimit/dist/MemoryStore'
 import RedisStore from 'koa2-ratelimit/dist/RedisStore'
 
-import { REDIS_CONFIG, CACHE } from '@/config'
-import { printTime, Log } from '@/utils'
+import { CACHE, REDIS_CONFIG } from '@/config'
+import { Log, printTime } from '@/utils'
 import { CacheType } from '@/models'
 
 let store: Store = new Store()

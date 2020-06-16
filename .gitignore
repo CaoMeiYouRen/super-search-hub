@@ -27,3 +27,4 @@ yarn.lock
 .nyc_output
 coverage
 .coverage
+*.temp.*

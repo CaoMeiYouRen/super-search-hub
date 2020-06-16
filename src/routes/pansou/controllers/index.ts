@@ -3,7 +3,7 @@ import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 import { PansouResult } from '../models'
-import { IS_DEBUG, CACHE } from '@/config'
+import { CACHE, IS_DEBUG } from '@/config'
 
 export async function index(ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit } = ctx.query
@@ -18,7 +18,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
     if (ctx.status === 200) {
         const data: PansouResult = result.data
         const channel: RssChannel = new RssChannel({
-            title: '网盘搜索',
+            title: `${keyword} - 网盘搜索`,
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
@@ -29,7 +29,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     description: e.des,
                 })
                 return item
-            }).slice(0, limit),
+            }),
             pageSize: data?.list?.data?.length,
             count: data?.list?.count,
         })

@@ -1,7 +1,7 @@
 import Koa = require('koa')
 import RateLimit from 'koa2-ratelimit/dist/RateLimit'
 import { store } from '@/db'
-import { LIMIT, DAY_LIMIT_MAX, BAN_TIME } from '@/config'
+import { BAN_TIME, DAY_LIMIT_MAX, LIMIT } from '@/config'
 import { HttpError, HttpStatusCode } from '@/models'
 import { globalCache } from './cache'
 /**

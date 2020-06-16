@@ -4,8 +4,8 @@ import cheerio = require('cheerio')
 import fs = require('fs-extra')
 import path = require('path')
 import { HttpError, RssChannel, RssItem } from '@/models'
-import { ajax, removeHtmlTag, dateParser } from '@/utils'
-import { IS_DEBUG, CACHE } from '@/config'
+import { ajax, dateParser, removeHtmlTag } from '@/utils'
+import { CACHE, IS_DEBUG } from '@/config'
 
 export async function index(ctx: Koa.Context, next: Koa.Next) {
     const { keyword, page, limit } = ctx.query
@@ -22,7 +22,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
         const list = $('div.card-wrap')
 
         const channel: RssChannel = new RssChannel({
-            title: `微博文章搜索 - ${keyword}`,
+            title: `${keyword} - 微博文章搜索`,
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '微博文章搜索',
             webMaster: 'CaoMeiYouRen',
@@ -36,7 +36,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     pubDate: new Date(dateParser(removeHtmlTag(f.find('div').last().find('span').last().text()))),
                 })
                 return item
-            }).get().slice(0, limit),
+            }).get(),
             pageSize: data?.list?.length,
             count: data?.total,
         })

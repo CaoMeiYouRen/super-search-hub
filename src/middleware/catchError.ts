@@ -1,6 +1,6 @@
 import Koa = require('koa')
 import { HttpError, HttpStatusCode } from '@/models'
-import { IS_DEBUG, ENABLE_PUSH } from '@/config'
+import { ENABLE_PUSH, IS_DEBUG } from '@/config'
 import { Log, feedback } from '@/utils'
 import { errorLogger } from './logger'
 export async function catchError(ctx: Koa.Context, next: Koa.Next) {

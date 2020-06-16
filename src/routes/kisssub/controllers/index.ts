@@ -2,8 +2,8 @@ import Koa = require('koa')
 import cheerio = require('cheerio')
 import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
-import { ajax, removeHtmlTag, restoreUrl, cacheAjax } from '@/utils'
-import { IS_DEBUG, CACHE } from '@/config'
+import { ajax, cacheAjax, removeHtmlTag, restoreUrl } from '@/utils'
+import { CACHE, IS_DEBUG } from '@/config'
 async function getBt(url: string) {
     const result: string = await cacheAjax(url, {}, 3600 * 24)
     if (!result) {
@@ -42,7 +42,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
                     pubDate: new Date(removeHtmlTag(f.find('td').first().text())),
                 })
                 return item
-            }).get().slice(0, limit),
+            }).get(),
             count: list?.length,
         })
         ctx.body = channel

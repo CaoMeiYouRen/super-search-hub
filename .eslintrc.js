@@ -60,7 +60,7 @@ module.exports = {
         'no-extend-native': [2, { exceptions: [] }], // 禁止扩展原生对象
         'no-redeclare': [2, { builtinGlobals: true }], // 禁止重新声明变量
         'no-return-assign': [2], // 禁止在返回语句中赋值
-        'no-useless-return': 2, // 禁止多余的 return 语句
+        'no-useless-return': IS_PROD ? 2 : 0, // 禁止多余的 return 语句
         'no-use-before-define': [0], // 禁止在变量定义之前使用它们
         'no-new-require': 2, // 禁止调用 require 时使用 new 操作符
         'no-path-concat': 2, // 禁止对 __dirname 和 __filename 进行字符串连接
@@ -73,7 +73,12 @@ module.exports = {
         'no-duplicate-imports': [2], // 禁止模块重复导入
         'no-useless-constructor': [2], // 禁用不必要的构造函数
         'spaced-comment': [2, 'always'], // 要求或禁止在注释前有空白
-        'sort-imports': [0], // import 排序
+        "sort-imports": [0, {// import 排序
+            "ignoreCase": false,
+            "ignoreDeclarationSort": false,
+            "ignoreMemberSort": false,
+            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+        }],
         'tno-prototype-builtins': [0],
     },
 }

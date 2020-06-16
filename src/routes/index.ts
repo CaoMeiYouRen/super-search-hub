@@ -2,7 +2,7 @@ import Router = require('@koa/router')
 import path = require('path')
 import fs = require('fs-extra')
 import router from './router'
-import { notFound, test, index, robots, status } from '@/controllers'
+import { index, notFound, robots, status, test } from '@/controllers'
 
 const routes = new Router()
 

@@ -4,7 +4,7 @@ import HttpStatus from 'http-status'
 import _ from 'lodash'
 import { Log } from '@/utils'
 import { CACHE } from '@/config'
-import { RssChannel, HttpStatusCode } from '@/models'
+import { HttpStatusCode, RssChannel } from '@/models'
 /**
  * 格式化返回结果
  *
@@ -77,12 +77,15 @@ export async function rssFormat(ctx: Koa.Context, next: Koa.Next) {
         lastBuildDate: new Date(),
         ttl: CACHE.CACHE_AGE / 60,
     }
+    const { limit } = ctx.query
     if (ctx.body instanceof RssChannel) {
+        ctx.body.item = ctx.body.item.slice(0, limit)
         ctx.body = new RssChannel(Object.assign(baseInfo, ctx.body))
         return
     }
     const data = ctx.body?.data
     if (data instanceof RssChannel) {
+        data.item = data.item.slice(0, limit)
         ctx.body.data = new RssChannel(Object.assign(baseInfo, data))
     }
 }

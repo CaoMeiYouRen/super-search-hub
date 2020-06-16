@@ -8,8 +8,8 @@ import colors = require('colors')
 import moduleAlias from 'module-alias'
 moduleAlias.addAlias('@', path.join(__dirname, '../'))
 import { app } from '../app'
-import { PORT, IS_DEBUG, ENABLE_CLUSTER, ENABLE_PUSH, NODE_ENV, MODE_ENV, IS_TEST } from '@/config'
-import { Log, feedback, dingtalk } from '@/utils'
+import { ENABLE_CLUSTER, ENABLE_PUSH, IS_DEBUG, IS_TEST, MODE_ENV, NODE_ENV, PORT } from '@/config'
+import { Log, dingtalk, feedback } from '@/utils'
 import { errorLogger } from '@/middleware'
 const httpPort = normalizePort(PORT)
 const numCPUs = os.cpus().length

@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
 import iconv from 'iconv-lite'
 import queryString = require('query-string')
-import { UA, CACHE } from '@/config'
-import { HttpStatusCode, HttpError } from '@/models'
-import { getCharset } from './regexp'
+import { CACHE, UA } from '@/config'
+import { HttpError, HttpStatusCode } from '@/models'
+import { getCharset } from './stringHelper'
 import { globalCache } from '@/middleware'
 import { md5 } from './encrypt'
 
