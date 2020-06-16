@@ -1,3 +1,12 @@
+# [1.11.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.10.0...v1.11.0) (2020-06-16)
+
+
+### ✨ 新功能
+
+* 新增 东京图书馆 路由；优化代码风格；优化文档 ([d238d18](https://github.com/CaoMeiYouRen/super-search-hub/commit/d238d18))
+
+
+
 # [1.10.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.9.4...v1.10.0) (2020-06-15)
 
 
