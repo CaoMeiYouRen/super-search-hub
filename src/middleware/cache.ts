@@ -34,14 +34,14 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         }
         return ''
     }
-    globalCache.set = async (key, value, maxAge = CACHE.CACHE_AGE * 1000) => {
+    globalCache.set = async (key, value, maxAge = CACHE.CACHE_AGE) => {
         if (!value || value === 'undefined') {
             value = ''
         }
         if (typeof value === 'object') {
             value = JSON.stringify(value)
         }
-        return memoryCache.set(key, value, maxAge)
+        return memoryCache.set(key, value, maxAge * 1000)
     }
 } else if (CACHE.CACHE_TYPE === CacheType.REDIS) {
     const redis = new Redis({
@@ -64,14 +64,14 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         }
         return ''
     }
-    globalCache.set = async (key, value, maxAge = CACHE.CACHE_AGE * 1000) => {
+    globalCache.set = async (key, value, maxAge = CACHE.CACHE_AGE) => {
         if (!value || value === 'undefined') {
             value = ''
         }
         if (typeof value === 'object') {
             value = JSON.stringify(value)
         }
-        return redis.set(key, value, 'PX', maxAge)
+        return redis.set(key, value, 'PX', maxAge * 1000)
     }
 }
 /**

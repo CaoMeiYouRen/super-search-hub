@@ -51,17 +51,6 @@ sidebar: auto
     -   请优先使用 [TypeScript](https://www.typescriptlang.org/) 进行开发。如果你觉得自己并不会使用TypeScript，那么没有关系，你只需要按照JavaScript的写法来写就行。因为TypeScript是JavaScript的超集，所以所有的JavaScript代码都是合法的TypeScript代码
     -   本人使用TypeScript开发的原因是我看到了JavaScript在多人合作上的缺陷。JavaScript缺乏类型导致在开发上有诸多不便，没有类型提示会导致多人合作的困难
 
-### 调试
-
-```sh
-npm i
-npm run dev
-```
-
-启动后请在浏览器中打开 [http://127.0.0.1:4365/](http://127.0.0.1:4365/)
-
-访问 [http://127.0.0.1:4365/status](http://127.0.0.1:4365/status) 可查看运行状态
-
 ### 路由规范约定
 
 在`src/routes`下添加新建路由。路由需符合以下规范约定
@@ -272,6 +261,17 @@ const channel: RssChannel = new RssChannel({})
     ```
 
 9.  最终效果详见 `routes/pansou`
+
+### 调试
+
+```sh
+npm i 
+npm run dev
+```
+
+启动后请在浏览器中打开 [http://127.0.0.1:4365/](http://127.0.0.1:4365/)
+
+访问 [http://127.0.0.1:4365/status](http://127.0.0.1:4365/status) 可查看运行状态
 
 ### 风格检查
 

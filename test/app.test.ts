@@ -27,7 +27,7 @@ describe('app e2e测试', () => {
                 done(err)
                 return
             }
-            should(res.ok).ok()
+            should(res.status === 200).ok()
             done()
         })
     })
