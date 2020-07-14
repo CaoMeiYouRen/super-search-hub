@@ -87,7 +87,7 @@
     "koa-static": "^5.0.0",
     "koa2-ratelimit": "git+https://github.com/CaoMeiYouRen/koa2-ratelimit.git",
     "lodash": "^4.17.15",
-    "lru-cache": "^5.1.1",
+    "lru-cache": "^6.0.0",
     "mime": "^2.4.6",
     "mockjs": "^1.1.0",
     "module-alias": "^2.2.2",
