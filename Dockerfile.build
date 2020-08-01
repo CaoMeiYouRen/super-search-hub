@@ -3,7 +3,7 @@ FROM alpine:3.11
 WORKDIR /home/app
 
 ENV NODE_ENV production
-ENV NODE_VERSION 12.17.0-r0
+ENV NODE_VERSION 12.18.3-r0
 
 # 安装nodejs环境
 RUN echo "https://mirrors.aliyun.com/alpine/v3.12/main/" > /etc/apk/repositories \
