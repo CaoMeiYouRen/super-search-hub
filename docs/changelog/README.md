@@ -1,3 +1,12 @@
+# [1.12.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.11.1...v1.12.0) (2020-08-01)
+
+
+### ✨ 新功能
+
+* 更新 Node.js 运行环境为 12.18.3 ([61311e2](https://github.com/CaoMeiYouRen/super-search-hub/commit/61311e2))
+
+
+
 ## [1.11.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.11.0...v1.11.1) (2020-06-17)
 
 
