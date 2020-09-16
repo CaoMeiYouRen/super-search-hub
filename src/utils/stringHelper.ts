@@ -39,9 +39,7 @@ export function removeHtmlTag(str: string) {
  * @returns
  */
 export function html2Escape(sHtml: string) {
-    return sHtml.replace(/[<>&" ]/g, (c) => {
-        return { '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', ' ': '&nbsp;' }[c]
-    })
+    return sHtml.replace(/[<>&" ]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', ' ': '&nbsp;' }[c]))
 }
 /**
  * 反转义html特殊字符
@@ -54,9 +52,7 @@ export function html2Escape(sHtml: string) {
  */
 export function escape2Html(str: string) {
     const arrEntities = { lt: '<', gt: '>', nbsp: ' ', amp: '&', quot: '"' }
-    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, (all, t) => {
-        return arrEntities[t]
-    })
+    return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, (all, t) => arrEntities[t])
 }
 
 /**

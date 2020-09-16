@@ -15,12 +15,12 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
     let t: any = 0
     const time = TIMEOUT_MAX_AGE // 设置超时时间
     await Promise.race([
-        new Promise(((resolve, reject) => {
+        new Promise((resolve, reject) => {
             t = setTimeout(() => {
                 reject(new HttpError(HttpStatusCode.REQUEST_TIMEOUT, '请求超时'))
             }, time)
-        })),
-        new Promise(((resolve, reject) => {
+        }),
+        new Promise((resolve, reject) => {
             // 使用一个闭包来执行下面的中间件
             (async function () {
                 try {
@@ -32,6 +32,6 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
                     reject(e)
                 }
             })()
-        })),
+        }),
     ])
 }

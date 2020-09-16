@@ -9,6 +9,6 @@ import { HttpError, HttpStatusCode } from '@/models'
  * @param {Koa.Context} ctx
  * @param {Koa.Next} next
  */
-export async function notFound(ctx: Koa.Context, next: Koa.Next) {
+export function notFound(ctx: Koa.Context, next: Koa.Next) {
     throw new HttpError(HttpStatusCode.NOT_FOUND, `Cannot ${ctx.method} ${ctx.path}`)
 }

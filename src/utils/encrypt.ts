@@ -25,5 +25,3 @@ export function sha512(str: any) {
     hash.update(str)
     return hash.digest('hex')
 }
-
-

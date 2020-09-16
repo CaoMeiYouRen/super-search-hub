@@ -20,4 +20,3 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
 }
 
 export { store }
-

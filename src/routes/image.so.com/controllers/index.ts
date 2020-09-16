@@ -24,7 +24,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
-            item: data?.list?.map(e => {
+            item: data?.list?.map((e) => {
                 const image = thumb ? e.thumb : e.img
                 const item = new RssItem({
                     title: e.title,

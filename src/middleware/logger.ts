@@ -34,4 +34,3 @@ export const appLogger = log4js.koaLogger(log4js.getLogger('application'), {
 })
 
 export const errorLogger = log4js.getLogger('error')
-

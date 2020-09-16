@@ -24,4 +24,3 @@ export class ArticleResult {
     id: number
     category_name: string
 }
-

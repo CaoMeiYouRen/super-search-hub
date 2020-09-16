@@ -10,7 +10,7 @@ module.exports = {
         mocha: true,
     },
     extends: [
-        'eslint:recommended',
+        'cmyr'
     ],
     plugins: [
     ],
@@ -20,6 +20,8 @@ module.exports = {
         ecmaFeatures: {
             modules: true,
         },
+        project: './tsconfig.json',
+        tsconfigRootDir: __dirname,
     },
     parser: '@typescript-eslint/parser',
     rules: {

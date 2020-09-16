@@ -9,7 +9,7 @@ import { HttpError } from '@/models'
  * @param {Koa.Context} ctx
  * @param {Koa.Next} next
  */
-export async function test(ctx: Koa.Context, next: Koa.Next) {
+export function test(ctx: Koa.Context, next: Koa.Next) {
     ctx.status = Number(ctx.params?.status || ctx.query?.status || ctx.request.body?.status || 200)
     if (ctx.query?.error) {
         throw new Error('出现了Error')

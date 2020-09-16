@@ -45,7 +45,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             lastBuildDate: result.lastBuildDate && new Date(result.lastBuildDate),
             ttl: Number(result.ttl),
             language: result.language || 'zh-cn',
-            item: result.items?.map(e => {
+            item: result.items?.map((e) => {
                 const item = new RssItem({
                     title: e.title || '',
                     link: e.link || '',

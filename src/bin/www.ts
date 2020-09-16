@@ -77,7 +77,9 @@ function onListening(): void {
     if (!IS_TEST && ENABLE_PUSH && (!workerId || workerId === 1)) {
         setTimeout(() => {
             const title = '服务器已顺利启动'
-            feedback(title)
+            feedback(title).catch((e) => {
+                console.error(e)
+            })
         }, 5000)
     }
 }
@@ -91,7 +93,7 @@ process.on('uncaughtException', (err) => {
     }
     if (ENABLE_PUSH) {
         const title = '服务器出现 uncaughtException ，请及时处理'
-        feedback(title, `${err.stack}`).catch(e => {
+        feedback(title, `${err.stack}`).catch((e) => {
             console.error(e)
         })
     }
@@ -105,7 +107,7 @@ process.on('unhandledRejection', (reason, p) => {
     }
     if (ENABLE_PUSH) {
         const title = '服务器出现 unhandledRejection ，请及时处理'
-        feedback(title, `${p}`).catch(e => {
+        feedback(title, `${p}`).catch((e) => {
             console.error(e)
         })
     }

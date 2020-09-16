@@ -35,7 +35,7 @@ const i8nconv = (x: string) => {
  * @param {string} [lang=en]                 Language (must be supported by dayjs).
  * @param {number}    [htmlOffset=0]            UTC offset of html. It will be neglected if html contains timezone indicated by strings like "+0800".
  */
-function tStringParser(html: string, customFormat: string, lang: string = 'en', htmlOffset: number = 0) {
+function tStringParser(html: string, customFormat: string, lang = 'en', htmlOffset = 0) {
     lang = i8nconv(lang)
 
     // Remove weekdays and comma from the string
@@ -60,7 +60,7 @@ function tStringParser(html: string, customFormat: string, lang: string = 'en', 
         ['weekdays', 'weekdaysShort'].forEach((x) => {
             // eslint-disable-next-line no-prototype-builtins
             if (k.hasOwnProperty(x)) {
-                const a = k[x].map((z) => `${z}`)
+                const a = k[x].map(z => `${z}`)
                 removeStr = removeStr.concat(...a)
             }
         })

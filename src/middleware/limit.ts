@@ -53,4 +53,3 @@ export async function highLimit(ctx: Koa.Context, next: Koa.Next) {
     }
     await next()
 }
-

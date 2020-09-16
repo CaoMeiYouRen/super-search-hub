@@ -26,7 +26,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
         switch (search_type) {
             case 'video': {
                 const dataResult: VideoResult[] = data?.data?.result
-                item = dataResult?.map(e => {
+                item = dataResult?.map((e) => {
                     const link = `https://www.bilibili.com/video/av${e.aid}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -43,7 +43,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             case 'media_ft':
             case 'media_bangumi': {
                 const dataResult: MediaBangumiResult[] = data?.data?.result
-                item = dataResult?.map(e => {
+                item = dataResult?.map((e) => {
                     const link = e.url
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -58,7 +58,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             }
             case 'live': {
                 const dataResult: LiveResult = data?.data?.result
-                item = dataResult?.live_room?.map(e => {
+                item = dataResult?.live_room?.map((e) => {
                     const link = `https://live.bilibili.com/${e.roomid}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -70,14 +70,14 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
                         pubDate: new Date(e.live_time),
                     })
                 }).slice(0, Math.floor(Number(limit) * 0.8))
-                item = item.concat(dataResult?.live_user?.map(e => {
+                item = item.concat(dataResult?.live_user?.map((e) => {
                     const link = `https://live.bilibili.com/${e.roomid}`
                     return new RssItem({
                         title: removeHtmlTag(e.uname),
                         link,
                         author: removeHtmlTag(e.uname),
                         description: e.is_live ? '已开播' : '未开播',
-                        category: (e.is_live && e.tags) ? e.tags.split(',') : undefined,
+                        category: e.is_live && e.tags ? e.tags.split(',') : undefined,
                         images: [`https:${e.uface}`],
                     })
                 }))
@@ -85,7 +85,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             }
             case 'article': {
                 const dataResult: ArticleResult[] = data?.data?.result
-                item = dataResult?.map(e => {
+                item = dataResult?.map((e) => {
                     const link = `https://www.bilibili.com/read/cv${e.id}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -101,7 +101,7 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
 
             case 'topic': {
                 const dataResult: TopicResult[] = data?.data?.result
-                item = dataResult?.map(e => {
+                item = dataResult?.map((e) => {
                     const link = e.arcurl
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -116,28 +116,24 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             }
             case 'bili_user': {
                 const dataResult: BiliUserResult[] = data?.data?.result
-                item = dataResult?.map(e => {
-                    return new RssItem({
-                        title: e.uname,
-                        link: `https://space.bilibili.com/${e.mid}`,
-                        author: e.uname,
-                        description: `等级：${e.level}  关注：${e.fans}   视频数：${e.videos}\n${e.usign}`,
-                        images: [`https:${e.upic}`],
-                    })
-                })
+                item = dataResult?.map(e => new RssItem({
+                    title: e.uname,
+                    link: `https://space.bilibili.com/${e.mid}`,
+                    author: e.uname,
+                    description: `等级：${e.level}  关注：${e.fans}   视频数：${e.videos}\n${e.usign}`,
+                    images: [`https:${e.upic}`],
+                }))
                 break
             }
             case 'photo': {
                 const dataResult: PhotoResult[] = data?.data?.result
-                item = dataResult?.map(e => {
-                    return new RssItem({
-                        title: escape2Html(e.title),
-                        link: `https://h.bilibili.com/${e.id}`,
-                        author: e.uname,
-                        description: `浏览: ${e.view}    收藏：${e.like}`,
-                        images: [e.cover],
-                    })
-                })
+                item = dataResult?.map(e => new RssItem({
+                    title: escape2Html(e.title),
+                    link: `https://h.bilibili.com/${e.id}`,
+                    author: e.uname,
+                    description: `浏览: ${e.view}    收藏：${e.like}`,
+                    images: [e.cover],
+                }))
                 break
             }
 

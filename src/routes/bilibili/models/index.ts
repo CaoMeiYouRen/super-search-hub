@@ -44,4 +44,3 @@ export class BilibiliResult {
     ttl: number
     data: BilibiliData
 }
-

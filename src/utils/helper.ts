@@ -26,7 +26,7 @@ export async function sleep(time: number) {
  * @param {string} [pattern='YYYY-MM-DD HH:mm:ss']
  * @returns {string}
  */
-export function timeFormat(date: number | string | Date = Date.now(), pattern: string = 'YYYY-MM-DD HH:mm:ss'): string {
+export function timeFormat(date: number | string | Date = Date.now(), pattern = 'YYYY-MM-DD HH:mm:ss'): string {
     return moment(date).format(pattern)
 }
 /**

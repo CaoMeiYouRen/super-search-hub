@@ -22,7 +22,7 @@ export default async function (ctx: Koa.Context, next: Koa.Next) {
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
-    const Cookie = (await getBaiduCookie(ctx)) ?? ''
+    const Cookie = await getBaiduCookie(ctx) ?? ''
     const result = await ajax('https://www.baidu.com/s', {
         wd: keyword,
     }, {}, 'GET', {

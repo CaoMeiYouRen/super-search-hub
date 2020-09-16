@@ -22,7 +22,7 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
-            item: data?.list?.data?.map(e => {
+            item: data?.list?.data?.map((e) => {
                 const item = new RssItem({
                     title: e.title,
                     link: e.link,

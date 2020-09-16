@@ -12,3 +12,4 @@ updates:
           - dependency-name: "art-template"
           - dependency-name: "ip-address"
           - dependency-name: "koa2-ratelimit"
+          - dependency-name: "@typescript-eslint/parser"
