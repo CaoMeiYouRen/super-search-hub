@@ -1,3 +1,12 @@
+## [1.12.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.0...v1.12.1) (2020-09-16)
+
+
+### 🐛 Bug 修复
+
+* 修复代码风格错误 ([a3fd0c7](https://github.com/CaoMeiYouRen/super-search-hub/commit/a3fd0c7))
+
+
+
 # [1.12.0](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.11.1...v1.12.0) (2020-08-01)
 
 
