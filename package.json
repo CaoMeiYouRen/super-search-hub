@@ -74,7 +74,7 @@
     "dotenv": "^8.2.0",
     "file-stream-rotator": "^0.5.7",
     "fs-extra": "^9.0.1",
-    "git-rev-sync": "^2.0.0",
+    "git-rev-sync": "^3.0.1",
     "http-status": "^1.4.2",
     "iconv-lite": "^0.6.0",
     "ioredis": "^4.17.1",
