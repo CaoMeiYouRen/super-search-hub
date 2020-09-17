@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/require-await */
 import Koa = require('koa')
 import Lru = require('lru-cache')
 import Redis = require('ioredis')
-/* eslint-disable @typescript-eslint/require-await */
 import mime from 'mime'
 import { md5 } from '@/utils'
 import { KoaCache } from '@/types'
