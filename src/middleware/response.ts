@@ -73,7 +73,7 @@ export async function rssFormat(ctx: Koa.Context, next: Koa.Next) {
         webMaster: 'CaoMeiYouRen',
         language: 'zh-cn',
         description: 'Made with love by Super-Search-Hub',
-        link: 'https://searchhub.cmyr.icu',
+        link: 'https://searchhub.cmyr.ltd',
         lastBuildDate: new Date(),
         ttl: CACHE.CACHE_AGE / 60,
     }

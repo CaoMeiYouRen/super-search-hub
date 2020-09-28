@@ -173,7 +173,7 @@ pm2 start dist/index.js --name  super-search-hub
 
 在浏览器中打开 [http://127.0.0.1:4365/](http://127.0.0.1:4365/)
 
-详细使用说明参照 [指南](https://searchhub.cmyr.icu/)，替换所有路由例子中的 `https://searchhub.cmyr.icu/` 为 `http://127.0.0.1:4365/` 即可正常使用
+详细使用说明参照 [指南](https://searchhub.cmyr.ltd/)，替换所有路由例子中的 `https://searchhub.cmyr.ltd/` 为 `http://127.0.0.1:4365/` 即可正常使用
 
 ### 添加配置
 

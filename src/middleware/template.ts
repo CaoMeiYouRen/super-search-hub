@@ -13,7 +13,7 @@ const template_xml = `<?xml version="1.0" encoding="UTF-8"?>
 >
     <channel>
         <title><![CDATA[{{@ title || 'Super Search Hub' }}]]></title>
-        <link>{{ link || 'https://searchhub.cmyr.icu' }}</link>
+        <link>{{ link || 'https://searchhub.cmyr.ltd' }}</link>
         <atom:link href="{{ atomlink }}" rel="self" type="application/rss+xml" />
         <description><![CDATA[{{@ description || title }} - Made with love by Super-Search-Hub(https://github.com/CaoMeiYouRen/super-search-hub)]]></description>
         <generator>Super Search Hub</generator>

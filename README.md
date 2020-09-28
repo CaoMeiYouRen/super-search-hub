@@ -28,7 +28,7 @@
 
 ## ✨ Demo
 
-部署案例 [https://searchhub.cmyr.icu/](https://searchhub.cmyr.icu/)
+部署案例 [https://searchhub.cmyr.ltd/](https://searchhub.cmyr.ltd/)
 
 ### 🏠 [主页](https://github.com/CaoMeiYouRen/super-search-hub#readme)
 
