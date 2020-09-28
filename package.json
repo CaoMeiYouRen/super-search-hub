@@ -23,7 +23,7 @@
     "docs:changelog": "conventional-changelog -p cmyr-config -i docs/changelog/README.md -s -r 0",
     "rm": "rimraf node_modules",
     "debug": "cross-env DEBUG=koa:* npm run dev",
-    "commit": "git add . && git cz && git push",
+    "commit": "git add . && git cz && git pull && git push",
     "precommit": "npm run lint",
     "changelog": "conventional-changelog -p cmyr-config -i CHANGELOG.md -s -r 0",
     "release": "semantic-release",
