@@ -1,3 +1,13 @@
+## [1.12.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.1...v1.12.2) (2020-09-28)
+
+
+### 🐛 Bug 修复
+
+* 1.修改文档地址为 https://searchhub.cmyr.ltd；优化 ajax 错误处理 ([79ca006](https://github.com/CaoMeiYouRen/super-search-hub/commit/79ca006))
+* 更新 Node.js 运行环境为 12.18.4 ([ae8c890](https://github.com/CaoMeiYouRen/super-search-hub/commit/ae8c890))
+
+
+
 ## [1.12.1](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.0...v1.12.1) (2020-09-16)
 
 
