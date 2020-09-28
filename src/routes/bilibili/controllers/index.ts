@@ -1,13 +1,10 @@
-import path = require('path')
-import fs = require('fs-extra')
 import Koa = require('koa')
 import queryString = require('query-string')
-import { IS_DEBUG } from '@/config'
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax, escape2Html, removeHtmlTag } from '@/utils'
 import { ArticleResult, BiliUserResult, BilibiliResult, LiveResult, MediaBangumiResult, PhotoResult, TopicResult, VideoResult } from '../models'
 
-export async function search(ctx: Koa.Context, next: Koa.Next) {
+export async function search(ctx: Koa.Context) {
     const { keyword, page, limit, sort = '', search_type = 'video' } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
@@ -148,9 +145,6 @@ export async function search(ctx: Koa.Context, next: Koa.Next) {
             count: data?.data?.numResults,
         })
         ctx.body = channel
-        return
+        
     }
-
-    const message = IS_DEBUG ? result['stack'] : result['message']
-    ctx.body = { message }
 }

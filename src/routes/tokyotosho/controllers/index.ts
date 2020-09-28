@@ -1,10 +1,6 @@
 import Koa = require('koa')
-import queryString = require('query-string')
-import fs = require('fs-extra')
-import path = require('path')
-import { HttpError, RssChannel, RssItem } from '@/models'
-import { ajax, escape2Html, getBittorrent, rssParserURL } from '@/utils'
-import { CACHE, IS_DEBUG } from '@/config'
+import { RssChannel, RssItem } from '@/models'
+import { getBittorrent, rssParserURL } from '@/utils'
 const searchTypes = {
     All: 0,
     Anime: 1,
@@ -23,8 +19,8 @@ const searchTypes = {
     Other: 5,
 }
 
-export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit, search_type, size_min, size_max, username } = ctx.query
+export async function index(ctx: Koa.Context) {
+    const { keyword, search_type, size_min, size_max, username } = ctx.query
     const result = await rssParserURL('https://www.tokyotosho.info/rss.php', {
         terms: keyword,
         searchName: true,

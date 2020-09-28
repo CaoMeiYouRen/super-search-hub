@@ -6,6 +6,7 @@ import { HttpError, HttpStatusCode } from '@/models'
 import { getCharset } from './stringHelper'
 import { globalCache } from '@/middleware'
 import { md5 } from './encrypt'
+import { Log } from './helper'
 
 /**
  * axios 封装，可满足大部分情况下的需求，若无法满足则重新封装 axios。
@@ -49,19 +50,17 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
         }
         return result
     } catch (error) {
-        let e: any = {}
-
+        if (error instanceof HttpError) {
+            throw error
+        }
         if (error.toJSON) {
-            e = error.toJSON()
-        } else {
-            e = error
+            Log.error(error.toJSON())
         }
-        if (!(e instanceof HttpError)) {
-            e.status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
-            e.data = error?.response?.data
-        }
-        console.log(e)
-        return e
+        // if (!(e instanceof HttpError)) {
+        //     e.status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+        //     e.data = error?.response?.data
+        // }
+        throw error // 将错误向上抛出
     }
 }
 class AjaxConfig {

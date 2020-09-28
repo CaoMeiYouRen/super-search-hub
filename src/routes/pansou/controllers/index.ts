@@ -3,10 +3,9 @@ import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
 import { PansouResult } from '../models'
-import { CACHE, IS_DEBUG } from '@/config'
 
-export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+export async function index(ctx: Koa.Context) {
+    const { keyword, page } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
@@ -34,8 +33,5 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             count: data?.list?.count,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

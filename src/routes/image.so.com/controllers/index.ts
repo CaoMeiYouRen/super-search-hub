@@ -2,13 +2,11 @@ import Koa = require('koa')
 import queryString = require('query-string')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax } from '@/utils'
-
-import { CACHE, IS_DEBUG } from '@/config'
 import { ImageSoResult } from '../models'
 
-export async function index(ctx: Koa.Context, next: Koa.Next) {
+export async function index(ctx: Koa.Context) {
     // thumb 是否使用360图床源，可能会被限制
-    const { keyword, page, limit, thumb } = ctx.query
+    const { keyword, limit, thumb } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
@@ -38,8 +36,5 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             count: data?.total,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

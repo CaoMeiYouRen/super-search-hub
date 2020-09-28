@@ -1,3 +1,4 @@
+/* eslint-disable no-fallthrough */
 import http = require('http')
 import path = require('path')
 import cluster = require('cluster')
@@ -56,11 +57,9 @@ function onError(error: any): void {
         case 'EACCES':
             console.error(`${bind} requires elevated privileges`)
             process.exit(1)
-            break
         case 'EADDRINUSE':
             console.error(`${bind} is already in use`)
             process.exit(1)
-            break
         default:
             throw error
     }
@@ -72,9 +71,9 @@ function onError(error: any): void {
 function onListening(): void {
     console.log('################################################')
     const workerId = cluster?.worker?.id || ''
-    Log.info(`${workerId ? `worker ${workerId}` : ''} 运行地址为 http://127.0.0.1:${httpPort}`)
+    Log.info(`${workerId ? `worker ${workerId} ` : ''}运行地址为 http://127.0.0.1:${httpPort}`)
     console.log('################################################')
-    if (!IS_TEST && ENABLE_PUSH && (!workerId || workerId === 1)) {
+    if (!IS_TEST && ENABLE_PUSH && (workerId === '' || workerId === 1)) {
         setTimeout(() => {
             const title = '服务器已顺利启动'
             feedback(title).catch((e) => {

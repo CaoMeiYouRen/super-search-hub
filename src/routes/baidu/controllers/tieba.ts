@@ -1,14 +1,11 @@
 import Koa = require('koa')
 import queryString = require('query-string')
 import cheerio = require('cheerio')
-import fs = require('fs-extra')
-import path = require('path')
-import { HttpError, RssChannel, RssItem } from '@/models'
+import { RssChannel, RssItem } from '@/models'
 import { ajax, removeHtmlTag, restoreUrl } from '@/utils'
-import { CACHE, IS_DEBUG } from '@/config'
 
-export default async function (ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+export default async function (ctx: Koa.Context) {
+    const { keyword, page } = ctx.query
     const result = await ajax('https://tieba.baidu.com/f/search/res', {
         qw: keyword,
         pn: page,
@@ -36,8 +33,5 @@ export default async function (ctx: Koa.Context, next: Koa.Next) {
             count: list?.length,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

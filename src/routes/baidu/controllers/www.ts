@@ -1,11 +1,8 @@
 import Koa = require('koa')
 import queryString = require('query-string')
 import cheerio = require('cheerio')
-import fs = require('fs-extra')
-import path = require('path')
 import { HttpError, RssChannel, RssItem } from '@/models'
 import { ajax, removeHtmlTag } from '@/utils'
-import { CACHE, IS_DEBUG } from '@/config'
 async function getBaiduCookie(ctx: Koa.Context) {
     let Cookie: string = await ctx.cache?.get('baidu-cookie')
     if (!Cookie) {
@@ -17,8 +14,8 @@ async function getBaiduCookie(ctx: Koa.Context) {
     }
     return Cookie
 }
-export default async function (ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+export default async function (ctx: Koa.Context) {
+    const { keyword } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
@@ -53,8 +50,5 @@ export default async function (ctx: Koa.Context, next: Koa.Next) {
             count: list?.length,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

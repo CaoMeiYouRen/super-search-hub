@@ -1,21 +1,11 @@
 import Koa = require('koa')
 import cheerio = require('cheerio')
 import queryString = require('query-string')
-import { HttpError, RssChannel, RssItem } from '@/models'
-import { ajax, cacheAjax, removeHtmlTag, restoreUrl } from '@/utils'
-import { CACHE, IS_DEBUG } from '@/config'
-async function getBt(url: string) {
-    const result: string = await cacheAjax(url, {}, 3600 * 24)
-    if (!result) {
-        return ''
-    }
-    const reg = /<a id="magnet" href="(.*?)">/m
-    const temp = result.match(reg)
-    return (temp && temp[1]) ?? ''
-}
+import { RssChannel, RssItem } from '@/models'
+import { ajax, removeHtmlTag } from '@/utils'
 
-export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+export async function index(ctx: Koa.Context) {
+    const { keyword, page } = ctx.query
 
     const result = await ajax('http://www.kisssub.org/search.php', {
         keyword,
@@ -46,8 +36,5 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             count: list?.length,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

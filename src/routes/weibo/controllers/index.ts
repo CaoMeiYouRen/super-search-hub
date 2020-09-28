@@ -3,12 +3,11 @@ import queryString = require('query-string')
 import cheerio = require('cheerio')
 import fs = require('fs-extra')
 import path = require('path')
-import { HttpError, RssChannel, RssItem } from '@/models'
+import { RssChannel, RssItem } from '@/models'
 import { ajax, dateParser, removeHtmlTag } from '@/utils'
-import { CACHE, IS_DEBUG } from '@/config'
 
-export async function index(ctx: Koa.Context, next: Koa.Next) {
-    const { keyword, page, limit } = ctx.query
+export async function index(ctx: Koa.Context) {
+    const { keyword } = ctx.query
     const result = await ajax('https://s.weibo.com/article', {
         q: keyword,
         Refer: 'weibo_article',
@@ -41,8 +40,5 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
             count: data?.total,
         })
         ctx.body = channel
-    } else {
-        const message = IS_DEBUG ? result['stack'] : result['message']
-        ctx.body = { message }
     }
 }

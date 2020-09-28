@@ -7,7 +7,7 @@
     作者: <a v-for="uid in author.split(' ')" :href="`https://github.com/${uid}`" target="_blank"> @{{ uid }} </a>
   </p>
   <p class="example">
-    举例: <a :href="'https://searchhub.cmyr.icu' + path + '?' + queryExample " target="_blank">https://searchhub.cmyr.icu{{ path + '?' + queryExample2 }}</a>
+    举例: <a :href="domain + path + '?' + queryExample " target="_blank">{{domain}}{{ path + '?' + queryExample2 }}</a>
   </p>
   <p class="path">
     路由: <code>{{ path }}</code>
@@ -25,6 +25,10 @@
 const queryString = require('query-string')
 export default {
   props: {
+    domain:{
+      type: String,
+      default: 'https://searchhub.cmyr.ltd'   
+    },
     author: {
       type: String,
       default: 'CaoMeiYouRen'
