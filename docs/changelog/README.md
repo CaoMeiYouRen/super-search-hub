@@ -1,3 +1,12 @@
+## [1.12.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.2...v1.12.3) (2020-09-28)
+
+
+### 🐛 Bug 修复
+
+* 修复所有 cmyr.icu 为 cmyr.ltd ([38954ff](https://github.com/CaoMeiYouRen/super-search-hub/commit/38954ff))
+
+
+
 ## [1.12.2](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.1...v1.12.2) (2020-09-28)
 
 
