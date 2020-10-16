@@ -23,7 +23,7 @@ export async function search(ctx: Koa.Context) {
         switch (search_type) {
             case 'video': {
                 const dataResult: VideoResult[] = data?.data?.result
-                item = dataResult?.map((e) => {
+                item = dataResult?.map(e => {
                     const link = `https://www.bilibili.com/video/av${e.aid}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -40,7 +40,7 @@ export async function search(ctx: Koa.Context) {
             case 'media_ft':
             case 'media_bangumi': {
                 const dataResult: MediaBangumiResult[] = data?.data?.result
-                item = dataResult?.map((e) => {
+                item = dataResult?.map(e => {
                     const link = e.url
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -55,7 +55,7 @@ export async function search(ctx: Koa.Context) {
             }
             case 'live': {
                 const dataResult: LiveResult = data?.data?.result
-                item = dataResult?.live_room?.map((e) => {
+                item = dataResult?.live_room?.map(e => {
                     const link = `https://live.bilibili.com/${e.roomid}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -67,7 +67,7 @@ export async function search(ctx: Koa.Context) {
                         pubDate: new Date(e.live_time),
                     })
                 }).slice(0, Math.floor(Number(limit) * 0.8))
-                item = item.concat(dataResult?.live_user?.map((e) => {
+                item = item.concat(dataResult?.live_user?.map(e => {
                     const link = `https://live.bilibili.com/${e.roomid}`
                     return new RssItem({
                         title: removeHtmlTag(e.uname),
@@ -82,7 +82,7 @@ export async function search(ctx: Koa.Context) {
             }
             case 'article': {
                 const dataResult: ArticleResult[] = data?.data?.result
-                item = dataResult?.map((e) => {
+                item = dataResult?.map(e => {
                     const link = `https://www.bilibili.com/read/cv${e.id}`
                     return new RssItem({
                         title: removeHtmlTag(e.title),
@@ -98,7 +98,7 @@ export async function search(ctx: Koa.Context) {
 
             case 'topic': {
                 const dataResult: TopicResult[] = data?.data?.result
-                item = dataResult?.map((e) => {
+                item = dataResult?.map(e => {
                     const link = e.arcurl
                     return new RssItem({
                         title: removeHtmlTag(e.title),

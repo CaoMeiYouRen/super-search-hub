@@ -21,7 +21,7 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         max: CACHE.CACHE_MAX,
         updateAgeOnGet: true,
     })
-    globalCache.get = async (key) => {
+    globalCache.get = async key => {
         if (key) {
             let value: any = memoryCache.get(key)
             if (value) {
@@ -51,7 +51,7 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         keyPrefix: REDIS_CONFIG.REDIS_KEY_PREFIX,
         password: REDIS_CONFIG.REDIS_PASSWORD,
     })
-    globalCache.get = async (key) => {
+    globalCache.get = async key => {
         if (key) {
             let value: any = await redis.get(key)
             if (value) {

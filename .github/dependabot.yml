@@ -13,3 +13,6 @@ updates:
           - dependency-name: "ip-address"
           - dependency-name: "koa2-ratelimit"
           - dependency-name: "@typescript-eslint/parser"
+          - dependency-name: "webpack"
+            versions:
+                - "> 5.0.0"

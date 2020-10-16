@@ -57,7 +57,7 @@ function tStringParser(html: string, customFormat: string, lang = 'en', htmlOffs
         }
     }
     Object.values(dayjs.Ls).forEach((k: any) => {
-        ['weekdays', 'weekdaysShort'].forEach((x) => {
+        ['weekdays', 'weekdaysShort'].forEach(x => {
             // eslint-disable-next-line no-prototype-builtins
             if (k.hasOwnProperty(x)) {
                 const a = k[x].map(z => `${z}`)
@@ -67,7 +67,7 @@ function tStringParser(html: string, customFormat: string, lang = 'en', htmlOffs
     })
     removeStr = removeStr.concat([',', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])
     let htmlP = html
-    removeStr.forEach((x) => {
+    removeStr.forEach(x => {
         // Order matters
         htmlP = htmlP.replace(RegExp(x, 'gi'), '')
     })
