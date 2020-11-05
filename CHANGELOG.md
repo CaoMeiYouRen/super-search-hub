@@ -1,5 +1,14 @@
 # super-search-hub
 
+## [1.12.4](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.3...v1.12.4) (2020-11-05)
+
+
+### 🐛 Bug 修复
+
+* 修复时区换算问题 ([e897c0a](https://github.com/CaoMeiYouRen/super-search-hub/commit/e897c0a))
+* 修复时区问题 ([8f30b31](https://github.com/CaoMeiYouRen/super-search-hub/commit/8f30b31))
+* 更新依赖；采用 dayjs 替换 moment ([19b9c72](https://github.com/CaoMeiYouRen/super-search-hub/commit/19b9c72))
+
 ## [1.12.3](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.2...v1.12.3) (2020-09-28)
 
 

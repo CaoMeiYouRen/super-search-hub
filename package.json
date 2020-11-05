@@ -1,6 +1,6 @@
 {
   "name": "super-search-hub",
-  "version": "1.12.3",
+  "version": "1.12.4",
   "author": "CaoMeiYouRen",
   "description": "将任何能搜索的网页的搜索结果处理成一种统一的格式",
   "main": "dist/index.js",
