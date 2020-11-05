@@ -22,7 +22,7 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
         }),
         new Promise((resolve, reject) => {
             // 使用一个闭包来执行下面的中间件
-            (async function () {
+            (async function() {
                 try {
                     await next()
                     clearTimeout(t)
@@ -32,6 +32,6 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
                     reject(e)
                 }
             })()
-        }),
+        })
     ])
 }

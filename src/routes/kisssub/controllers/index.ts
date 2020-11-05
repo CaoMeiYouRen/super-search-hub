@@ -9,7 +9,7 @@ export async function index(ctx: Koa.Context) {
 
     const result = await ajax('http://www.kisssub.org/search.php', {
         keyword,
-        page,
+        page
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -29,11 +29,11 @@ export async function index(ctx: Koa.Context) {
                     author: removeHtmlTag(f.find('td').last().text()),
                     link,
                     description: `大小：${f.find('td').eq(3).text().trim()}\t种子：${f.find('td').eq(4).text().trim()}\n下载：${f.find('td').eq(5).text().trim()}\t完成：${f.find('td').eq(6).text().trim()}`,
-                    pubDate: new Date(removeHtmlTag(f.find('td').first().text())),
+                    pubDate: new Date(removeHtmlTag(f.find('td').first().text()))
                 })
                 return item
             }).get(),
-            count: list?.length,
+            count: list?.length
         })
         ctx.body = channel
     }

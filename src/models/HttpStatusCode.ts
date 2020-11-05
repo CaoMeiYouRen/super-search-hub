@@ -4,6 +4,7 @@
  * @export
  * @enum {number}
  */
+// eslint-disable-next-line no-shadow
 export enum HttpStatusCode {
     CONTINUE = 100,
     SWITCHING_PROTOCOLS = 101,

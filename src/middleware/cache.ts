@@ -13,13 +13,13 @@ export const globalCache: KoaCache = {
     },
     async set(key, value, maxAge) {
         throw new Error('globalCache.set not implemented.')
-    },
+    }
 }
 if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
     const memoryCache = new Lru({
         maxAge: CACHE.CACHE_AGE * 1000,
         max: CACHE.CACHE_MAX,
-        updateAgeOnGet: true,
+        updateAgeOnGet: true
     })
     globalCache.get = async key => {
         if (key) {
@@ -49,7 +49,7 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         port: REDIS_CONFIG.REDIS_PORT,
         host: REDIS_CONFIG.REDIS_HOST,
         keyPrefix: REDIS_CONFIG.REDIS_KEY_PREFIX,
-        password: REDIS_CONFIG.REDIS_PASSWORD,
+        password: REDIS_CONFIG.REDIS_PASSWORD
     })
     globalCache.get = async key => {
         if (key) {
@@ -101,7 +101,7 @@ export async function cache(ctx: Koa.Context, next: Koa.Next) {
         if (value) {
             ctx.body = value
             ctx.set({
-                'X-Koa-Cache': 'true',
+                'X-Koa-Cache': 'true'
             })
             return
         }

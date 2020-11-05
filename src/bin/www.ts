@@ -33,7 +33,6 @@ if (ENABLE_CLUSTER && cluster.isMaster && !IS_DEBUG) {
 }
 // const Debugger = debug('express:server')
 
-
 function normalizePort(val: any): number {
     const port = parseInt(val, 10)
     if (isNaN(port)) {
@@ -82,7 +81,6 @@ function onListening(): void {
         }, 5000)
     }
 }
-
 
 process.on('uncaughtException', err => {
     console.error(err)

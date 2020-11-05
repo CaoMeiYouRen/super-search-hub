@@ -1,4 +1,7 @@
-const moment = require('moment-timezone')
+const dayjs = require('dayjs')
+const timezone = require('dayjs/plugin/timezone')
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Shanghai') //设置 +8:00 时区
 module.exports = {
     port: 4000,
     base: '/',
@@ -11,9 +14,8 @@ module.exports = {
             '@vuepress/last-updated',
             {
                 transformer: (timestamp, lang) => {
-                    moment.tz.setDefault('Asia/Shanghai') //设置 +8:00 时区
-                    moment.locale(lang)
-                    return moment(timestamp).format('YYYY-MM-DD HH:mm:ss')
+                    dayjs.locale(lang)
+                    return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')
                 }
             }
         ]

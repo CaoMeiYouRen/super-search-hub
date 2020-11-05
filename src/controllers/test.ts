@@ -30,7 +30,7 @@ export function test(ctx: Koa.Context, next: Koa.Next) {
         data: {
             params: ctx.params,
             query: ctx.query,
-            body: ctx.request.body,
-        },
+            body: ctx.request.body
+        }
     }
 }

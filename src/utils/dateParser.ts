@@ -17,7 +17,7 @@ const i8nconv = (x: string) => {
         'zh-sg': 'zh-cn',
         'zh-hant': 'zh-hk',
         'zh-cht': 'zh-hk',
-        'zh-mo': 'zh-hk',
+        'zh-mo': 'zh-hk'
     }
     for (const prop in c) {
         if (RegExp(`^${prop}$`, 'i').test(x)) {

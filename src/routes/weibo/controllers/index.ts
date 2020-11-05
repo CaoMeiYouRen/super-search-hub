@@ -10,7 +10,7 @@ export async function index(ctx: Koa.Context) {
     const { keyword } = ctx.query
     const result = await ajax('https://s.weibo.com/article', {
         q: keyword,
-        Refer: 'weibo_article',
+        Refer: 'weibo_article'
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -32,12 +32,12 @@ export async function index(ctx: Koa.Context) {
                     link: f.find('h3>a').first().attr('href') || '',
                     author: removeHtmlTag(f.find('div').last().find('span').first().text()).replace(/@/, ''),
                     description: removeHtmlTag(f.find('div.content p.txt').first().text()),
-                    pubDate: new Date(dateParser(removeHtmlTag(f.find('div').last().find('span').last().text()))),
+                    pubDate: new Date(dateParser(removeHtmlTag(f.find('div').last().find('span').last().text())))
                 })
                 return item
             }).get(),
             pageSize: data?.list?.length,
-            count: data?.total,
+            count: data?.total
         })
         ctx.body = channel
     }

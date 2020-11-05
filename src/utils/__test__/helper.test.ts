@@ -1,8 +1,10 @@
 import should from 'should'
-import moment from 'moment-timezone'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
 import { timeFormat, sleep, dataFormat, timeFromNow, ipFormat } from '../helper'
 
-moment.tz.setDefault('Asia/Shanghai')
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Shanghai')
 
 describe('helper', () => {
     describe('timeFormat', () => {

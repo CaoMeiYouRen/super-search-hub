@@ -43,7 +43,7 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
 
                 }
                 return _data
-            },
+            }
         })
         if (!result.data) {
             throw new HttpError(406, '源站访问失败！')
@@ -86,7 +86,6 @@ export async function cacheAjax(url: string, config: AjaxConfig = {}, maxAge = C
     }
     return result.data
 }
-
 
 /**
  * 获取本机外网IP

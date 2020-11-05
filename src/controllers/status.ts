@@ -33,7 +33,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
         stat: {
             memory: dataFormat(stat.memory),
             cpu: `${stat.cpu.toFixed(2)} %`,
-            runtime: timeFromNow(stat.elapsed),
+            runtime: timeFromNow(stat.elapsed)
         },
         os: {
             type: os.type(),
@@ -43,8 +43,8 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
             loadavg: os.loadavg(),
             totalmem: dataFormat(os.totalmem()),
             freemem: dataFormat(os.freemem()),
-            uptime: timeFromNow(os.uptime() * 1000),
-        },
+            uptime: timeFromNow(os.uptime() * 1000)
+        }
     }
     if (await fs.pathExists('package.json')) {
         try {
@@ -57,7 +57,7 @@ export async function status(ctx: Koa.Context, next: Koa.Next) {
     }
     ctx.status = 200
     ctx.body = {
-        data: Object.assign({ date: new Date() }, data),
+        data: Object.assign({ date: new Date() }, data)
     }
     ctx.noCache = true
 }

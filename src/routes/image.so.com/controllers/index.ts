@@ -12,7 +12,7 @@ export async function index(ctx: Koa.Context) {
     }
     const result = await ajax('https://image.so.com/j', {
         q: keyword,
-        pn: limit,
+        pn: limit
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -28,12 +28,12 @@ export async function index(ctx: Koa.Context) {
                     title: e.title,
                     link: e.link,
                     description: e.title,
-                    images: [image],
+                    images: [image]
                 })
                 return item
             }),
             pageSize: data?.list?.length,
-            count: data?.total,
+            count: data?.total
         })
         ctx.body = channel
     }

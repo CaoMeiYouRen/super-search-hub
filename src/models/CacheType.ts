@@ -4,6 +4,7 @@
  * @export
  * @enum {number}
  */
+// eslint-disable-next-line no-shadow
 export enum CacheType {
     MEMORY = 'memory',
     REDIS = 'redis'

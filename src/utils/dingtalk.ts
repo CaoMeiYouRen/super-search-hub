@@ -9,10 +9,9 @@ let robot: Robot
 if (ENABLE_PUSH) {
     robot = new Robot({
         accessToken: DINGTALK.DINGTALK_ACCESS_TOKEN,
-        secret: DINGTALK.DINGTALK_SECRET,
+        secret: DINGTALK.DINGTALK_SECRET
     })
 }
-
 
 /**
  * 钉钉消息推送

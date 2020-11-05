@@ -1,9 +1,12 @@
-import moment from 'moment-timezone'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
 import colors = require('colors')
 import { Address4, Address6 } from 'ip-address'
 import { IS_DEBUG, TZ } from '@/config'
 
-moment.tz.setDefault(TZ) // 设置时区
+dayjs.extend(timezone)
+dayjs.tz.setDefault(TZ) // 设置时区
+
 /**
  * 延时一段时间
  *
@@ -26,8 +29,8 @@ export async function sleep(time: number) {
  * @param {string} [pattern='YYYY-MM-DD HH:mm:ss']
  * @returns {string}
  */
-export function timeFormat(date: number | string | Date = Date.now(), pattern = 'YYYY-MM-DD HH:mm:ss'): string {
-    return moment(date).format(pattern)
+export function timeFormat(date: number | string | Date = Date.now(), pattern: string = 'YYYY-MM-DD HH:mm:ss'): string {
+    return dayjs(date).format(pattern)
 }
 /**
  *
@@ -44,9 +47,6 @@ export const Log = {
         if (IS_DEBUG) {
             console.log(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}: ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg, null, 4))}`)
         }
-        // else {
-        //     accessLogger.log(msg)
-        // }
     },
     info(msg: any) {
         console.info(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}: ${colors.green(typeof msg === 'string' ? msg : JSON.stringify(msg, null, 4))}`)
@@ -60,7 +60,7 @@ export const Log = {
      */
     error(msg: any) {
         console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(msg))
-    },
+    }
 }
 
 /**
@@ -97,7 +97,7 @@ export function timeFromNow(time: number) {
         { name: 's', len: 60 },
         { name: 'min', len: 60 },
         { name: 'h', len: 24 },
-        { name: 'day', len: Infinity },
+        { name: 'day', len: Infinity }
     ]
     for (let i = 0; i < arr.length; i++) {
         if (time < arr[i].len) {

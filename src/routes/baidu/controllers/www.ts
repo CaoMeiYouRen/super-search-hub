@@ -14,16 +14,16 @@ async function getBaiduCookie(ctx: Koa.Context) {
     }
     return Cookie
 }
-export default async function (ctx: Koa.Context) {
+export default async function(ctx: Koa.Context) {
     const { keyword } = ctx.query
     if (!keyword) {
         throw new HttpError(400, '提交的搜索内容为空！')
     }
     const Cookie = await getBaiduCookie(ctx) ?? ''
     const result = await ajax('https://www.baidu.com/s', {
-        wd: keyword,
+        wd: keyword
     }, {}, 'GET', {
-        Cookie,
+        Cookie
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -43,11 +43,11 @@ export default async function (ctx: Koa.Context) {
                 const item = new RssItem({
                     title: removeHtmlTag(f.children('h3').text()).trim(),
                     link: f.find('h3.t>a').first().attr('href') || '',
-                    description: removeHtmlTag(f.find('div.c-abstract').first().text()),
+                    description: removeHtmlTag(f.find('div.c-abstract').first().text())
                 })
                 return item
             }).get(),
-            count: list?.length,
+            count: list?.length
         })
         ctx.body = channel
     }
