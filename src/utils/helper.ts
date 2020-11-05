@@ -1,9 +1,11 @@
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import colors = require('colors')
 import { Address4, Address6 } from 'ip-address'
 import { IS_DEBUG, TZ } from '@/config'
 
+dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault(TZ) // 设置时区
 

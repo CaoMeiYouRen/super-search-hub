@@ -1,7 +1,12 @@
 import should from 'should'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 import timezone from 'dayjs/plugin/timezone'
 import { timeFormat, sleep, dataFormat, timeFromNow, ipFormat } from '../helper'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault('Asia/Shanghai')
 
 describe('helper', () => {
     describe('timeFormat', () => {
