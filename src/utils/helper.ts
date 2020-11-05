@@ -8,7 +8,6 @@ import { IS_DEBUG, TZ } from '@/config'
 dayjs.extend(utc)
 dayjs.extend(timezone)
 dayjs.tz.setDefault(TZ) // 设置时区
-
 /**
  * 延时一段时间
  *
@@ -32,7 +31,7 @@ export async function sleep(time: number) {
  * @returns {string}
  */
 export function timeFormat(date: number | string | Date = Date.now(), pattern: string = 'YYYY-MM-DD HH:mm:ss'): string {
-    return dayjs(date).format(pattern)
+    return dayjs(date).tz().format(pattern)
 }
 /**
  *

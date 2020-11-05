@@ -9,7 +9,7 @@ dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Shanghai')
 
 describe('helper', () => {
-    describe.skip('timeFormat', () => {
+    describe('timeFormat', () => {
         it('返回 2019-12-26 16:49:53', () => {
             const date = '2019-12-26T08:49:53.325Z'
             timeFormat(date).should.be.equal('2019-12-26 16:49:53')

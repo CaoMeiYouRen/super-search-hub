@@ -17,7 +17,7 @@ module.exports = {
             {
                 transformer: (timestamp, lang) => {
                     dayjs.locale(lang)
-                    return dayjs(timestamp).format('YYYY-MM-DD HH:mm:ss')
+                    return dayjs(timestamp).tz().format('YYYY-MM-DD HH:mm:ss')
                 }
             }
         ]
