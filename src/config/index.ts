@@ -116,7 +116,7 @@ export const DISALLOW_ROBOT = Boolean(env.DISALLOW_ROBOT)
 /**
  * 时区
  */
-export const TZ = env.TZ || ''
+export const TZ = env.TZ || 'Asia/Shanghai'
 /**
  * 是否启用推送
  */

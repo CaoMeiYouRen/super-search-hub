@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import { timeFormat, sleep, dataFormat, timeFromNow, ipFormat } from '../helper'
 
-dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Shanghai')
 
 describe('helper', () => {
