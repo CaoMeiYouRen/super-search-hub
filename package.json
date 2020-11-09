@@ -148,7 +148,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "entities": "^2.1.0",
     "eslint": "^7.12.1",
-    "eslint-config-cmyr": "^0.10.0",
+    "eslint-config-cmyr": "^1.0.1",
     "husky": "^4.3.0",
     "markdown-it": "^12.0.2",
     "mocha": "^8.2.1",
