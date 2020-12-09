@@ -77,12 +77,12 @@ function tStringParser(html: string, customFormat: string, lang = 'en', htmlOffs
     if (d.isValid()) {
         if (/[+-](\d{2}:?\d{2})/.test(html)) {
             return d.toDate().toUTCString()
-        } else {
-            return d.add(htmlOffset, 'h').toDate().toUTCString()
-        }
-    } else {
-        return date(html)
-    }
+        } 
+        return d.add(htmlOffset, 'h').toDate().toUTCString()
+        
+    } 
+    return date(html)
+    
 }
 
 export { i8nconv, tStringParser }

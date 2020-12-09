@@ -1,3 +1,4 @@
+/* eslint-disable max-params */
 import axios, { AxiosResponse } from 'axios'
 import iconv from 'iconv-lite'
 import queryString = require('query-string')

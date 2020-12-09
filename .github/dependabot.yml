@@ -1,18 +1,17 @@
 version: 2
 updates:
-    - package-ecosystem: npm
-      directory: "/"
-      schedule:
-          interval: daily
-      open-pull-requests-limit: 10
-      ignore:
-          - dependency-name: "@koa/router"
-            versions:
-                - "> 8.0.8"
-          - dependency-name: "art-template"
-          - dependency-name: "ip-address"
-          - dependency-name: "koa2-ratelimit"
-          - dependency-name: "@typescript-eslint/parser"
-          - dependency-name: "webpack"
-            versions:
-                - "> 5.0.0"
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    ignore:
+      - dependency-name: "@koa/router"
+        versions:
+          - ">= 8.0.8"
+      - dependency-name: "art-template"
+      - dependency-name: "ip-address"
+      - dependency-name: "koa2-ratelimit"
+      - dependency-name: "webpack"
+        versions:
+          - ">= 5.0.0"
