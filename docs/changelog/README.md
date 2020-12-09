@@ -1,3 +1,13 @@
+## [1.12.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.5...v1.12.6) (2020-12-09)
+
+
+### 🐛 Bug 修复
+
+* 修复 timeout 错误 ([4c2b380](https://github.com/CaoMeiYouRen/super-search-hub/commit/4c2b380))
+* 修复 风格bug；更新依赖 ([6db025c](https://github.com/CaoMeiYouRen/super-search-hub/commit/6db025c))
+
+
+
 ## [1.12.5](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.4...v1.12.5) (2020-11-05)
 
 
