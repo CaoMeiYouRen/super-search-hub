@@ -26,7 +26,7 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
                 try {
                     await next()
                     clearTimeout(t)
-                    resolve()
+                    resolve(true)
                 } catch (e) {
                     clearTimeout(t)
                     reject(e)
