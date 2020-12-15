@@ -3,10 +3,9 @@
    <a href="https://github.com/CaoMeiYouRen/super-search-hub" target="_blank">
     <img alt="Version" src="https://img.shields.io/github/package-json/v/CaoMeiYouRen/super-search-hub">
   </a>
-  <a href="https://travis-ci.com/CaoMeiYouRen/super-search-hub" target="_blank">
-    <img alt="build" src="https://travis-ci.com/CaoMeiYouRen/super-search-hub.svg?branch=master" />
-  </a>
-   <a href="https://codecov.io/github/CaoMeiYouRen/super-search-hub?branch=master" target="_blank">
+  <a href="https://github.com/CaoMeiYouRen/super-search-hub/actions?query=workflow%3ARelease" target="_blank">
+    <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/CaoMeiYouRen/super-search-hub/Release" /></a>
+  <a href="https://codecov.io/github/CaoMeiYouRen/super-search-hub?branch=master" target="_blank">
     <img alt="Test coverage" src="https://img.shields.io/codecov/c/github/CaoMeiYouRen/super-search-hub.svg?style=flat-square" />
   </a>
   <img src="https://img.shields.io/badge/node-%3E%3D12-blue.svg" />
