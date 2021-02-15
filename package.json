@@ -149,7 +149,7 @@
     "entities": "^2.1.0",
     "eslint": "^7.15.0",
     "eslint-config-cmyr": "^1.0.3",
-    "husky": "^4.3.5",
+    "husky": "^5.0.9",
     "markdown-it": "^12.0.3",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
