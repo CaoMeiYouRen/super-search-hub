@@ -71,7 +71,7 @@
     "colors": "^1.4.0",
     "dayjs": "^1.9.7",
     "debug": "^4.3.1",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "file-stream-rotator": "^0.5.7",
     "fs-extra": "^9.0.1",
     "git-rev-sync": "^3.0.1",
