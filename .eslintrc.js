@@ -26,5 +26,6 @@ module.exports = {
     rules: {
         'no-console': 0, // 禁止console
         'eol-last': [__WARN__, 'never'], // 禁止文件末尾存在空行
+        'no-empty': 0
     },
 }

@@ -28,7 +28,7 @@ declare module 'koa' {
     }
 
     interface Context {
-
+        request: Request
         body?: any
         /**
          * 缓存
