@@ -19,7 +19,7 @@ export * from './test'
  */
 export async function index(ctx: Koa.Context, next: Koa.Next) {
     let data = {
-        ip: ctx.ip
+        ip: ctx.ip,
     }
     if (await fs.pathExists('package.json')) {
         try {
@@ -33,6 +33,6 @@ export async function index(ctx: Koa.Context, next: Koa.Next) {
     ctx.status = 200
     ctx.body = {
         message: 'Welcome to super-search-hub',
-        data: Object.assign({ date: new Date() }, data)
+        data: Object.assign({ date: new Date() }, data),
     }
 }

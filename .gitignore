@@ -23,7 +23,7 @@ yarn-error.log*
 # test
 logs
 log
-yarn.lock
+# yarn.lock
 .nyc_output
 coverage
 .coverage

@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 import iconv from 'iconv-lite'
 import queryString = require('query-string')
 import { CACHE, UA } from '@/config'
-import { HttpError, HttpStatusCode } from '@/models'
+import { HttpError } from '@/models'
 import { getCharset } from './stringHelper'
 import { globalCache } from '@/middleware'
 import { md5 } from './encrypt'
@@ -41,10 +41,10 @@ export async function ajax(url: string, query: any = {}, data: any = {}, method:
                 try {
                     _data = JSON.parse(_data)
                 } catch (error) {
-
+                    //
                 }
                 return _data
-            }
+            },
         })
         if (!result.data) {
             throw new HttpError(406, '源站访问失败！')

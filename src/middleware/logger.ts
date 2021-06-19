@@ -9,7 +9,7 @@ log4js.configure({
             alwaysIncludePattern: true, // 文件名始终以日期区分
             daysToKeep: 30, // 大于0则会删除x天之前的日
             encoding: 'utf-8',
-            filename: path.join(logDir, 'app')
+            filename: path.join(logDir, 'app'),
         },
         error: {
             type: 'dateFile',
@@ -17,20 +17,20 @@ log4js.configure({
             alwaysIncludePattern: true, // 文件名始终以日期区分
             daysToKeep: 30, // 大于0则会删除x天之前的日
             encoding: 'utf-8',
-            filename: path.join(logDir, 'error') // 生成文件名
+            filename: path.join(logDir, 'error'), // 生成文件名
         },
         out: {
-            type: 'console'
-        }
+            type: 'console',
+        },
     },
     categories: {
         default: { appenders: ['out'], level: 'info' },
         application: { appenders: ['application'], level: 'info' },
-        error: { appenders: ['error'], level: 'error' }
-    }
+        error: { appenders: ['error'], level: 'error' },
+    },
 })
 export const appLogger = log4js.koaLogger(log4js.getLogger('application'), {
-    format: ':remote-addr - ":method :url HTTP/:http-version" - :status :content-length :response-timems ":referrer"'
+    format: ':remote-addr - ":method :url HTTP/:http-version" - :status :content-length :response-timems ":referrer"',
 })
 
 export const errorLogger = log4js.getLogger('error')

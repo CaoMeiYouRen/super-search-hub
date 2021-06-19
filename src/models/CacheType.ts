@@ -7,5 +7,5 @@
 // eslint-disable-next-line no-shadow
 export enum CacheType {
     MEMORY = 'memory',
-    REDIS = 'redis'
+    REDIS = 'redis',
 }

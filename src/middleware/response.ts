@@ -33,7 +33,7 @@ export async function responseFormat(ctx: Koa.Context, next: Koa.Next) {
                 statusCode,
                 message,
                 error,
-                data: data || ctx.body
+                data: data || ctx.body,
             }
         }
     }
@@ -75,7 +75,7 @@ export async function rssFormat(ctx: Koa.Context, next: Koa.Next) {
         description: 'Made with love by Super-Search-Hub',
         link: 'https://searchhub.cmyr.ltd',
         lastBuildDate: new Date(),
-        ttl: CACHE.CACHE_AGE / 60
+        ttl: CACHE.CACHE_AGE / 60,
     }
     const { limit } = ctx.query
     if (ctx.body instanceof RssChannel) {

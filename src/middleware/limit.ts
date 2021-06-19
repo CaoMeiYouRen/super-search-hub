@@ -14,7 +14,7 @@ export const limiter = RateLimit.middleware({
     store,
     skip(ctx) {
         return ctx.auth
-    }
+    },
 })
 
 // /**

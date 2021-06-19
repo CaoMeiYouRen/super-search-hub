@@ -23,6 +23,8 @@ declare interface KoaCache {
 declare module 'koa' {
 
     interface Context {
+
+        body: any
         /**
          * 缓存
          *
@@ -62,7 +64,7 @@ declare module 'koa' {
              *
              * @type {string}
              */
-            keyword: string
+            keyword?: string
             /**
              * 返回格式(json/xml)，默认为json
              *

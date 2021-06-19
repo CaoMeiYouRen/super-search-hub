@@ -58,7 +58,7 @@ export const TOKEN = env.TOKEN || ''
  */
 export const IP_CONFIG = {
     IP_WHITELIST: (env.IP_WHITELIST || '').split(','),
-    IP_BLACKLIST: (env.IP_BLACKLIST || '').split(',')
+    IP_BLACKLIST: (env.IP_BLACKLIST || '').split(','),
 }
 /**
  * 启用访问控制
@@ -76,7 +76,7 @@ export const BAN_TIME = Number(env.BAN_TIME ?? 24)
  */
 export const LIMIT = {
     LIMIT_INTERVAL: Number(env.LIMIT_INTERVAL || 60),
-    LIMIT_MAX: Number(env.LIMIT_MAX || 30)
+    LIMIT_MAX: Number(env.LIMIT_MAX || 30),
 }
 
 export const STATIC_MAX_AGE = Number(env.STATIC_MAX_AGE || 0)
@@ -88,7 +88,7 @@ const CACHE_TYPE = env.CACHE_TYPE || 'memory'
 export const CACHE = {
     CACHE_TYPE,
     CACHE_AGE: Number(env.CACHE_AGE || 300),
-    CACHE_MAX: Number(env.CACHE_MAX || Infinity)
+    CACHE_MAX: Number(env.CACHE_MAX || Infinity),
 }
 
 const REDIS_PORT = Number(env.REDIS_PORT || 6379)
@@ -101,7 +101,7 @@ export const REDIS_CONFIG = {
     REDIS_PORT,
     REDIS_HOST,
     REDIS_PASSWORD: env.REDIS_PASSWORD || '',
-    REDIS_KEY_PREFIX: env.REDIS_KEY_PREFIX || 'my-redis'
+    REDIS_KEY_PREFIX: env.REDIS_KEY_PREFIX || 'my-redis',
 }
 /**
  * 浏览器 user-agent
@@ -126,5 +126,5 @@ export const ENABLE_PUSH = !IS_DEBUG && Boolean(env.DINGTALK_ACCESS_TOKEN)
  */
 export const DINGTALK = {
     DINGTALK_ACCESS_TOKEN: env.DINGTALK_ACCESS_TOKEN || '',
-    DINGTALK_SECRET: env.DINGTALK_SECRET || ''
+    DINGTALK_SECRET: env.DINGTALK_SECRET || '',
 }

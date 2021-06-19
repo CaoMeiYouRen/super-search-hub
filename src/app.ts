@@ -8,7 +8,7 @@ import serve from 'koa-static'
 import cacheControl from 'koa-cache-control'
 import {
     accessControl, appLogger, cache, catchError, highLimit,
-    limiter, requestIpTransform, requestTransform, responseFormat, responseTime, rssFormat, template, timeout
+    limiter, requestIpTransform, requestTransform, responseFormat, responseTime, rssFormat, template, timeout,
 } from './middleware'
 import routes from './routes'
 import { CACHE, ROOT_URL, STATIC_MAX_AGE } from './config'
@@ -36,11 +36,11 @@ app.use(highLimit)
 if (fs.pathExistsSync(path.join(__dirname, '../public'))) {
     // 文档并非必须，如果有则挂载
     app.use(serve(path.join(__dirname, '../public'), {
-        maxAge: STATIC_MAX_AGE * 1000
+        maxAge: STATIC_MAX_AGE * 1000,
     }))
 }
 app.use(cacheControl({
-    maxAge: CACHE.CACHE_AGE
+    maxAge: CACHE.CACHE_AGE,
 }))
 app.use(cache)
 app.use(requestTransform)

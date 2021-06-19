@@ -8,7 +8,7 @@ export default async function(ctx: Koa.Context) {
     const { keyword, page } = ctx.query
     const result = await ajax('https://tieba.baidu.com/f/search/res', {
         qw: keyword,
-        pn: page
+        pn: page,
     })// , {}, 'GET', {}, 'GBK'
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -26,11 +26,11 @@ export default async function(ctx: Koa.Context) {
                 const item = new RssItem({
                     title: removeHtmlTag(f.find('.p_title').first().text()).trim(),
                     link: restoreUrl(f.find('.p_title>a').first().attr('href') || '', 'https://tieba.baidu.com'),
-                    description: removeHtmlTag(f.find('.p_content').first().text())
+                    description: removeHtmlTag(f.find('.p_content').first().text()),
                 })
                 return item
             }).get(),
-            count: list?.length
+            count: list?.length,
         })
         ctx.body = channel
     }

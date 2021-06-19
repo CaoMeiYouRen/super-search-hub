@@ -12,7 +12,7 @@ export async function index(ctx: Koa.Context) {
     }
     const result = await ajax('https://image.so.com/j', {
         q: keyword,
-        pn: limit
+        pn: limit,
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -22,18 +22,18 @@ export async function index(ctx: Koa.Context) {
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '360图片搜索',
             webMaster: 'CaoMeiYouRen',
-            item: data?.list?.map(e => {
+            item: data?.list?.map((e) => {
                 const image = thumb ? e.thumb : e.img
                 const item = new RssItem({
                     title: e.title,
                     link: e.link,
                     description: e.title,
-                    images: [image]
+                    images: [image],
                 })
                 return item
             }),
             pageSize: data?.list?.length,
-            count: data?.total
+            count: data?.total,
         })
         ctx.body = channel
     }

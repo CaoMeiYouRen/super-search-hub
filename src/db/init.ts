@@ -14,7 +14,7 @@ if (CACHE.CACHE_TYPE === CacheType.MEMORY) {
         port: REDIS_CONFIG.REDIS_PORT,
         host: REDIS_CONFIG.REDIS_HOST,
         keyPrefix: REDIS_CONFIG.REDIS_KEY_PREFIX,
-        password: REDIS_CONFIG.REDIS_PASSWORD
+        password: REDIS_CONFIG.REDIS_PASSWORD,
     })
     Log.log('redis 连接成功')
 }

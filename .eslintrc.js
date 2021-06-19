@@ -1,4 +1,5 @@
-const IS_PROD = process.env.NODE_ENV === 'production' ? 2 : 0
+const __ERROR__ = process.env.NODE_ENV === 'production' ? 2 : 0
+const __WARN__ = process.env.NODE_ENV === 'production' ? 1 : 0
 module.exports = {
     root: true,
     globals: {
@@ -24,6 +25,6 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     rules: {
         'no-console': 0, // 禁止console
-        'comma-dangle': [IS_PROD, 'never'], // 要求或禁止使用拖尾逗号
+        'eol-last': [__WARN__, 'never'], // 禁止文件末尾存在空行
     },
 }

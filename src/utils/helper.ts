@@ -18,7 +18,7 @@ dayjs.tz.setDefault(TZ) // 设置时区
  * @returns
  */
 export async function sleep(time: number) {
-    return new Promise(resolve => setTimeout(resolve, time))
+    return new Promise((resolve) => setTimeout(resolve, time))
 }
 /**
  * 要格式化的时间戳、字符串或日期对象
@@ -61,7 +61,7 @@ export const Log = {
      */
     error(msg: any) {
         console.error(`${colors.yellow(timeFormat(Date.now(), 'HH:mm:ss.SSS'))}:`, colors.red(msg))
-    }
+    },
 }
 
 /**
@@ -98,7 +98,7 @@ export function timeFromNow(time: number) {
         { name: 's', len: 60 },
         { name: 'min', len: 60 },
         { name: 'h', len: 24 },
-        { name: 'day', len: Infinity }
+        { name: 'day', len: Infinity },
     ]
     for (let i = 0; i < arr.length; i++) {
         if (time < arr[i].len) {

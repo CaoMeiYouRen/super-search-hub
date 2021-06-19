@@ -16,7 +16,7 @@ const searchTypes = {
     'Hentai (Games)': 14,
     Batch: 11,
     JAV: 15,
-    Other: 5
+    Other: 5,
 }
 
 export async function index(ctx: Koa.Context) {
@@ -28,7 +28,7 @@ export async function index(ctx: Koa.Context) {
         type: searchTypes[search_type || 'All'],
         size_min,
         size_max,
-        username
+        username,
     })
     ctx.status = 200
     if (ctx.status === 200) {
@@ -41,7 +41,7 @@ export async function index(ctx: Koa.Context) {
             lastBuildDate: result.lastBuildDate && new Date(result.lastBuildDate),
             ttl: Number(result.ttl),
             language: result.language || 'zh-cn',
-            item: result.items?.map(e => {
+            item: result.items?.map((e) => {
                 const item = new RssItem({
                     title: e.title || '',
                     link: e.link || '',
@@ -49,10 +49,10 @@ export async function index(ctx: Koa.Context) {
                     category: e.categories,
                     pubDate: e.pubDate && new Date(e.pubDate),
                     enclosure_type: 'application/x-bittorrent',
-                    enclosure_url: getBittorrent(e.content || '')
+                    enclosure_url: getBittorrent(e.content || ''),
                 })
                 return item
-            }) || []
+            }) || [],
         })
         ctx.body = channel
     }

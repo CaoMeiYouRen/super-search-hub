@@ -39,7 +39,7 @@ export function removeHtmlTag(str: string) {
  * @returns
  */
 export function html2Escape(sHtml: string) {
-    return sHtml.replace(/[<>&" ]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', ' ': '&nbsp;' }[c]))
+    return sHtml.replace(/[<>&" ]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', ' ': '&nbsp;' }[c] || ''))
 }
 /**
  * 反转义html特殊字符

@@ -32,6 +32,6 @@ export async function timeout(ctx: Koa.Context, next: Koa.Next) {
                     reject(e)
                 }
             })()
-        })
+        }),
     ])
 }

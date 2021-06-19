@@ -11,7 +11,7 @@ export async function index(ctx: Koa.Context) {
     }
     const result = await ajax('http://106.15.195.249:8011/search_new', {
         q: keyword,
-        p: page
+        p: page,
     })
     ctx.status = result.status
     if (ctx.status === 200) {
@@ -21,16 +21,16 @@ export async function index(ctx: Koa.Context) {
             link: `${result.config.url}?${queryString.stringify(result.config.params)}`,
             description: '网盘搜索',
             webMaster: 'CaoMeiYouRen',
-            item: data?.list?.data?.map(e => {
+            item: data?.list?.data?.map((e) => {
                 const item = new RssItem({
                     title: e.title,
                     link: e.link,
-                    description: e.des
+                    description: e.des,
                 })
                 return item
             }),
             pageSize: data?.list?.data?.length,
-            count: data?.list?.count
+            count: data?.list?.count,
         })
         ctx.body = channel
     }

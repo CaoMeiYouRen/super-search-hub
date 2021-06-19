@@ -17,7 +17,7 @@ const i8nconv = (x: string) => {
         'zh-sg': 'zh-cn',
         'zh-hant': 'zh-hk',
         'zh-cht': 'zh-hk',
-        'zh-mo': 'zh-hk'
+        'zh-mo': 'zh-hk',
     }
     for (const prop in c) {
         if (RegExp(`^${prop}$`, 'i').test(x)) {
@@ -57,17 +57,17 @@ function tStringParser(html: string, customFormat: string, lang = 'en', htmlOffs
         }
     }
     Object.values(dayjs.Ls).forEach((k: any) => {
-        ['weekdays', 'weekdaysShort'].forEach(x => {
+        ['weekdays', 'weekdaysShort'].forEach((x) => {
             // eslint-disable-next-line no-prototype-builtins
             if (k.hasOwnProperty(x)) {
-                const a = k[x].map(z => `${z}`)
+                const a = k[x].map((z) => `${z}`)
                 removeStr = removeStr.concat(...a)
             }
         })
     })
     removeStr = removeStr.concat([',', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'])
     let htmlP = html
-    removeStr.forEach(x => {
+    removeStr.forEach((x) => {
         // Order matters
         htmlP = htmlP.replace(RegExp(x, 'gi'), '')
     })
