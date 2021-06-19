@@ -1,3 +1,12 @@
+## [1.12.7](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.6...v1.12.7) (2021-06-19)
+
+
+### 🐛 Bug 修复
+
+* 修复 koa 类型问题 ([d1f344b](https://github.com/CaoMeiYouRen/super-search-hub/commit/d1f344b))
+
+
+
 ## [1.12.6](https://github.com/CaoMeiYouRen/super-search-hub/compare/v1.12.5...v1.12.6) (2020-12-09)
 
 
