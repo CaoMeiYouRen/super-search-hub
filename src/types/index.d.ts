@@ -23,12 +23,15 @@ declare interface KoaCache {
 declare module 'koa' {
 
     interface Request {
-        body?: any
+        body: string | Record<string, unknown>
         rawBody: string
     }
 
     interface Context {
-        request: Request
+        request: {
+            body: string | Record<string, unknown> | any
+            rawBody: string
+        }
         body?: any
         /**
          * 缓存
