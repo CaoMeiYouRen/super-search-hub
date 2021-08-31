@@ -130,7 +130,7 @@
     "@types/mocha": "^9.0.0",
     "@types/mockjs": "^1.0.3",
     "@types/module-alias": "^2.0.0",
-    "@types/node": "^15.12.3",
+    "@types/node": "^16.7.8",
     "@types/pidusage": "^2.0.1",
     "@types/supertest": "^2.0.10",
     "@types/xml2js": "^0.4.7",
