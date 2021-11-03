@@ -88,7 +88,7 @@
     "koa2-ratelimit": "CaoMeiYouRen/koa2-ratelimit",
     "lodash": "^4.17.20",
     "lru-cache": "^6.0.0",
-    "mime": "^2.5.2",
+    "mime": "^3.0.0",
     "mockjs": "^1.1.0",
     "module-alias": "^2.2.2",
     "moment": "^2.29.1",
