@@ -144,7 +144,7 @@
     "codecov": "^3.8.1",
     "commitizen": "^4.2.2",
     "conventional-changelog-cli": "^2.1.1",
-    "conventional-changelog-cmyr-config": "^1.2.3",
+    "conventional-changelog-cmyr-config": "^2.0.2",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "entities": "^3.0.1",
