@@ -72,7 +72,7 @@
     "dayjs": "^1.9.7",
     "debug": "^4.3.1",
     "dotenv": "^14.1.0",
-    "file-stream-rotator": "^0.5.7",
+    "file-stream-rotator": "^0.6.0",
     "fs-extra": "^10.0.0",
     "git-rev-sync": "^3.0.1",
     "http-status": "^1.5.0",
