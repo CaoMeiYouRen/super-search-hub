@@ -147,7 +147,7 @@
     "conventional-changelog-cmyr-config": "^2.0.2",
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
-    "entities": "^3.0.1",
+    "entities": "^4.3.0",
     "eslint": "^7.15.0",
     "eslint-config-cmyr": "^1.0.3",
     "husky": "^4.3.8",
